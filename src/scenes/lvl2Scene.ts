@@ -8,6 +8,7 @@ export class LVL2Scene extends Phaser.Scene {
     terrain!: object;
     backgroundLayer!: object;
     blockedLayer!: object;
+    outside: any;
 
     constructor() {
         super({
@@ -16,16 +17,79 @@ export class LVL2Scene extends Phaser.Scene {
     }
     preload() {
         // load in level1 image and json
-        this.load.tilemapTiledJSON('level2', './assets/level2.json');
+        // this.load.spritesheet('terrain', './assets/terrain.png', {
+        //     frameWidth: 16,
+        //     frameHeight: 16
+        // });
 
-        this.load.spritesheet('terrain', './assets/terrain.png', {
+        // this.load.spritesheet('outside', './assets/outside.png', {
+        //     frameWidth: 16,
+        //     frameHeight: 16
+        // });
+
+        this.load.spritesheet('level2_std', './assets/level2_std.png', {
             frameWidth: 16,
             frameHeight: 16
         });
+        
+        this.load.tilemapTiledJSON('level2', './assets/level2_2.json');
 
-        this.load.spritesheet('outside', './assets/outside.png', {
-            frameWidth: 16,
-            frameHeight: 16
+        // create meriel animations
+        this.anims.create({
+            key: 'meriel_downW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_down_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        this.anims.create({
+            key: 'meriel_upW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_up_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        this.anims.create({
+            key: 'meriel_rightW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_right_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        this.anims.create({
+            key: 'meriel_leftW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_left_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        // create wiz animation
+        this.anims.create({
+            key: 'wiz_idle',
+            frameRate: 6,
+            repeat: -1,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'wiz_pose',
+                suffix: '.png',
+                start: 1,
+                end: 3
+            })
         });
 
 
@@ -40,14 +104,14 @@ export class LVL2Scene extends Phaser.Scene {
         // create tilemap and tilesetimage
         this.level2 = this.make.tilemap({ key: 'level2'});
         //add tileset image
-        this.level2.addTilesetImage('terrain');
-        this.terrain = this.level2.addTilesetImage('outside');
+        this.terrain = this.level2.addTilesetImage('level2_std');
+        
 
 
         // create map layers
-        this.backgroundLayer = this.level2.createStaticLayer('Background', this.terrain, 0, 0);
+        this.backgroundLayer = this.level2.createStaticLayer('Background', this.terrain, 0, 0)
+        this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0)
 
-        this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0);
         this.blockedLayer.setCollisionByExclusion([-1]);
 
         // add tileEvent to change scene
@@ -57,60 +121,34 @@ export class LVL2Scene extends Phaser.Scene {
 
         //create elf animation
         
-        this.anims.create({
-            key: 'meriel_downW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 1, end: 2 }),
-            frameRate: 5,
-            repeat: 1
-        });
-
-        this.anims.create({
-            key: 'meriel_leftW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 7, end: 8 }),
-            frameRate: 5,
-            repeat: 1
-        });
-
-        this.anims.create({
-            key: 'meriel_rightW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 16, end: 17 }),
-            frameRate: 5,
-            repeat: 1
-        });
-
-        this.anims.create({
-            key: 'meriel_upW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 23, end: 24 }),
-            frameRate: 5,
-            repeat: 1
-        });
-
+        
         //create meriel sprite
         this.meriel = this.physics.add.sprite(
             this.game.renderer.width / 2,
             this.game.renderer.height * 0.7,
-            'meriel',
-            0
+            'characters',
+            'meriel_down_stand.png'
         );
         this.meriel
-            .setScale(1.2)
+            .setScale(1.5)
             .setCollideWorldBounds(true)
-            .setSize(20, 38)
-            .setOffset(2, 0);
-        
-        //create wizard animation and sprite
-        
+            .setSize(18, 30)
+            .setOffset(0, 0);
 
-        this.wizard = this.physics.add.staticImage(
+        //create wizard sprite
+
+        this.wizard = this.physics.add.sprite(
             this.game.renderer.width / 2,
             this.game.renderer.height / 2,
-            'wizard_m',
+            'characters',
+            'wiz_down_stand.png'
         );
         this.wizard
             .setScale(1.5)
             .setImmovable(true)
-            .setSize(24, 42)
-            .setOffset(-3, -4);
+            .setSize(24, 30)
+            .setOffset(0, 0)
+            .play('wiz_idle');
 
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');
@@ -124,20 +162,20 @@ export class LVL2Scene extends Phaser.Scene {
 
         if (this.meriel.active) {
             if (this.keyboard.D.isDown === true) {
-                this.meriel.setVelocityX(80);
+                this.meriel.setVelocityX(64);
                 this.meriel.play('meriel_rightW', true);
             } else if (this.keyboard.A.isDown === true) {
-                this.meriel.setVelocityX(-80);
+                this.meriel.setVelocityX(-64);
                 this.meriel.play('meriel_leftW', true);
             } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
                 this.meriel.setVelocityX(0);
             }
 
             if (this.keyboard.S.isDown === true) {
-                this.meriel.setVelocityY(80);
+                this.meriel.setVelocityY(64);
                 this.meriel.play('meriel_downW', true);
             } else if (this.keyboard.W.isDown === true) {
-                this.meriel.setVelocityY(-80);
+                this.meriel.setVelocityY(-64);
                 this.meriel.play('meriel_upW', true);
             } else if (this.keyboard.S.isUp && this.keyboard.W.isUp) {
                 this.meriel.setVelocityY(0);

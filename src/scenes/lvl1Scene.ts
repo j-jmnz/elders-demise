@@ -16,12 +16,19 @@ export class LVL1Scene extends Phaser.Scene {
     }
     preload() {
         // load in level1 image and json
-        this.load.tilemapTiledJSON('level1', './assets/level1.json');
+        // this.load.spritesheet('dungeon', './assets/dungeon.png', {
+        //     frameWidth: 16,
+        //     frameHeight: 16
+        // });
+        
+        // this.load.tilemapTiledJSON('level1', './assets/level1.json');
 
-        this.load.spritesheet('dungeon', './assets/dungeon.png', {
+        this.load.spritesheet('dungeon_std', './assets/dungeon_std.png', {
             frameWidth: 16,
             frameHeight: 16
         });
+        
+        this.load.tilemapTiledJSON('level1', './assets/level1_1.json');
 
         // create meriel animations
         this.anims.create({
@@ -90,7 +97,7 @@ export class LVL1Scene extends Phaser.Scene {
         // create tilemap and tilesetimage
         this.level1 = this.make.tilemap({ key: 'level1' });
         //add tileset image
-        this.terrain = this.level1.addTilesetImage('dungeon');
+        this.terrain = this.level1.addTilesetImage('dungeon_std');
 
         // create map layers
         this.backgroundLayer = this.level1.createStaticLayer('Background', this.terrain, 0, 0);

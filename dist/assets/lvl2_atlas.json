@@ -1,0 +1,62 @@
+{
+	"textures": [
+		{
+			"image": "lvl2_terrain.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 803,
+				"h": 958
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "outside.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 832,
+						"h": 384
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 8,
+						"w": 801,
+						"h": 376
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 801,
+						"h": 376
+					}
+				},
+				{
+					"filename": "terrain.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 624,
+						"h": 608
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 15,
+						"w": 594,
+						"h": 578
+					},
+					"frame": {
+						"x": 1,
+						"y": 379,
+						"w": 594,
+						"h": 578
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:ef839b3fcc475d04fa4a9fd2ad83d39d:8c2388419d6aa612d29a3758c0bc00e7:d32fcb3f5c4a879272df10e27c21670d$"
+	}
+}

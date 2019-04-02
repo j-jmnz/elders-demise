@@ -334,11 +334,16 @@ function (_super) {
 
   LVL1Scene.prototype.preload = function () {
     // load in level1 image and json
-    this.load.tilemapTiledJSON('level1', './assets/level1.json');
-    this.load.spritesheet('dungeon', './assets/dungeon.png', {
+    // this.load.spritesheet('dungeon', './assets/dungeon.png', {
+    //     frameWidth: 16,
+    //     frameHeight: 16
+    // });
+    // this.load.tilemapTiledJSON('level1', './assets/level1.json');
+    this.load.spritesheet('dungeon_std', './assets/dungeon_std.png', {
       frameWidth: 16,
       frameHeight: 16
-    }); // create meriel animations
+    });
+    this.load.tilemapTiledJSON('level1', './assets/level1_1.json'); // create meriel animations
 
     this.anims.create({
       key: 'meriel_downW',
@@ -405,7 +410,7 @@ function (_super) {
       key: 'level1'
     }); //add tileset image
 
-    this.terrain = this.level1.addTilesetImage('dungeon'); // create map layers
+    this.terrain = this.level1.addTilesetImage('dungeon_std'); // create map layers
 
     this.backgroundLayer = this.level1.createStaticLayer('Background', this.terrain, 0, 0);
     this.blockedLayer = this.level1.createStaticLayer('Blocked', this.terrain, 0, 0);
@@ -506,14 +511,71 @@ function (_super) {
 
   LVL2Scene.prototype.preload = function () {
     // load in level1 image and json
-    this.load.tilemapTiledJSON('level2', './assets/level2.json');
-    this.load.spritesheet('terrain', './assets/terrain.png', {
+    // this.load.spritesheet('terrain', './assets/terrain.png', {
+    //     frameWidth: 16,
+    //     frameHeight: 16
+    // });
+    // this.load.spritesheet('outside', './assets/outside.png', {
+    //     frameWidth: 16,
+    //     frameHeight: 16
+    // });
+    this.load.spritesheet('level2_std', './assets/level2_std.png', {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.spritesheet('outside', './assets/outside.png', {
-      frameWidth: 16,
-      frameHeight: 16
+    this.load.tilemapTiledJSON('level2', './assets/level2_2.json'); // create meriel animations
+
+    this.anims.create({
+      key: 'meriel_downW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_down_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'meriel_upW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_up_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'meriel_rightW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_right_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'meriel_leftW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_left_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    }); // create wiz animation
+
+    this.anims.create({
+      key: 'wiz_idle',
+      frameRate: 6,
+      repeat: -1,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'wiz_pose',
+        suffix: '.png',
+        start: 1,
+        end: 3
+      })
     });
     this.load.on('load', function (file) {
       console.log(file.src);
@@ -526,8 +588,7 @@ function (_super) {
       key: 'level2'
     }); //add tileset image
 
-    this.level2.addTilesetImage('terrain');
-    this.terrain = this.level2.addTilesetImage('outside'); // create map layers
+    this.terrain = this.level2.addTilesetImage('level2_std'); // create map layers
 
     this.backgroundLayer = this.level2.createStaticLayer('Background', this.terrain, 0, 0);
     this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0);
@@ -536,49 +597,13 @@ function (_super) {
     //     this.scene.start(CONSTANTS.SCENES.MENU);
     // })
     //create elf animation
+    //create meriel sprite
 
-    this.anims.create({
-      key: 'meriel_downW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 1,
-        end: 2
-      }),
-      frameRate: 5,
-      repeat: 1
-    });
-    this.anims.create({
-      key: 'meriel_leftW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 7,
-        end: 8
-      }),
-      frameRate: 5,
-      repeat: 1
-    });
-    this.anims.create({
-      key: 'meriel_rightW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 16,
-        end: 17
-      }),
-      frameRate: 5,
-      repeat: 1
-    });
-    this.anims.create({
-      key: 'meriel_upW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 23,
-        end: 24
-      }),
-      frameRate: 5,
-      repeat: 1
-    }); //create meriel sprite
+    this.meriel = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'characters', 'meriel_down_stand.png');
+    this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(18, 30).setOffset(0, 0); //create wizard sprite
 
-    this.meriel = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'meriel', 0);
-    this.meriel.setScale(1.2).setCollideWorldBounds(true).setSize(20, 38).setOffset(2, 0); //create wizard animation and sprite
-
-    this.wizard = this.physics.add.staticImage(this.game.renderer.width / 2, this.game.renderer.height / 2, 'wizard_m');
-    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 42).setOffset(-3, -4); // create keyboard inputs and assign to WASD
+    this.wizard = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'characters', 'wiz_down_stand.png');
+    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 30).setOffset(0, 0).play('wiz_idle'); // create keyboard inputs and assign to WASD
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
 
@@ -590,20 +615,20 @@ function (_super) {
 
     if (this.meriel.active) {
       if (this.keyboard.D.isDown === true) {
-        this.meriel.setVelocityX(80);
+        this.meriel.setVelocityX(64);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.A.isDown === true) {
-        this.meriel.setVelocityX(-80);
+        this.meriel.setVelocityX(-64);
         this.meriel.play('meriel_leftW', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
         this.meriel.setVelocityX(0);
       }
 
       if (this.keyboard.S.isDown === true) {
-        this.meriel.setVelocityY(80);
+        this.meriel.setVelocityY(64);
         this.meriel.play('meriel_downW', true);
       } else if (this.keyboard.W.isDown === true) {
-        this.meriel.setVelocityY(-80);
+        this.meriel.setVelocityY(-64);
         this.meriel.play('meriel_upW', true);
       } else if (this.keyboard.S.isUp && this.keyboard.W.isUp) {
         this.meriel.setVelocityY(0);
@@ -641,7 +666,7 @@ var game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true
+      debug: false
     }
   }
 });
@@ -673,7 +698,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65519" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55527" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
