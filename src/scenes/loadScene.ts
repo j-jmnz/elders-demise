@@ -14,6 +14,9 @@ export class LoadScene extends Phaser.Scene {
 
         this.load.image('play_button', './assets/play_button.png');
 
+        // load characters atlas
+        this.load.atlas('characters', './assets/characters.png', './assets/characters.json');
+
         // load characters spritesheets
         this.load.spritesheet('meriel', './assets/meriel.png', { frameWidth: 22.59, frameHeight: 38 });
 

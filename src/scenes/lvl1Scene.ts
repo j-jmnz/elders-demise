@@ -23,17 +23,72 @@ export class LVL1Scene extends Phaser.Scene {
             frameHeight: 16
         });
 
+        // create meriel animations
+        this.anims.create({
+            key: 'meriel_downW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_down_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        this.anims.create({
+            key: 'meriel_upW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_up_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        this.anims.create({
+            key: 'meriel_rightW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_right_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        this.anims.create({
+            key: 'meriel_leftW',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'meriel_left_walk',
+                suffix: '.png',
+                start: 1,
+                end: 2
+            })
+        });
+
+        // create wiz animation
+        this.anims.create({
+            key: 'wiz_idle',
+            frameRate: 6,
+            repeat: -1,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'wiz_pose',
+                suffix: '.png',
+                start: 1,
+                end: 3
+            })
+        });
 
         this.load.on('load', (file: Phaser.Loader.File) => {
             console.log(file.src);
         });
-
-        
     }
 
     create() {
         // create tilemap and tilesetimage
-        this.level1 = this.make.tilemap({ key: 'level1'});
+        this.level1 = this.make.tilemap({ key: 'level1' });
         //add tileset image
         this.terrain = this.level1.addTilesetImage('dungeon');
 
@@ -44,67 +99,38 @@ export class LVL1Scene extends Phaser.Scene {
         this.blockedLayer.setCollisionByExclusion([-1]);
 
         // add tileEvent to change scene
-        this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, ()=> {
+        this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, () => {
             this.scene.start(CONSTANTS.SCENES.LVL2);
             console.log(CONSTANTS.SCENES.LVL2);
-        })
-
-        //create elf animation
-        
-        this.anims.create({
-            key: 'meriel_downW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 1, end: 2 }),
-            frameRate: 5,
-            repeat: 1
-        });
-
-        this.anims.create({
-            key: 'meriel_leftW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 7, end: 8 }),
-            frameRate: 5,
-            repeat: 1
-        });
-
-        this.anims.create({
-            key: 'meriel_rightW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 16, end: 17 }),
-            frameRate: 5,
-            repeat: 1
-        });
-
-        this.anims.create({
-            key: 'meriel_upW',
-            frames: this.anims.generateFrameNumbers('meriel', { start: 23, end: 24 }),
-            frameRate: 5,
-            repeat: 1
         });
 
         //create meriel sprite
         this.meriel = this.physics.add.sprite(
             this.game.renderer.width / 2,
             this.game.renderer.height * 0.7,
-            'meriel',
-            0
+            'characters',
+            'meriel_down_stand.png'
         );
         this.meriel
-            .setScale(1.2)
+            .setScale(1.5)
             .setCollideWorldBounds(true)
-            .setSize(20, 38)
-            .setOffset(2, 0);
-        
-        //create wizard animation and sprite
-        
+            .setSize(18, 30)
+            .setOffset(0, 0);
 
-        this.wizard = this.physics.add.staticImage(
+        //create wizard sprite
+
+        this.wizard = this.physics.add.sprite(
             this.game.renderer.width / 2,
             this.game.renderer.height / 2,
-            'wizard_m',
+            'characters',
+            'wiz_down_stand.png'
         );
         this.wizard
             .setScale(1.5)
             .setImmovable(true)
-            .setSize(24, 42)
-            .setOffset(-3, -4);
+            .setSize(24, 30)
+            .setOffset(0, 0)
+            .play('wiz_idle');
 
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');

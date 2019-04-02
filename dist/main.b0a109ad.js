@@ -184,7 +184,9 @@ function (_super) {
 
 
     this.load.image('title_background', './assets/preview.png');
-    this.load.image('play_button', './assets/play_button.png'); // load characters spritesheets
+    this.load.image('play_button', './assets/play_button.png'); // load characters atlas
+
+    this.load.atlas('characters', './assets/characters.png', './assets/characters.json'); // load characters spritesheets
 
     this.load.spritesheet('meriel', './assets/meriel.png', {
       frameWidth: 22.59,
@@ -336,6 +338,59 @@ function (_super) {
     this.load.spritesheet('dungeon', './assets/dungeon.png', {
       frameWidth: 16,
       frameHeight: 16
+    }); // create meriel animations
+
+    this.anims.create({
+      key: 'meriel_downW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_down_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'meriel_upW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_up_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'meriel_rightW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_right_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'meriel_leftW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'meriel_left_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    }); // create wiz animation
+
+    this.anims.create({
+      key: 'wiz_idle',
+      frameRate: 6,
+      repeat: -1,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'wiz_pose',
+        suffix: '.png',
+        start: 1,
+        end: 3
+      })
     });
     this.load.on('load', function (file) {
       console.log(file.src);
@@ -360,50 +415,13 @@ function (_super) {
       _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
 
       console.log(constants_1.CONSTANTS.SCENES.LVL2);
-    }); //create elf animation
-
-    this.anims.create({
-      key: 'meriel_downW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 1,
-        end: 2
-      }),
-      frameRate: 5,
-      repeat: 1
-    });
-    this.anims.create({
-      key: 'meriel_leftW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 7,
-        end: 8
-      }),
-      frameRate: 5,
-      repeat: 1
-    });
-    this.anims.create({
-      key: 'meriel_rightW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 16,
-        end: 17
-      }),
-      frameRate: 5,
-      repeat: 1
-    });
-    this.anims.create({
-      key: 'meriel_upW',
-      frames: this.anims.generateFrameNumbers('meriel', {
-        start: 23,
-        end: 24
-      }),
-      frameRate: 5,
-      repeat: 1
     }); //create meriel sprite
 
-    this.meriel = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'meriel', 0);
-    this.meriel.setScale(1.2).setCollideWorldBounds(true).setSize(20, 38).setOffset(2, 0); //create wizard animation and sprite
+    this.meriel = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'characters', 'meriel_down_stand.png');
+    this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(18, 30).setOffset(0, 0); //create wizard sprite
 
-    this.wizard = this.physics.add.staticImage(this.game.renderer.width / 2, this.game.renderer.height / 2, 'wizard_m');
-    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 42).setOffset(-3, -4); // create keyboard inputs and assign to WASD
+    this.wizard = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'characters', 'wiz_down_stand.png');
+    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 30).setOffset(0, 0).play('wiz_idle'); // create keyboard inputs and assign to WASD
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
 
@@ -623,7 +641,7 @@ var game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false
+      debug: true
     }
   }
 });
@@ -655,7 +673,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64380" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65519" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

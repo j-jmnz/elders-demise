@@ -1,0 +1,1070 @@
+{
+	"textures": [
+		{
+			"image": "characters.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 789,
+				"h": 30
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "wiz_pose1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 27,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 27,
+						"h": 30
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 27,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_pose2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 30
+					},
+					"frame": {
+						"x": 27,
+						"y": 0,
+						"w": 25,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_pose3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 30
+					},
+					"frame": {
+						"x": 52,
+						"y": 0,
+						"w": 25,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_down_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 77,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_nod2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 77,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_shake2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 77,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_laugh1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 94,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_nod1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 94,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_laugh2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 111,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_laugh3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 128,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_nod3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 128,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_shake1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 145,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_shake3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 162,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_surprise.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 179,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_up_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 196,
+						"y": 0,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_left_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 30
+					},
+					"frame": {
+						"x": 213,
+						"y": 0,
+						"w": 16,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wiz_right_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 30
+					},
+					"frame": {
+						"x": 229,
+						"y": 0,
+						"w": 16,
+						"h": 30
+					}
+				},
+				{
+					"filename": "meriel_pose1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 29
+					},
+					"frame": {
+						"x": 245,
+						"y": 0,
+						"w": 25,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_pose2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 29
+					},
+					"frame": {
+						"x": 270,
+						"y": 0,
+						"w": 25,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_pose3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 29
+					},
+					"frame": {
+						"x": 295,
+						"y": 0,
+						"w": 25,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_down_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 320,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_nod2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 320,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_laugh1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 337,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_laugh2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 354,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_laugh3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 371,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_nod1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 388,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_nod3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 405,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_shake1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 422,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_shake2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 439,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_shake3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 456,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_surprise.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 473,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_up_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 490,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_down_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 507,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_down_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 524,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_up_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 541,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_up_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 558,
+						"y": 0,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_left_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					},
+					"frame": {
+						"x": 575,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_left_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					},
+					"frame": {
+						"x": 591,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_right_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					},
+					"frame": {
+						"x": 607,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					}
+				},
+				{
+					"filename": "wiz_right_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					},
+					"frame": {
+						"x": 623,
+						"y": 0,
+						"w": 16,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_left_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 29
+					},
+					"frame": {
+						"x": 639,
+						"y": 0,
+						"w": 15,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_right_stand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 29
+					},
+					"frame": {
+						"x": 654,
+						"y": 0,
+						"w": 15,
+						"h": 29
+					}
+				},
+				{
+					"filename": "meriel_down_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 669,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				},
+				{
+					"filename": "meriel_down_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 684,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				},
+				{
+					"filename": "meriel_left_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 699,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				},
+				{
+					"filename": "meriel_left_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 714,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				},
+				{
+					"filename": "meriel_right_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 729,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				},
+				{
+					"filename": "meriel_right_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 744,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				},
+				{
+					"filename": "meriel_up_walk1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 759,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				},
+				{
+					"filename": "meriel_up_walk2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 15,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					},
+					"frame": {
+						"x": 774,
+						"y": 0,
+						"w": 15,
+						"h": 28
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:56dc28f1fe33b321a03b26cfe898dd36:657b86869686b17b7fc5644b2e0ccf52:a5fe7db4b869eb0f3e0b2940b9577ea8$"
+	}
+}
