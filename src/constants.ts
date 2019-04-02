@@ -2,7 +2,7 @@ export const CONSTANTS = {
     SCENES: {
         LOAD: 'LOAD',
         MENU: 'MENU',
-        PLAY: 'PLAY'
+        LVL1: 'LVL1'
     }
 }
 

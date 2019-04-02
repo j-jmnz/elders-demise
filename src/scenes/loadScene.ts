@@ -15,9 +15,9 @@ export class LoadScene extends Phaser.Scene {
         this.load.image('play_button', './assets/play_button.png');
 
         // load characters spritesheets
-        this.load.spritesheet('elf_m', './assets/elf_m.png', { frameWidth: 20, frameHeight: 34 });
+        this.load.spritesheet('meriel', './assets/meriel.png', { frameWidth: 22.59, frameHeight: 38 });
 
-        this.load.spritesheet('wizard_m', './assets/wizard_m.png', { frameWidth: 20, frameHeight: 34 });
+        this.load.image('wizard_m', './assets/down_stand.png');
 
         // create loading bar
         let loadingBar = this.add.graphics({

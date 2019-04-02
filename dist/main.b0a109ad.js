@@ -127,7 +127,7 @@ exports.CONSTANTS = {
   SCENES: {
     LOAD: 'LOAD',
     MENU: 'MENU',
-    PLAY: 'PLAY'
+    LVL1: 'LVL1'
   }
 };
 },{}],"src/scenes/loadScene.ts":[function(require,module,exports) {
@@ -185,14 +185,11 @@ function (_super) {
     this.load.image('title_background', './assets/preview.png');
     this.load.image('play_button', './assets/play_button.png'); // load characters spritesheets
 
-    this.load.spritesheet('elf_m', './assets/elf_m.png', {
-      frameWidth: 20,
-      frameHeight: 34
+    this.load.spritesheet('meriel', './assets/meriel.png', {
+      frameWidth: 22.59,
+      frameHeight: 38
     });
-    this.load.spritesheet('wizard_m', './assets/wizard_m.png', {
-      frameWidth: 20,
-      frameHeight: 34
-    }); // create loading bar
+    this.load.image('wizard_m', './assets/down_stand.png'); // create loading bar
 
     var loadingBar = this.add.graphics({
       fillStyle: {
@@ -278,7 +275,7 @@ function (_super) {
       playButton.setScale(1);
     });
     playButton.on('pointerup', function () {
-      _this.scene.start(constants_1.CONSTANTS.SCENES.PLAY);
+      _this.scene.start(constants_1.CONSTANTS.SCENES.LVL1);
     });
   };
 
@@ -286,7 +283,7 @@ function (_super) {
 }(Phaser.Scene);
 
 exports.MenuScene = MenuScene;
-},{"../constants":"src/constants.ts"}],"src/scenes/playScene.ts":[function(require,module,exports) {
+},{"../constants":"src/constants.ts"}],"src/scenes/lvl1.ts":[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -321,101 +318,125 @@ Object.defineProperty(exports, "__esModule", {
 
 var constants_1 = require("../constants");
 
-var PlayScene =
+var LVL1Scene =
 /** @class */
 function (_super) {
-  __extends(PlayScene, _super);
+  __extends(LVL1Scene, _super);
 
-  function PlayScene() {
+  function LVL1Scene() {
     return _super.call(this, {
-      key: constants_1.CONSTANTS.SCENES.PLAY
+      key: constants_1.CONSTANTS.SCENES.LVL1
     }) || this;
   }
 
-  PlayScene.prototype.preload = function () {
+  LVL1Scene.prototype.preload = function () {
     // load in level1 image and json
-    this.load.spritesheet('dungeon_tileset', './assets/dungeon_tileset.png', {
+    this.load.tilemapTiledJSON('level1', './assets/level1.json');
+    this.load.spritesheet('dungeon', './assets/dungeon.png', {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.tilemapTiledJSON('level1', './assets/level1.json');
+    this.load.on('load', function (file) {
+      console.log(file.src);
+    });
   };
 
-  PlayScene.prototype.create = function () {
-    //create tilemap and tilesetimage
-    var level1 = this.add.tilemap('level1');
-    var terrain = level1.addTilesetImage('dungeon_tileset'); // create map layers
+  LVL1Scene.prototype.create = function () {
+    var _this = this; // create tilemap and tilesetimage
 
-    this.backgroundLayer = level1.createStaticLayer('Background', [terrain], 0, 0);
-    this.blockedLayer = level1.createStaticLayer('Blocked', [terrain], 0, 0); //create elf animation
+
+    this.level1 = this.make.tilemap({
+      key: 'level1'
+    }); //add tileset image
+
+    this.terrain = this.level1.addTilesetImage('dungeon'); // create map layers
+
+    this.backgroundLayer = this.level1.createStaticLayer('Background', this.terrain, 0, 0);
+    this.blockedLayer = this.level1.createStaticLayer('Blocked', this.terrain, 0, 0);
+    this.blockedLayer.setCollisionByExclusion([-1]); // add tileEvent to change scene
+
+    this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, function () {
+      _this.scene.start(constants_1.CONSTANTS.SCENES.MENU);
+    }); //create elf animation
 
     this.anims.create({
-      key: 'elf_iddle',
-      frames: this.anims.generateFrameNumbers('elf_m', {
+      key: 'meriel_downW',
+      frames: this.anims.generateFrameNumbers('meriel', {
         start: 1,
-        end: 4
+        end: 2
       }),
-      frameRate: 10,
-      repeat: -1
+      frameRate: 5,
+      repeat: 1
     });
     this.anims.create({
-      key: 'elf_run',
-      frames: this.anims.generateFrameNumbers('elf_m', {
-        start: 4,
+      key: 'meriel_leftW',
+      frames: this.anims.generateFrameNumbers('meriel', {
+        start: 7,
         end: 8
       }),
-      frameRate: 10,
+      frameRate: 5,
       repeat: 1
-    }); //create elf sprite
-
-    this.elf = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.9, 'elf_m', 1);
-    this.elf.setScale(1.5).setCollideWorldBounds(true).setSize(20, 28).setOffset(0, 8); //create wizard animation and sprite
-
-    this.anims.create({
-      key: 'wizard_iddle',
-      frames: this.anims.generateFrameNumbers('wizard_m', {
-        start: 0,
-        end: 3
-      }),
-      frameRate: 10,
-      repeat: -1
     });
-    this.wizard = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'wizard_m', 1);
-    this.wizard.setScale(1.5).play('wizard_iddle').setImmovable(true).setSize(20, 28).setOffset(0, 8); // create keyboard inputs and assign to WASD
+    this.anims.create({
+      key: 'meriel_rightW',
+      frames: this.anims.generateFrameNumbers('meriel', {
+        start: 16,
+        end: 17
+      }),
+      frameRate: 5,
+      repeat: 1
+    });
+    this.anims.create({
+      key: 'meriel_upW',
+      frames: this.anims.generateFrameNumbers('meriel', {
+        start: 23,
+        end: 24
+      }),
+      frameRate: 5,
+      repeat: 1
+    }); //create meriel sprite
+
+    this.meriel = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'meriel', 0);
+    this.meriel.setScale(1.2).setCollideWorldBounds(true).setSize(20, 38).setOffset(2, 0); //create wizard animation and sprite
+
+    this.wizard = this.physics.add.staticImage(this.game.renderer.width / 2, this.game.renderer.height / 2, 'wizard_m');
+    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 42).setOffset(-3, -4); // create keyboard inputs and assign to WASD
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
+
+    this.physics.add.collider(this.meriel, this.blockedLayer);
   };
 
-  PlayScene.prototype.update = function () {
-    this.physics.world.collide(this.elf, this.wizard);
+  LVL1Scene.prototype.update = function () {
+    this.physics.world.collide(this.meriel, this.wizard);
 
-    if (this.elf.active) {
+    if (this.meriel.active) {
       if (this.keyboard.D.isDown === true) {
-        this.elf.setVelocityX(64);
-        this.elf.play('elf_run', true);
+        this.meriel.setVelocityX(64);
+        this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.A.isDown === true) {
-        this.elf.setVelocityX(-64);
-        this.elf.play('elf_run', true);
+        this.meriel.setVelocityX(-64);
+        this.meriel.play('meriel_leftW', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
-        this.elf.setVelocityX(0);
+        this.meriel.setVelocityX(0);
       }
 
       if (this.keyboard.S.isDown === true) {
-        this.elf.setVelocityY(64);
-        this.elf.play('elf_run', true);
+        this.meriel.setVelocityY(64);
+        this.meriel.play('meriel_downW', true);
       } else if (this.keyboard.W.isDown === true) {
-        this.elf.setVelocityY(-64);
-        this.elf.play('elf_run', true);
-      } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
-        this.elf.setVelocityY(0);
+        this.meriel.setVelocityY(-64);
+        this.meriel.play('meriel_upW', true);
+      } else if (this.keyboard.S.isUp && this.keyboard.W.isUp) {
+        this.meriel.setVelocityY(0);
       }
     }
   };
 
-  return PlayScene;
+  return LVL1Scene;
 }(Phaser.Scene);
 
-exports.PlayScene = PlayScene;
+exports.LVL1Scene = LVL1Scene;
 },{"../constants":"src/constants.ts"}],"src/main.ts":[function(require,module,exports) {
 "use strict";
 /** @type {import('../typings/phaser')} */
@@ -428,23 +449,23 @@ var loadScene_1 = require("./scenes/loadScene");
 
 var menuScene_1 = require("./scenes/menuScene");
 
-var playScene_1 = require("./scenes/playScene");
+var lvl1_1 = require("./scenes/lvl1");
 
 var game = new Phaser.Game({
   width: 800,
   height: 600,
-  scene: [loadScene_1.LoadScene, menuScene_1.MenuScene, playScene_1.PlayScene],
+  scene: [loadScene_1.LoadScene, menuScene_1.MenuScene, lvl1_1.LVL1Scene],
   render: {
     pixelArt: true
   },
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false
+      debug: true
     }
   }
 });
-},{"./scenes/loadScene":"src/scenes/loadScene.ts","./scenes/menuScene":"src/scenes/menuScene.ts","./scenes/playScene":"src/scenes/playScene.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./scenes/loadScene":"src/scenes/loadScene.ts","./scenes/menuScene":"src/scenes/menuScene.ts","./scenes/lvl1":"src/scenes/lvl1.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -472,7 +493,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64100" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

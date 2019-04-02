@@ -28,7 +28,7 @@ export class MenuScene extends Phaser.Scene {
         });
 
         playButton.on('pointerup', () => {
-            this.scene.start(CONSTANTS.SCENES.PLAY);
+            this.scene.start(CONSTANTS.SCENES.LVL1);
         });
     }
 }
