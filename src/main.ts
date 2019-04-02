@@ -2,19 +2,20 @@
 
 import { LoadScene } from './scenes/loadScene';
 import { MenuScene } from './scenes/menuScene';
-import { LVL1Scene } from './scenes/lvl1';
+import { LVL1Scene } from './scenes/lvl1Scene';
+import { LVL2Scene } from './scenes/lvl2Scene';
 
 let game = new Phaser.Game({
     width: 800,
     height: 600,
-    scene: [LoadScene, MenuScene, LVL1Scene],
+    scene: [LoadScene, MenuScene, LVL1Scene, LVL2Scene],
     render: {
         pixelArt: true
     },
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true
+            debug: false
         }
     }
 });

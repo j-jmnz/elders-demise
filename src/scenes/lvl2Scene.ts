@@ -1,29 +1,29 @@
 import { CONSTANTS } from '../constants';
 
-export class LVL1Scene extends Phaser.Scene {
-    //@ts-ignore
-    meriel: Phaser.Physics.Arcade.Sprite;
-    //@ts-ignore
-    wizard: Phaser.Physics.Arcade.Sprite;
-    //@ts-ignore
-    keyboard: Phaser.Input.Keyboard;
-    //@ts-ignore
-    level1: object;
-    terrain: object;
-    backgroundLayer: object;
-    //@ts-ignore
-    blockedLayer: object;
+export class LVL2Scene extends Phaser.Scene {
+    meriel!: Phaser.Physics.Arcade.Sprite;
+    wizard!: Phaser.Physics.Arcade.Sprite;
+    keyboard!: Phaser.Input.Keyboard;
+    level2!: object;
+    terrain!: object;
+    backgroundLayer!: object;
+    blockedLayer!: object;
 
     constructor() {
         super({
-            key: CONSTANTS.SCENES.LVL1
+            key: CONSTANTS.SCENES.LVL2
         });
     }
     preload() {
         // load in level1 image and json
-        this.load.tilemapTiledJSON('level1', './assets/level1.json');
+        this.load.tilemapTiledJSON('level2', './assets/level2.json');
 
-        this.load.spritesheet('dungeon', './assets/dungeon.png', {
+        this.load.spritesheet('terrain', './assets/terrain.png', {
+            frameWidth: 16,
+            frameHeight: 16
+        });
+
+        this.load.spritesheet('outside', './assets/outside.png', {
             frameWidth: 16,
             frameHeight: 16
         });
@@ -38,20 +38,22 @@ export class LVL1Scene extends Phaser.Scene {
 
     create() {
         // create tilemap and tilesetimage
-        this.level1 = this.make.tilemap({ key: 'level1'});
+        this.level2 = this.make.tilemap({ key: 'level2'});
         //add tileset image
-        this.terrain = this.level1.addTilesetImage('dungeon');
+        this.level2.addTilesetImage('terrain');
+        this.terrain = this.level2.addTilesetImage('outside');
+
 
         // create map layers
-        this.backgroundLayer = this.level1.createStaticLayer('Background', this.terrain, 0, 0);
+        this.backgroundLayer = this.level2.createStaticLayer('Background', this.terrain, 0, 0);
 
-        this.blockedLayer = this.level1.createStaticLayer('Blocked', this.terrain, 0, 0);
+        this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0);
         this.blockedLayer.setCollisionByExclusion([-1]);
 
         // add tileEvent to change scene
-        this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, ()=> {
-            this.scene.start(CONSTANTS.SCENES.MENU);
-        })
+        // this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, ()=> {
+        //     this.scene.start(CONSTANTS.SCENES.MENU);
+        // })
 
         //create elf animation
         
@@ -122,20 +124,20 @@ export class LVL1Scene extends Phaser.Scene {
 
         if (this.meriel.active) {
             if (this.keyboard.D.isDown === true) {
-                this.meriel.setVelocityX(64);
+                this.meriel.setVelocityX(80);
                 this.meriel.play('meriel_rightW', true);
             } else if (this.keyboard.A.isDown === true) {
-                this.meriel.setVelocityX(-64);
+                this.meriel.setVelocityX(-80);
                 this.meriel.play('meriel_leftW', true);
             } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
                 this.meriel.setVelocityX(0);
             }
 
             if (this.keyboard.S.isDown === true) {
-                this.meriel.setVelocityY(64);
+                this.meriel.setVelocityY(80);
                 this.meriel.play('meriel_downW', true);
             } else if (this.keyboard.W.isDown === true) {
-                this.meriel.setVelocityY(-64);
+                this.meriel.setVelocityY(-80);
                 this.meriel.play('meriel_upW', true);
             } else if (this.keyboard.S.isUp && this.keyboard.W.isUp) {
                 this.meriel.setVelocityY(0);
