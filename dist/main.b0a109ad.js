@@ -280,7 +280,7 @@ function (_super) {
       playButton.setScale(1);
     });
     playButton.on('pointerup', function () {
-      _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
+      _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE);
     });
   };
 
@@ -684,31 +684,48 @@ function (_super) {
   }
 
   BattleScene.prototype.preload = function () {
+    // load background and bot layer tilemap and images
     this.load.spritesheet('forest_bot', './assets/forest_bot.png', {
       frameWidth: 16,
       frameHeight: 16
     });
     this.load.tilemapTiledJSON('battle', './assets/battle.json');
-    this.load.image('forest', './assets/forest.png'); // create meriel animations
+    this.load.image('forest', './assets/forest.png'); // load attack atlas and image
+
+    this.load.atlas('attacks', './assets/attacks.png', './assets/attacks.json'); ///// create meriel animations
+    // walk
 
     this.anims.create({
       key: 'meriel_rightW',
       frameRate: 4,
       frames: this.anims.generateFrameNames('characters', {
-        prefix: 'meriel_right_walk',
-        suffix: '.png',
+        prefix: '5_6_walk(',
+        suffix: ').png',
         start: 1,
         end: 2
       })
-    });
+    }); //idle
+
     this.anims.create({
-      key: 'meriel_leftW',
+      key: 'meriel_idle',
+      frameRate: 4,
+      repeat: -1,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: '5_6_idle1(',
+        suffix: ').png',
+        start: 1,
+        end: 3
+      })
+    }); //attack
+
+    this.anims.create({
+      key: 'meriel_attack2',
       frameRate: 4,
       frames: this.anims.generateFrameNames('characters', {
-        prefix: 'meriel_left_walk',
-        suffix: '.png',
+        prefix: '5_6_atk2(',
+        suffix: ').png',
         start: 1,
-        end: 2
+        end: 3
       })
     });
     this.load.on('load', function (file) {
@@ -726,18 +743,19 @@ function (_super) {
       key: 'battle'
     }); //add tileset image
 
-    this.forestBot = this.battle.addTilesetImage('forest_bot');
+    this.forestBot = this.battle.addTilesetImage('forest_bot'); // create layers
+
     this.blockedLayer = this.battle.createStaticLayer('Blocked', this.forestBot, 0, 0);
     this.blockedLayer.setCollisionByExclusion([-1]);
     this.blockedLayer.setDepth(1); //create meriel sprite
 
-    this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.85, 'characters', 'meriel_right_stand.png');
-    this.meriel.setScale(2.5).setCollideWorldBounds(true).setSize(18, 24).setOffset(0, 0); // create lich sprite
+    this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.8, 'characters', '5_6_idle1(1).png');
+    this.meriel.setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create lich sprite
 
     this.lich = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.3, 'enemies', 'monster_lich-0.png');
-    this.lich.setImmovable(true).setCollideWorldBounds(true).setScale(0.5).setVisible(true); // create keyboard inputs and assign to WASD
+    this.lich.setImmovable(true).setCollideWorldBounds(true).setScale(0.5).setVisible(false); // create keyboard inputs and assign to WASDKL
 
-    this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
+    this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
 
     this.physics.add.collider(this.meriel, this.lich, function (meriel, lich) {});
     this.physics.add.collider(this.meriel, this.blockedLayer); // lich move randomizer
@@ -753,17 +771,27 @@ function (_super) {
   };
 
   BattleScene.prototype.update = function () {
-    this.forestField.tilePositionX += 0.5;
+    // background scrolling
+    this.forestField.tilePositionX += 0.5; //keyboard animations interaction
 
     if (this.meriel.active) {
+      //walking animations
       if (this.keyboard.D.isDown === true) {
-        this.meriel.setVelocityX(64);
+        this.meriel.setFlipX(true);
+        this.meriel.setVelocityX(80);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.A.isDown === true) {
-        this.meriel.setVelocityX(-64);
-        this.meriel.play('meriel_leftW', true);
+        this.meriel.setFlipX(false);
+        this.meriel.setVelocityX(-80);
+        this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
         this.meriel.setVelocityX(0);
+        this.meriel.anims.chain('meriel_idle');
+      }
+
+      if (this.keyboard.K.isDown === true) {
+        this.meriel.play('meriel_attack2', true);
+        this.meriel.anims.chain('meriel_idle');
       }
     }
   };
@@ -812,7 +840,7 @@ var game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true
+      debug: false
     }
   }
 });
@@ -844,7 +872,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59361" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53068" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

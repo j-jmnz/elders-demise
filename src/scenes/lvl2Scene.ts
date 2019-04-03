@@ -16,12 +16,11 @@ export class LVL2Scene extends Phaser.Scene {
         });
     }
     preload() {
-        
         this.load.spritesheet('level2_std', './assets/level2_std.png', {
             frameWidth: 16,
             frameHeight: 16
         });
-        
+
         this.load.tilemapTiledJSON('level2', './assets/level2_2.json');
 
         // create meriel animations
@@ -68,20 +67,17 @@ export class LVL2Scene extends Phaser.Scene {
                 end: 2
             })
         });
-
     }
 
     create() {
         // create tilemap and tilesetimage
-        this.level2 = this.make.tilemap({ key: 'level2'});
+        this.level2 = this.make.tilemap({ key: 'level2' });
         //add tileset image
         this.terrain = this.level2.addTilesetImage('level2_std');
-        
-
 
         // create map layers
-        this.backgroundLayer = this.level2.createStaticLayer('Background', this.terrain, 0, 0)
-        this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0)
+        this.backgroundLayer = this.level2.createStaticLayer('Background', this.terrain, 0, 0);
+        this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0);
 
         this.blockedLayer.setCollisionByExclusion([-1]);
 
@@ -112,7 +108,6 @@ export class LVL2Scene extends Phaser.Scene {
     }
 
     update() {
-        
         if (this.meriel.active) {
             if (this.keyboard.D.isDown === true) {
                 this.meriel.setVelocityX(64);
@@ -135,5 +130,4 @@ export class LVL2Scene extends Phaser.Scene {
             }
         }
     }
-    
 }

@@ -1,0 +1,839 @@
+{
+	"textures": [
+		{
+			"image": "attacks_enemies.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 534,
+				"h": 64
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "gob_5_8_atk2(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 10,
+						"w": 30,
+						"h": 38
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 30,
+						"h": 38
+					}
+				},
+				{
+					"filename": "plague_5_7_status(4).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 27,
+						"w": 29,
+						"h": 21
+					},
+					"frame": {
+						"x": 1,
+						"y": 41,
+						"w": 29,
+						"h": 21
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(4).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 27,
+						"w": 22,
+						"h": 21
+					},
+					"frame": {
+						"x": 32,
+						"y": 41,
+						"w": 22,
+						"h": 21
+					}
+				},
+				{
+					"filename": "maraud_5_4_atk1(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 10,
+						"w": 30,
+						"h": 38
+					},
+					"frame": {
+						"x": 33,
+						"y": 1,
+						"w": 30,
+						"h": 38
+					}
+				},
+				{
+					"filename": "maraud_5_4_atk1(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 9,
+						"w": 33,
+						"h": 37
+					},
+					"frame": {
+						"x": 65,
+						"y": 1,
+						"w": 33,
+						"h": 37
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(4).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 25,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 65,
+						"y": 40,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "gob_5_8_atk2(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 10,
+						"w": 33,
+						"h": 36
+					},
+					"frame": {
+						"x": 100,
+						"y": 1,
+						"w": 33,
+						"h": 36
+					}
+				},
+				{
+					"filename": "maraud_5_4_idle2(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 15,
+						"w": 33,
+						"h": 31
+					},
+					"frame": {
+						"x": 135,
+						"y": 1,
+						"w": 33,
+						"h": 31
+					}
+				},
+				{
+					"filename": "plague_5_7_atk1(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 17,
+						"w": 32,
+						"h": 29
+					},
+					"frame": {
+						"x": 135,
+						"y": 34,
+						"w": 32,
+						"h": 29
+					}
+				},
+				{
+					"filename": "maraud_5_4_atk1(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 18,
+						"w": 30,
+						"h": 29
+					},
+					"frame": {
+						"x": 169,
+						"y": 34,
+						"w": 30,
+						"h": 29
+					}
+				},
+				{
+					"filename": "maraud_5_4_idle2(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 15,
+						"w": 33,
+						"h": 31
+					},
+					"frame": {
+						"x": 170,
+						"y": 1,
+						"w": 33,
+						"h": 31
+					}
+				},
+				{
+					"filename": "gob_5_8_idle1(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 17,
+						"w": 21,
+						"h": 29
+					},
+					"frame": {
+						"x": 201,
+						"y": 34,
+						"w": 21,
+						"h": 29
+					}
+				},
+				{
+					"filename": "plague_5_7_atk1(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 15,
+						"w": 33,
+						"h": 31
+					},
+					"frame": {
+						"x": 205,
+						"y": 1,
+						"w": 33,
+						"h": 31
+					}
+				},
+				{
+					"filename": "gob_5_8_idle1(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 17,
+						"w": 21,
+						"h": 29
+					},
+					"frame": {
+						"x": 224,
+						"y": 34,
+						"w": 21,
+						"h": 29
+					}
+				},
+				{
+					"filename": "plague_5_7_idle2(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 15,
+						"w": 31,
+						"h": 31
+					},
+					"frame": {
+						"x": 240,
+						"y": 1,
+						"w": 31,
+						"h": 31
+					}
+				},
+				{
+					"filename": "plague_5_7_walk(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 17,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 247,
+						"y": 34,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "plague_5_7_walk(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 17,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 266,
+						"y": 34,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "plague_5_7_idle2(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 15,
+						"w": 31,
+						"h": 31
+					},
+					"frame": {
+						"x": 273,
+						"y": 1,
+						"w": 31,
+						"h": 31
+					}
+				},
+				{
+					"filename": "gob_5_8_idle1(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 18,
+						"w": 21,
+						"h": 28
+					},
+					"frame": {
+						"x": 285,
+						"y": 34,
+						"w": 21,
+						"h": 28
+					}
+				},
+				{
+					"filename": "maraud_5_4_walk(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 15,
+						"w": 17,
+						"h": 31
+					},
+					"frame": {
+						"x": 306,
+						"y": 1,
+						"w": 17,
+						"h": 31
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 308,
+						"y": 34,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "maraud_5_4_idle2(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 16,
+						"w": 33,
+						"h": 30
+					},
+					"frame": {
+						"x": 325,
+						"y": 1,
+						"w": 33,
+						"h": 30
+					}
+				},
+				{
+					"filename": "plague_5_7_idle2(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 16,
+						"w": 31,
+						"h": 30
+					},
+					"frame": {
+						"x": 329,
+						"y": 33,
+						"w": 31,
+						"h": 30
+					}
+				},
+				{
+					"filename": "plague_5_7_atk1(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 16,
+						"w": 28,
+						"h": 30
+					},
+					"frame": {
+						"x": 360,
+						"y": 1,
+						"w": 28,
+						"h": 30
+					}
+				},
+				{
+					"filename": "maraud_5_4_walk(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 362,
+						"y": 33,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "maraud_5_4_walk(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 381,
+						"y": 33,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "plague_5_7_walk(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 390,
+						"y": 1,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 400,
+						"y": 33,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "plague_5_7_status(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 409,
+						"y": 1,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "plague_5_7_status(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 421,
+						"y": 31,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "gob_5_8_walk(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 18,
+						"w": 17,
+						"h": 28
+					},
+					"frame": {
+						"x": 430,
+						"y": 1,
+						"w": 17,
+						"h": 28
+					}
+				},
+				{
+					"filename": "gob_5_8_atk2(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 20,
+						"w": 30,
+						"h": 27
+					},
+					"frame": {
+						"x": 442,
+						"y": 31,
+						"w": 30,
+						"h": 27
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 19,
+						"w": 19,
+						"h": 27
+					},
+					"frame": {
+						"x": 449,
+						"y": 1,
+						"w": 19,
+						"h": 27
+					}
+				},
+				{
+					"filename": "plague_5_7_status(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 19,
+						"w": 19,
+						"h": 27
+					},
+					"frame": {
+						"x": 470,
+						"y": 1,
+						"w": 19,
+						"h": 27
+					}
+				},
+				{
+					"filename": "gob_5_8_walk(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 19,
+						"w": 17,
+						"h": 27
+					},
+					"frame": {
+						"x": 474,
+						"y": 30,
+						"w": 17,
+						"h": 27
+					}
+				},
+				{
+					"filename": "gob_5_8_walk(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 19,
+						"w": 17,
+						"h": 27
+					},
+					"frame": {
+						"x": 491,
+						"y": 1,
+						"w": 17,
+						"h": 27
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 20,
+						"w": 19,
+						"h": 26
+					},
+					"frame": {
+						"x": 493,
+						"y": 30,
+						"w": 19,
+						"h": 26
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 20,
+						"w": 19,
+						"h": 26
+					},
+					"frame": {
+						"x": 510,
+						"y": 1,
+						"w": 19,
+						"h": 26
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 21,
+						"w": 19,
+						"h": 25
+					},
+					"frame": {
+						"x": 514,
+						"y": 29,
+						"w": 19,
+						"h": 25
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:59eeebae13b0d2221e1fda41219fc469:c5b9410b32e30ccca7f60ce1845338d5:9e31bfa93fe826167186033809daafc6$"
+	}
+}

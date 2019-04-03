@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+.cache
 # Environment Variables should NEVER be published
 .env
 .env.local

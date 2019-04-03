@@ -181,6 +181,55 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk1(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk1(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk1(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk2(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk2(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk2(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_bow(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_bow(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_bow(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_cheer(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_cheer(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_cheer(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_dead.png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle1(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle1(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle1(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle2(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle2(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle2(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_item(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_item(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_item(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_status(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_status(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_status(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_walk(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_walk(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_walk(3).png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9Paddings</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara4_5/wiz_down_stand.png</key>
             <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara4_5/wiz_laugh1.png</key>
             <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara4_5/wiz_laugh2.png</key>
@@ -392,6 +441,43 @@
             <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara4_5/wiz_shake1.png</filename>
             <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara4_5/wiz_shake2.png</filename>
             <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara4_5/wiz_shake3.png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_status(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_status(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_status(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_walk(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_walk(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_walk(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk1(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk1(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk1(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk2(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk2(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_atk2(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_bow(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_bow(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_bow(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_cheer(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_cheer(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_cheer(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_dead.png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle1(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle1(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle1(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle2(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle2(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_idle2(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_item(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_item(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_item(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(3).png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
