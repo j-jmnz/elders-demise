@@ -10,8 +10,9 @@ export class BattleScene extends Phaser.Scene {
     blockedLayer!: object;
     lich!: Phaser.Physics.Arcade.Sprite;
     randMove!: object;
-    forestField: Phaser.GameObjects.TileSprite;
+    forestField!: Phaser.GameObjects.TileSprite;
     forestBot!: Phaser.GameObjects.Image;
+    goblin!: Phaser.Physics.Arcade.Sprite;
 
     constructor() {
         super({
@@ -19,7 +20,6 @@ export class BattleScene extends Phaser.Scene {
         });
     }
     preload() {
-        
         // load background and bot layer tilemap and images
         this.load.spritesheet('forest_bot', './assets/forest_bot.png', {
             frameWidth: 16,
@@ -30,6 +30,12 @@ export class BattleScene extends Phaser.Scene {
 
         // load attack atlas and image
         this.load.atlas('attacks', './assets/attacks.png', './assets/attacks.json');
+
+        this.load.atlas(
+            'attacks_enemies',
+            './assets/attacks_enemies.png',
+            './assets/attacks_enemies.json'
+        );
 
         ///// create meriel animations
         // walk
@@ -69,6 +75,44 @@ export class BattleScene extends Phaser.Scene {
             })
         });
 
+        /////// create goblin animations
+        //idle
+        this.anims.create({
+            key: 'goblin_idle',
+            frameRate: 4,
+            repeat: -1,
+            frames: this.anims.generateFrameNames('enemies', {
+                prefix: 'gob_5_8_idle1(',
+                suffix: ').png',
+                start: 1,
+                end: 3
+            })
+        });
+
+        //walk
+        this.anims.create({
+            key: 'goblin_walk',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('enemies', {
+                prefix: 'gob_5_8_walk(',
+                suffix: ').png',
+                start: 1,
+                end: 3
+            })
+        });
+
+        //attack
+        this.anims.create({
+            key: 'goblin_attack',
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('enemies', {
+                prefix: 'gob_5_8_atk2(',
+                suffix: ').png',
+                start: 1,
+                end: 3
+            })
+        });
+
         this.load.on('load', (file: Phaser.Loader.File) => {
             console.log(file.src);
         });
@@ -91,40 +135,42 @@ export class BattleScene extends Phaser.Scene {
         //create meriel sprite
         this.meriel = this.physics.add.sprite(
             this.game.renderer.width * 0.2,
-            this.game.renderer.height * 0.8,
+            this.game.renderer.height * 0.81,
             'characters',
             '5_6_idle1(1).png'
         );
         this.meriel
+            .setSize(15, 23)
             .setScale(2.5)
             .setCollideWorldBounds(true)
             .play('meriel_idle')
-            .setFlipX(true);
+            .setFlipX(true)
 
-        // create lich sprite
-        this.lich = this.physics.add.sprite(
-            this.game.renderer.width / 2,
-            this.game.renderer.height * 0.3,
+        // create goblin sprite
+        this.goblin = this.physics.add.sprite(
+            this.game.renderer.width * 0.8,
+            this.game.renderer.height * 0.78,
             'enemies',
-            'monster_lich-0.png'
+            'gob_5_8_idle1(1).png'
         );
-        this.lich
+        this.goblin
+            .setSize(15, 23)
             .setImmovable(true)
             .setCollideWorldBounds(true)
-            .setScale(0.5)
-            .setVisible(false);
+            .setScale(3.5)
+            .play('goblin_idle')
 
         // create keyboard inputs and assign to WASDKL
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L');
 
         // //collisions
-        this.physics.add.collider(this.meriel, this.lich, (meriel, lich) => {});
+        this.physics.add.collider(this.meriel, this.goblin, (meriel, goblin) => {});
         this.physics.add.collider(this.meriel, this.blockedLayer);
 
-        // lich move randomizer
+        // goblin move randomizer
         this.randMove = this.time.addEvent({
-            delay: 1000,
-            callback: () => this.move(this.lich),
+            delay: 2000,
+            callback: () => this.move(this.goblin),
             callbackScope: this,
             loop: true
         });
@@ -148,17 +194,42 @@ export class BattleScene extends Phaser.Scene {
             } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
                 this.meriel.setVelocityX(0);
                 this.meriel.anims.chain('meriel_idle');
-            }  
+            }
             if (this.keyboard.K.isDown === true) {
                 this.meriel.play('meriel_attack2', true);
                 this.meriel.anims.chain('meriel_idle');
-            } 
+            }
         }
     }
 
     move(sprite) {
-        const randNumber = Math.floor(Math.random() * 2 + 1);
-        randNumber === 1 ? sprite.setVelocityX(50) : randNumber === 2 ? sprite.setVelocityX(-50) : null;
+        const randNumber1 = Math.floor(Math.random() * 2 + 1);
+        const randNumber2 = Math.floor(Math.random() * 2 + 1);
+
+        if (randNumber1 === 1) {
+            sprite.setFlipX(true);
+            sprite.setVelocityX(100);
+            sprite.play('goblin_walk', true);
+            sprite.anims.chain('goblin_idle');
+
+            if (randNumber2 === 1) {
+                sprite.play('goblin_attack')
+                sprite.anims.chain('goblin_idle');
+
+            }
+
+        } else if (randNumber1 === 2) {
+            sprite.setFlipX(false);
+            sprite.setVelocityX(-100);
+            sprite.play('goblin_walk', true);
+            sprite.anims.chain('goblin_idle');
+
+            if (randNumber2 === 1) {
+                sprite.play('goblin_attack')
+                sprite.anims.chain('goblin_idle');
+
+            }
+        }
 
         this.time.addEvent({
             delay: 500,

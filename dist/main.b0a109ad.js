@@ -692,7 +692,8 @@ function (_super) {
     this.load.tilemapTiledJSON('battle', './assets/battle.json');
     this.load.image('forest', './assets/forest.png'); // load attack atlas and image
 
-    this.load.atlas('attacks', './assets/attacks.png', './assets/attacks.json'); ///// create meriel animations
+    this.load.atlas('attacks', './assets/attacks.png', './assets/attacks.json');
+    this.load.atlas('attacks_enemies', './assets/attacks_enemies.png', './assets/attacks_enemies.json'); ///// create meriel animations
     // walk
 
     this.anims.create({
@@ -727,6 +728,41 @@ function (_super) {
         start: 1,
         end: 3
       })
+    }); /////// create goblin animations
+    //idle
+
+    this.anims.create({
+      key: 'goblin_idle',
+      frameRate: 4,
+      repeat: -1,
+      frames: this.anims.generateFrameNames('enemies', {
+        prefix: 'gob_5_8_idle1(',
+        suffix: ').png',
+        start: 1,
+        end: 3
+      })
+    }); //walk
+
+    this.anims.create({
+      key: 'goblin_walk',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('enemies', {
+        prefix: 'gob_5_8_walk(',
+        suffix: ').png',
+        start: 1,
+        end: 3
+      })
+    }); //attack
+
+    this.anims.create({
+      key: 'goblin_attack',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('enemies', {
+        prefix: 'gob_5_8_atk2(',
+        suffix: ').png',
+        start: 1,
+        end: 3
+      })
     });
     this.load.on('load', function (file) {
       console.log(file.src);
@@ -749,21 +785,21 @@ function (_super) {
     this.blockedLayer.setCollisionByExclusion([-1]);
     this.blockedLayer.setDepth(1); //create meriel sprite
 
-    this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.8, 'characters', '5_6_idle1(1).png');
-    this.meriel.setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create lich sprite
+    this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.81, 'characters', '5_6_idle1(1).png');
+    this.meriel.setSize(15, 23).setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create goblin sprite
 
-    this.lich = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.3, 'enemies', 'monster_lich-0.png');
-    this.lich.setImmovable(true).setCollideWorldBounds(true).setScale(0.5).setVisible(false); // create keyboard inputs and assign to WASDKL
+    this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.8, this.game.renderer.height * 0.78, 'enemies', 'gob_5_8_idle1(1).png');
+    this.goblin.setSize(15, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); // create keyboard inputs and assign to WASDKL
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
 
-    this.physics.add.collider(this.meriel, this.lich, function (meriel, lich) {});
-    this.physics.add.collider(this.meriel, this.blockedLayer); // lich move randomizer
+    this.physics.add.collider(this.meriel, this.goblin, function (meriel, goblin) {});
+    this.physics.add.collider(this.meriel, this.blockedLayer); // goblin move randomizer
 
     this.randMove = this.time.addEvent({
-      delay: 1000,
+      delay: 2000,
       callback: function callback() {
-        return _this.move(_this.lich);
+        return _this.move(_this.goblin);
       },
       callbackScope: this,
       loop: true
@@ -797,8 +833,31 @@ function (_super) {
   };
 
   BattleScene.prototype.move = function (sprite) {
-    var randNumber = Math.floor(Math.random() * 2 + 1);
-    randNumber === 1 ? sprite.setVelocityX(50) : randNumber === 2 ? sprite.setVelocityX(-50) : null;
+    var randNumber1 = Math.floor(Math.random() * 2 + 1);
+    var randNumber2 = Math.floor(Math.random() * 2 + 1);
+
+    if (randNumber1 === 1) {
+      sprite.setFlipX(true);
+      sprite.setVelocityX(100);
+      sprite.play('goblin_walk', true);
+      sprite.anims.chain('goblin_idle');
+
+      if (randNumber2 === 1) {
+        sprite.play('goblin_attack');
+        sprite.anims.chain('goblin_idle');
+      }
+    } else if (randNumber1 === 2) {
+      sprite.setFlipX(false);
+      sprite.setVelocityX(-100);
+      sprite.play('goblin_walk', true);
+      sprite.anims.chain('goblin_idle');
+
+      if (randNumber2 === 1) {
+        sprite.play('goblin_attack');
+        sprite.anims.chain('goblin_idle');
+      }
+    }
+
     this.time.addEvent({
       delay: 500,
       callback: function callback() {
@@ -872,7 +931,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53068" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60205" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

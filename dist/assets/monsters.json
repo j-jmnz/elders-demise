@@ -4,8 +4,8 @@
 			"image": "monsters.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 256,
-				"h": 981
+				"w": 1057,
+				"h": 255
 			},
 			"scale": 1,
 			"frames": [
@@ -52,129 +52,87 @@
 					}
 				},
 				{
-					"filename": "monster_phoenix-2.png",
+					"filename": "maraud_5_4_idle2(1).png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 122,
-						"h": 114
+						"w": 48,
+						"h": 48
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 13,
-						"w": 114,
-						"h": 101
-					},
-					"frame": {
-						"x": 113,
-						"y": 1,
-						"w": 114,
-						"h": 101
-					}
-				},
-				{
-					"filename": "monster_phoenix-1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 122,
-						"h": 114
-					},
-					"spriteSourceSize": {
-						"x": 5,
+						"x": 13,
 						"y": 15,
-						"w": 110,
-						"h": 99
+						"w": 33,
+						"h": 31
 					},
 					"frame": {
 						"x": 1,
 						"y": 219,
-						"w": 110,
-						"h": 99
+						"w": 33,
+						"h": 31
 					}
 				},
 				{
-					"filename": "monster_phoenix-10.png",
+					"filename": "maraud_5_4_idle2(2).png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 122,
-						"h": 114
+						"w": 48,
+						"h": 48
 					},
 					"spriteSourceSize": {
-						"x": 5,
+						"x": 13,
 						"y": 15,
-						"w": 110,
-						"h": 99
+						"w": 33,
+						"h": 31
 					},
 					"frame": {
-						"x": 113,
-						"y": 104,
-						"w": 110,
-						"h": 99
+						"x": 36,
+						"y": 219,
+						"w": 33,
+						"h": 31
 					}
 				},
 				{
-					"filename": "monster_phoenix-11.png",
+					"filename": "plague_5_7_atk1(2).png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 122,
-						"h": 114
-					},
-					"spriteSourceSize": {
-						"x": 7,
-						"y": 13,
-						"w": 106,
-						"h": 101
-					},
-					"frame": {
-						"x": 1,
-						"y": 320,
-						"w": 106,
-						"h": 101
-					}
-				},
-				{
-					"filename": "monster_phoenix-5.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 122,
-						"h": 114
-					},
-					"spriteSourceSize": {
-						"x": 7,
-						"y": 13,
-						"w": 96,
-						"h": 101
-					},
-					"frame": {
-						"x": 113,
-						"y": 205,
-						"w": 96,
-						"h": 101
-					}
-				},
-				{
-					"filename": "monster_phoenix-6.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 122,
-						"h": 114
+						"w": 48,
+						"h": 48
 					},
 					"spriteSourceSize": {
 						"x": 15,
-						"y": 13,
-						"w": 96,
-						"h": 101
+						"y": 15,
+						"w": 33,
+						"h": 31
 					},
 					"frame": {
-						"x": 1,
-						"y": 423,
-						"w": 96,
-						"h": 101
+						"x": 71,
+						"y": 219,
+						"w": 33,
+						"h": 31
+					}
+				},
+				{
+					"filename": "plague_5_7_idle2(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 15,
+						"w": 31,
+						"h": 31
+					},
+					"frame": {
+						"x": 106,
+						"y": 219,
+						"w": 31,
+						"h": 31
 					}
 				},
 				{
@@ -192,8 +150,8 @@
 						"h": 103
 					},
 					"frame": {
-						"x": 1,
-						"y": 526,
+						"x": 113,
+						"y": 1,
 						"w": 90,
 						"h": 103
 					}
@@ -213,56 +171,14 @@
 						"h": 103
 					},
 					"frame": {
-						"x": 1,
-						"y": 631,
+						"x": 113,
+						"y": 106,
 						"w": 90,
 						"h": 103
 					}
 				},
 				{
-					"filename": "monster_phoenix-4.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 122,
-						"h": 114
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 15,
-						"w": 94,
-						"h": 99
-					},
-					"frame": {
-						"x": 1,
-						"y": 736,
-						"w": 94,
-						"h": 99
-					}
-				},
-				{
-					"filename": "monster_phoenix-7.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 122,
-						"h": 114
-					},
-					"spriteSourceSize": {
-						"x": 15,
-						"y": 15,
-						"w": 94,
-						"h": 99
-					},
-					"frame": {
-						"x": 1,
-						"y": 837,
-						"w": 94,
-						"h": 99
-					}
-				},
-				{
-					"filename": "blue_knight-2.png",
+					"filename": "red_knight-1.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -270,37 +186,16 @@
 						"h": 52
 					},
 					"spriteSourceSize": {
-						"x": 10,
-						"y": 5,
-						"w": 26,
-						"h": 44
+						"x": 4,
+						"y": 8,
+						"w": 36,
+						"h": 43
 					},
 					"frame": {
-						"x": 229,
-						"y": 1,
-						"w": 26,
-						"h": 44
-					}
-				},
-				{
-					"filename": "red_knight-0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 48,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 5,
-						"y": 9,
+						"x": 139,
+						"y": 211,
 						"w": 36,
-						"h": 42
-					},
-					"frame": {
-						"x": 1,
-						"y": 938,
-						"w": 36,
-						"h": 42
+						"h": 43
 					}
 				},
 				{
@@ -318,325 +213,52 @@
 						"h": 43
 					},
 					"frame": {
-						"x": 229,
-						"y": 47,
+						"x": 177,
+						"y": 211,
 						"w": 26,
 						"h": 43
 					}
 				},
 				{
-					"filename": "monster_lich-1.png",
+					"filename": "monster_phoenix-2.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 94,
-						"h": 100
+						"w": 122,
+						"h": 114
 					},
 					"spriteSourceSize": {
-						"x": 11,
-						"y": 3,
-						"w": 68,
-						"h": 97
+						"x": 3,
+						"y": 13,
+						"w": 114,
+						"h": 101
 					},
 					"frame": {
-						"x": 99,
-						"y": 423,
-						"w": 68,
-						"h": 97
+						"x": 205,
+						"y": 1,
+						"w": 114,
+						"h": 101
 					}
 				},
 				{
-					"filename": "monster_lich-10.png",
+					"filename": "monster_phoenix-11.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 94,
-						"h": 100
+						"w": 122,
+						"h": 114
 					},
 					"spriteSourceSize": {
-						"x": 11,
-						"y": 3,
-						"w": 68,
-						"h": 97
+						"x": 7,
+						"y": 13,
+						"w": 106,
+						"h": 101
 					},
 					"frame": {
-						"x": 93,
-						"y": 526,
-						"w": 68,
-						"h": 97
-					}
-				},
-				{
-					"filename": "monster_lich-11.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 5,
-						"w": 68,
-						"h": 95
-					},
-					"frame": {
-						"x": 93,
-						"y": 625,
-						"w": 68,
-						"h": 95
-					}
-				},
-				{
-					"filename": "monster_lich-4.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 3,
-						"w": 66,
-						"h": 97
-					},
-					"frame": {
-						"x": 97,
-						"y": 722,
-						"w": 66,
-						"h": 97
-					}
-				},
-				{
-					"filename": "monster_lich-7.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 3,
-						"w": 66,
-						"h": 97
-					},
-					"frame": {
-						"x": 97,
-						"y": 821,
-						"w": 66,
-						"h": 97
-					}
-				},
-				{
-					"filename": "red_knight-4.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 48,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 8,
-						"y": 5,
-						"w": 28,
-						"h": 42
-					},
-					"frame": {
-						"x": 39,
-						"y": 938,
-						"w": 28,
-						"h": 42
-					}
-				},
-				{
-					"filename": "monster_lich-0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 5,
-						"w": 66,
-						"h": 95
-					},
-					"frame": {
-						"x": 109,
-						"y": 320,
-						"w": 66,
-						"h": 95
-					}
-				},
-				{
-					"filename": "monster_lich-2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 5,
-						"w": 66,
-						"h": 95
-					},
-					"frame": {
-						"x": 177,
-						"y": 308,
-						"w": 66,
-						"h": 95
-					}
-				},
-				{
-					"filename": "red_knight-2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 48,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 10,
-						"y": 7,
-						"w": 26,
-						"h": 42
-					},
-					"frame": {
-						"x": 69,
-						"y": 938,
-						"w": 26,
-						"h": 42
-					}
-				},
-				{
-					"filename": "monster_lich-3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 5,
-						"w": 72,
-						"h": 95
-					},
-					"frame": {
-						"x": 163,
-						"y": 522,
-						"w": 72,
-						"h": 95
-					}
-				},
-				{
-					"filename": "monster_lich-8.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 5,
-						"y": 5,
-						"w": 72,
-						"h": 95
-					},
-					"frame": {
-						"x": 163,
-						"y": 619,
-						"w": 72,
-						"h": 95
-					}
-				},
-				{
-					"filename": "monster_lich-9.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 5,
-						"w": 68,
-						"h": 95
-					},
-					"frame": {
-						"x": 165,
-						"y": 716,
-						"w": 68,
-						"h": 95
-					}
-				},
-				{
-					"filename": "monster_lich-5.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 5,
-						"w": 66,
-						"h": 95
-					},
-					"frame": {
-						"x": 165,
-						"y": 813,
-						"w": 66,
-						"h": 95
-					}
-				},
-				{
-					"filename": "monster_lich-6.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 5,
-						"w": 66,
-						"h": 95
-					},
-					"frame": {
-						"x": 169,
-						"y": 417,
-						"w": 66,
-						"h": 95
-					}
-				},
-				{
-					"filename": "blue_knight-4.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 48,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 8,
-						"y": 3,
-						"w": 30,
-						"h": 44
-					},
-					"frame": {
-						"x": 225,
+						"x": 205,
 						"y": 104,
-						"w": 30,
-						"h": 44
+						"w": 106,
+						"h": 101
 					}
 				},
 				{
@@ -654,8 +276,8 @@
 						"h": 45
 					},
 					"frame": {
-						"x": 97,
-						"y": 920,
+						"x": 205,
+						"y": 207,
 						"w": 36,
 						"h": 45
 					}
@@ -675,8 +297,8 @@
 						"h": 45
 					},
 					"frame": {
-						"x": 225,
-						"y": 150,
+						"x": 243,
+						"y": 207,
 						"w": 28,
 						"h": 45
 					}
@@ -696,8 +318,8 @@
 						"h": 45
 					},
 					"frame": {
-						"x": 135,
-						"y": 920,
+						"x": 273,
+						"y": 207,
 						"w": 28,
 						"h": 45
 					}
@@ -717,14 +339,56 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 165,
-						"y": 910,
+						"x": 303,
+						"y": 207,
 						"w": 36,
 						"h": 44
 					}
 				},
 				{
-					"filename": "red_knight-1.png",
+					"filename": "monster_phoenix-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 13,
+						"w": 96,
+						"h": 101
+					},
+					"frame": {
+						"x": 313,
+						"y": 104,
+						"w": 96,
+						"h": 101
+					}
+				},
+				{
+					"filename": "monster_phoenix-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 13,
+						"w": 96,
+						"h": 101
+					},
+					"frame": {
+						"x": 321,
+						"y": 1,
+						"w": 96,
+						"h": 101
+					}
+				},
+				{
+					"filename": "blue_knight-4.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -732,16 +396,37 @@
 						"h": 52
 					},
 					"spriteSourceSize": {
-						"x": 4,
-						"y": 8,
-						"w": 36,
-						"h": 43
+						"x": 8,
+						"y": 3,
+						"w": 30,
+						"h": 44
 					},
 					"frame": {
-						"x": 203,
-						"y": 910,
-						"w": 36,
-						"h": 43
+						"x": 341,
+						"y": 207,
+						"w": 30,
+						"h": 44
+					}
+				},
+				{
+					"filename": "blue_knight-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 5,
+						"w": 26,
+						"h": 44
+					},
+					"frame": {
+						"x": 373,
+						"y": 207,
+						"w": 26,
+						"h": 44
 					}
 				},
 				{
@@ -759,10 +444,1144 @@
 						"h": 43
 					},
 					"frame": {
-						"x": 211,
-						"y": 205,
+						"x": 401,
+						"y": 207,
 						"w": 26,
 						"h": 43
+					}
+				},
+				{
+					"filename": "monster_phoenix-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 15,
+						"w": 110,
+						"h": 99
+					},
+					"frame": {
+						"x": 411,
+						"y": 104,
+						"w": 110,
+						"h": 99
+					}
+				},
+				{
+					"filename": "monster_phoenix-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 15,
+						"w": 110,
+						"h": 99
+					},
+					"frame": {
+						"x": 419,
+						"y": 1,
+						"w": 110,
+						"h": 99
+					}
+				},
+				{
+					"filename": "red_knight-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 9,
+						"w": 36,
+						"h": 42
+					},
+					"frame": {
+						"x": 429,
+						"y": 205,
+						"w": 36,
+						"h": 42
+					}
+				},
+				{
+					"filename": "red_knight-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 5,
+						"w": 28,
+						"h": 42
+					},
+					"frame": {
+						"x": 467,
+						"y": 205,
+						"w": 28,
+						"h": 42
+					}
+				},
+				{
+					"filename": "red_knight-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 7,
+						"w": 26,
+						"h": 42
+					},
+					"frame": {
+						"x": 497,
+						"y": 205,
+						"w": 26,
+						"h": 42
+					}
+				},
+				{
+					"filename": "monster_phoenix-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 15,
+						"w": 94,
+						"h": 99
+					},
+					"frame": {
+						"x": 523,
+						"y": 102,
+						"w": 94,
+						"h": 99
+					}
+				},
+				{
+					"filename": "monster_phoenix-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 15,
+						"w": 94,
+						"h": 99
+					},
+					"frame": {
+						"x": 531,
+						"y": 1,
+						"w": 94,
+						"h": 99
+					}
+				},
+				{
+					"filename": "gob_5_8_atk2(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 10,
+						"w": 30,
+						"h": 38
+					},
+					"frame": {
+						"x": 525,
+						"y": 203,
+						"w": 30,
+						"h": 38
+					}
+				},
+				{
+					"filename": "maraud_5_4_atk1(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 10,
+						"w": 30,
+						"h": 38
+					},
+					"frame": {
+						"x": 557,
+						"y": 203,
+						"w": 30,
+						"h": 38
+					}
+				},
+				{
+					"filename": "maraud_5_4_atk1(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 9,
+						"w": 33,
+						"h": 37
+					},
+					"frame": {
+						"x": 589,
+						"y": 203,
+						"w": 33,
+						"h": 37
+					}
+				},
+				{
+					"filename": "monster_lich-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 68,
+						"h": 97
+					},
+					"frame": {
+						"x": 619,
+						"y": 102,
+						"w": 68,
+						"h": 97
+					}
+				},
+				{
+					"filename": "monster_lich-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 68,
+						"h": 97
+					},
+					"frame": {
+						"x": 627,
+						"y": 1,
+						"w": 68,
+						"h": 97
+					}
+				},
+				{
+					"filename": "gob_5_8_atk2(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 10,
+						"w": 33,
+						"h": 36
+					},
+					"frame": {
+						"x": 624,
+						"y": 201,
+						"w": 33,
+						"h": 36
+					}
+				},
+				{
+					"filename": "plague_5_7_idle2(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 15,
+						"w": 31,
+						"h": 31
+					},
+					"frame": {
+						"x": 659,
+						"y": 201,
+						"w": 31,
+						"h": 31
+					}
+				},
+				{
+					"filename": "monster_lich-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 66,
+						"h": 97
+					},
+					"frame": {
+						"x": 689,
+						"y": 100,
+						"w": 66,
+						"h": 97
+					}
+				},
+				{
+					"filename": "monster_lich-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 66,
+						"h": 97
+					},
+					"frame": {
+						"x": 697,
+						"y": 1,
+						"w": 66,
+						"h": 97
+					}
+				},
+				{
+					"filename": "maraud_5_4_walk(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 15,
+						"w": 17,
+						"h": 31
+					},
+					"frame": {
+						"x": 692,
+						"y": 199,
+						"w": 17,
+						"h": 31
+					}
+				},
+				{
+					"filename": "plague_5_7_status(4).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 27,
+						"w": 29,
+						"h": 21
+					},
+					"frame": {
+						"x": 692,
+						"y": 232,
+						"w": 29,
+						"h": 21
+					}
+				},
+				{
+					"filename": "maraud_5_4_idle2(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 16,
+						"w": 33,
+						"h": 30
+					},
+					"frame": {
+						"x": 711,
+						"y": 199,
+						"w": 33,
+						"h": 30
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(4).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 25,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 723,
+						"y": 231,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(4).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 27,
+						"w": 22,
+						"h": 21
+					},
+					"frame": {
+						"x": 741,
+						"y": 231,
+						"w": 22,
+						"h": 21
+					}
+				},
+				{
+					"filename": "plague_5_7_idle2(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 16,
+						"w": 31,
+						"h": 30
+					},
+					"frame": {
+						"x": 746,
+						"y": 199,
+						"w": 31,
+						"h": 30
+					}
+				},
+				{
+					"filename": "monster_lich-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 72,
+						"h": 95
+					},
+					"frame": {
+						"x": 757,
+						"y": 100,
+						"w": 72,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 5,
+						"w": 72,
+						"h": 95
+					},
+					"frame": {
+						"x": 765,
+						"y": 1,
+						"w": 72,
+						"h": 95
+					}
+				},
+				{
+					"filename": "plague_5_7_atk1(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 16,
+						"w": 28,
+						"h": 30
+					},
+					"frame": {
+						"x": 779,
+						"y": 197,
+						"w": 28,
+						"h": 30
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 21,
+						"w": 19,
+						"h": 25
+					},
+					"frame": {
+						"x": 779,
+						"y": 229,
+						"w": 19,
+						"h": 25
+					}
+				},
+				{
+					"filename": "maraud_5_4_walk(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 809,
+						"y": 197,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "maraud_5_4_walk(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 828,
+						"y": 197,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "monster_lich-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 68,
+						"h": 95
+					},
+					"frame": {
+						"x": 831,
+						"y": 98,
+						"w": 68,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 68,
+						"h": 95
+					},
+					"frame": {
+						"x": 839,
+						"y": 1,
+						"w": 68,
+						"h": 95
+					}
+				},
+				{
+					"filename": "plague_5_7_walk(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 17,
+						"h": 30
+					},
+					"frame": {
+						"x": 847,
+						"y": 195,
+						"w": 17,
+						"h": 30
+					}
+				},
+				{
+					"filename": "gob_5_8_atk2(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 20,
+						"w": 30,
+						"h": 27
+					},
+					"frame": {
+						"x": 847,
+						"y": 227,
+						"w": 30,
+						"h": 27
+					}
+				},
+				{
+					"filename": "plague_5_7_atk1(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 17,
+						"w": 32,
+						"h": 29
+					},
+					"frame": {
+						"x": 866,
+						"y": 195,
+						"w": 32,
+						"h": 29
+					}
+				},
+				{
+					"filename": "gob_5_8_idle1(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 18,
+						"w": 21,
+						"h": 28
+					},
+					"frame": {
+						"x": 879,
+						"y": 226,
+						"w": 21,
+						"h": 28
+					}
+				},
+				{
+					"filename": "maraud_5_4_atk1(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 18,
+						"w": 30,
+						"h": 29
+					},
+					"frame": {
+						"x": 900,
+						"y": 195,
+						"w": 30,
+						"h": 29
+					}
+				},
+				{
+					"filename": "monster_lich-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 901,
+						"y": 98,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 909,
+						"y": 1,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 902,
+						"y": 226,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 923,
+						"y": 226,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "gob_5_8_idle1(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 17,
+						"w": 21,
+						"h": 29
+					},
+					"frame": {
+						"x": 932,
+						"y": 195,
+						"w": 21,
+						"h": 29
+					}
+				},
+				{
+					"filename": "plague_5_7_status(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 944,
+						"y": 226,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "gob_5_8_idle1(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 17,
+						"w": 21,
+						"h": 29
+					},
+					"frame": {
+						"x": 955,
+						"y": 195,
+						"w": 21,
+						"h": 29
+					}
+				},
+				{
+					"filename": "monster_lich-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 969,
+						"y": 98,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 977,
+						"y": 1,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "plague_5_7_status(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 18,
+						"w": 19,
+						"h": 28
+					},
+					"frame": {
+						"x": 965,
+						"y": 226,
+						"w": 19,
+						"h": 28
+					}
+				},
+				{
+					"filename": "plague_5_7_walk(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 17,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 978,
+						"y": 195,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "gob_5_8_walk(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 18,
+						"w": 17,
+						"h": 28
+					},
+					"frame": {
+						"x": 986,
+						"y": 226,
+						"w": 17,
+						"h": 28
+					}
+				},
+				{
+					"filename": "plague_5_7_walk(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 17,
+						"w": 17,
+						"h": 29
+					},
+					"frame": {
+						"x": 997,
+						"y": 195,
+						"w": 17,
+						"h": 29
+					}
+				},
+				{
+					"filename": "maraud_5_4_status(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 19,
+						"w": 19,
+						"h": 27
+					},
+					"frame": {
+						"x": 1037,
+						"y": 98,
+						"w": 19,
+						"h": 27
+					}
+				},
+				{
+					"filename": "plague_5_7_status(3).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 19,
+						"w": 19,
+						"h": 27
+					},
+					"frame": {
+						"x": 1037,
+						"y": 127,
+						"w": 19,
+						"h": 27
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 20,
+						"w": 19,
+						"h": 26
+					},
+					"frame": {
+						"x": 1037,
+						"y": 156,
+						"w": 19,
+						"h": 26
+					}
+				},
+				{
+					"filename": "gob_5_8_crouch(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 20,
+						"w": 19,
+						"h": 26
+					},
+					"frame": {
+						"x": 1037,
+						"y": 184,
+						"w": 19,
+						"h": 26
+					}
+				},
+				{
+					"filename": "gob_5_8_walk(1).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 19,
+						"w": 17,
+						"h": 27
+					},
+					"frame": {
+						"x": 1005,
+						"y": 226,
+						"w": 17,
+						"h": 27
+					}
+				},
+				{
+					"filename": "gob_5_8_walk(2).png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 19,
+						"w": 17,
+						"h": 27
+					},
+					"frame": {
+						"x": 1016,
+						"y": 195,
+						"w": 17,
+						"h": 27
 					}
 				}
 			]
@@ -771,6 +1590,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:b3c7fb0de23de5fa4400225741026819:6a976be165a7674cf64d885775fc5cb6:8fc4d3ec51ba7bc700054b5f64cf62b1$"
+		"smartupdate": "$TexturePacker:SmartUpdate:f3bf6144c747e54f94269a90e61e8562:302c8e21be6e1079d143a493ad449d4c:8fc4d3ec51ba7bc700054b5f64cf62b1$"
 	}
 }
