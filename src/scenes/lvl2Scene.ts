@@ -16,17 +16,7 @@ export class LVL2Scene extends Phaser.Scene {
         });
     }
     preload() {
-        // load in level1 image and json
-        // this.load.spritesheet('terrain', './assets/terrain.png', {
-        //     frameWidth: 16,
-        //     frameHeight: 16
-        // });
-
-        // this.load.spritesheet('outside', './assets/outside.png', {
-        //     frameWidth: 16,
-        //     frameHeight: 16
-        // });
-
+        
         this.load.spritesheet('level2_std', './assets/level2_std.png', {
             frameWidth: 16,
             frameHeight: 16
@@ -79,25 +69,6 @@ export class LVL2Scene extends Phaser.Scene {
             })
         });
 
-        // create wiz animation
-        this.anims.create({
-            key: 'wiz_idle',
-            frameRate: 6,
-            repeat: -1,
-            frames: this.anims.generateFrameNames('characters', {
-                prefix: 'wiz_pose',
-                suffix: '.png',
-                start: 1,
-                end: 3
-            })
-        });
-
-
-        this.load.on('load', (file: Phaser.Loader.File) => {
-            console.log(file.src);
-        });
-
-        
     }
 
     create() {
@@ -115,40 +86,23 @@ export class LVL2Scene extends Phaser.Scene {
         this.blockedLayer.setCollisionByExclusion([-1]);
 
         // add tileEvent to change scene
-        // this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, ()=> {
-        //     this.scene.start(CONSTANTS.SCENES.MENU);
-        // })
+        this.blockedLayer.setTileLocationCallback(9, 35, 1, 1, () => {
+            this.scene.start(CONSTANTS.SCENES.LVL1);
+            console.log(CONSTANTS.SCENES.LVL1);
+        });
 
-        //create elf animation
-        
-        
         //create meriel sprite
         this.meriel = this.physics.add.sprite(
             this.game.renderer.width * 0.2,
-            this.game.renderer.height * 0.9,
+            this.game.renderer.height * 0.88,
             'characters',
             'meriel_down_stand.png'
         );
         this.meriel
             .setScale(1.5)
             .setCollideWorldBounds(true)
-            .setSize(18, 30)
-            .setOffset(0, 0);
-
-        //create wizard sprite
-
-        this.wizard = this.physics.add.sprite(
-            this.game.renderer.width / 2,
-            this.game.renderer.height / 2,
-            'characters',
-            'wiz_down_stand.png'
-        );
-        this.wizard
-            .setScale(1.5)
-            .setImmovable(true)
-            .setSize(24, 30)
-            .setOffset(0, 0)
-            .play('wiz_idle');
+            .setSize(15, 23)
+            .setOffset(0, 1);
 
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');
@@ -158,9 +112,7 @@ export class LVL2Scene extends Phaser.Scene {
     }
 
     update() {
-        this.physics.world.collide(this.meriel, this.wizard);
         
-
         if (this.meriel.active) {
             if (this.keyboard.D.isDown === true) {
                 this.meriel.setVelocityX(64);

@@ -141,36 +141,23 @@ export class LVL1Scene extends Phaser.Scene {
             .setOffset(0, 0)
             .play('wiz_idle');
 
-        // create lich sprite
-        this.lich = this.physics.add.sprite(
-            this.game.renderer.width / 2,
-            this.game.renderer.height * 0.3,
-            'enemies',
-            'monster_lich-0.png'
-        );
-        this.lich
-            .setImmovable(true)
-            .setCollideWorldBounds(true)
-            .setScale(0.5);
-
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');
 
         // //collisions
         this.physics.add.collider(this.meriel, this.blockedLayer);
-        this.physics.add.collider(this.lich, this.blockedLayer);
 
-        this.physics.add.collider(this.meriel, this.lich, (meriel, lich) => {
-            this.scene.start(CONSTANTS.SCENES.LVL2);
-        });
+        // this.physics.add.collider(this.meriel, this.lich, (meriel, lich) => {
+        //     this.scene.start(CONSTANTS.SCENES.BATTLE);
+        // });
 
-        //move randomizer
-        this.randMove = this.time.addEvent({
-            delay: 1000,
-            callback: () => this.move(this.lich),
-            callbackScope: this,
-            loop: true
-        });
+        // //move randomizer
+        // this.randMove = this.time.addEvent({
+        //     delay: 1000,
+        //     callback: () => this.move(this.lich),
+        //     callbackScope: this,
+        //     loop: true
+        // });
     }
 
     update() {
