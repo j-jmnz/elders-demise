@@ -113,8 +113,8 @@ export class LVL1Scene extends Phaser.Scene {
 
         //create meriel sprite
         this.meriel = this.physics.add.sprite(
-            this.game.renderer.width / 2,
-            this.game.renderer.height * 0.7,
+            this.game.renderer.width * 0.45,
+            this.game.renderer.height * 0.9,
             'characters',
             'meriel_down_stand.png'
         );
@@ -138,12 +138,21 @@ export class LVL1Scene extends Phaser.Scene {
             .setSize(24, 30)
             .setOffset(0, 0)
             .play('wiz_idle');
+        
+        // create lich sprite
+        this.lich = this.physics.add.sprite(
+            this.game.renderer.width / 2,
+            this.game.renderer.height * .3,
+            'enemies',
+            'monster_lich-0.png'
+        )
+        this.lich.setImmovable(true);
 
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');
 
         // //collisions
-        this.physics.add.collider(this.meriel, this.blockedLayer);
+        this.physics.add.collider(this.meriel, this.blockedLayer);this.physics.add.collider(this.meriel, this.lich)
     }
 
     update() {

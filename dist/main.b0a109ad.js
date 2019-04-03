@@ -184,9 +184,10 @@ function (_super) {
 
 
     this.load.image('title_background', './assets/preview.png');
-    this.load.image('play_button', './assets/play_button.png'); // load characters atlas
+    this.load.image('play_button', './assets/play_button.png'); // load characters and enemies atlas
 
-    this.load.atlas('characters', './assets/characters.png', './assets/characters.json'); // load characters spritesheets
+    this.load.atlas('characters', './assets/characters.png', './assets/characters.json');
+    this.load.atlas('enemies', './assets/monsters.png', './assets/monsters.json'); // load characters spritesheets
 
     this.load.spritesheet('meriel', './assets/meriel.png', {
       frameWidth: 22.59,
@@ -422,15 +423,19 @@ function (_super) {
       console.log(constants_1.CONSTANTS.SCENES.LVL2);
     }); //create meriel sprite
 
-    this.meriel = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'characters', 'meriel_down_stand.png');
+    this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.45, this.game.renderer.height * 0.9, 'characters', 'meriel_down_stand.png');
     this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(18, 30).setOffset(0, 0); //create wizard sprite
 
     this.wizard = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'characters', 'wiz_down_stand.png');
-    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 30).setOffset(0, 0).play('wiz_idle'); // create keyboard inputs and assign to WASD
+    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 30).setOffset(0, 0).play('wiz_idle'); // create lich sprite
+
+    this.lich = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * .3, 'enemies', 'monster_lich-0.png');
+    this.lich.setImmovable(true); // create keyboard inputs and assign to WASD
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
 
     this.physics.add.collider(this.meriel, this.blockedLayer);
+    this.physics.add.collider(this.meriel, this.lich);
   };
 
   LVL1Scene.prototype.update = function () {
@@ -599,7 +604,7 @@ function (_super) {
     //create elf animation
     //create meriel sprite
 
-    this.meriel = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'characters', 'meriel_down_stand.png');
+    this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.9, 'characters', 'meriel_down_stand.png');
     this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(18, 30).setOffset(0, 0); //create wizard sprite
 
     this.wizard = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'characters', 'wiz_down_stand.png');
@@ -698,7 +703,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55527" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52112" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

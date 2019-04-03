@@ -124,8 +124,8 @@ export class LVL2Scene extends Phaser.Scene {
         
         //create meriel sprite
         this.meriel = this.physics.add.sprite(
-            this.game.renderer.width / 2,
-            this.game.renderer.height * 0.7,
+            this.game.renderer.width * 0.2,
+            this.game.renderer.height * 0.9,
             'characters',
             'meriel_down_stand.png'
         );

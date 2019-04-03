@@ -1,0 +1,776 @@
+{
+	"textures": [
+		{
+			"image": "monsters.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 256,
+				"h": 981
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "monster_phoenix-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 7,
+						"w": 110,
+						"h": 107
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 110,
+						"h": 107
+					}
+				},
+				{
+					"filename": "monster_phoenix-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 7,
+						"w": 110,
+						"h": 107
+					},
+					"frame": {
+						"x": 1,
+						"y": 110,
+						"w": 110,
+						"h": 107
+					}
+				},
+				{
+					"filename": "monster_phoenix-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 13,
+						"w": 114,
+						"h": 101
+					},
+					"frame": {
+						"x": 113,
+						"y": 1,
+						"w": 114,
+						"h": 101
+					}
+				},
+				{
+					"filename": "monster_phoenix-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 15,
+						"w": 110,
+						"h": 99
+					},
+					"frame": {
+						"x": 1,
+						"y": 219,
+						"w": 110,
+						"h": 99
+					}
+				},
+				{
+					"filename": "monster_phoenix-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 15,
+						"w": 110,
+						"h": 99
+					},
+					"frame": {
+						"x": 113,
+						"y": 104,
+						"w": 110,
+						"h": 99
+					}
+				},
+				{
+					"filename": "monster_phoenix-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 13,
+						"w": 106,
+						"h": 101
+					},
+					"frame": {
+						"x": 1,
+						"y": 320,
+						"w": 106,
+						"h": 101
+					}
+				},
+				{
+					"filename": "monster_phoenix-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 13,
+						"w": 96,
+						"h": 101
+					},
+					"frame": {
+						"x": 113,
+						"y": 205,
+						"w": 96,
+						"h": 101
+					}
+				},
+				{
+					"filename": "monster_phoenix-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 13,
+						"w": 96,
+						"h": 101
+					},
+					"frame": {
+						"x": 1,
+						"y": 423,
+						"w": 96,
+						"h": 101
+					}
+				},
+				{
+					"filename": "monster_phoenix-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 11,
+						"w": 90,
+						"h": 103
+					},
+					"frame": {
+						"x": 1,
+						"y": 526,
+						"w": 90,
+						"h": 103
+					}
+				},
+				{
+					"filename": "monster_phoenix-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 11,
+						"w": 90,
+						"h": 103
+					},
+					"frame": {
+						"x": 1,
+						"y": 631,
+						"w": 90,
+						"h": 103
+					}
+				},
+				{
+					"filename": "monster_phoenix-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 15,
+						"w": 94,
+						"h": 99
+					},
+					"frame": {
+						"x": 1,
+						"y": 736,
+						"w": 94,
+						"h": 99
+					}
+				},
+				{
+					"filename": "monster_phoenix-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 15,
+						"w": 94,
+						"h": 99
+					},
+					"frame": {
+						"x": 1,
+						"y": 837,
+						"w": 94,
+						"h": 99
+					}
+				},
+				{
+					"filename": "blue_knight-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 5,
+						"w": 26,
+						"h": 44
+					},
+					"frame": {
+						"x": 229,
+						"y": 1,
+						"w": 26,
+						"h": 44
+					}
+				},
+				{
+					"filename": "red_knight-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 9,
+						"w": 36,
+						"h": 42
+					},
+					"frame": {
+						"x": 1,
+						"y": 938,
+						"w": 36,
+						"h": 42
+					}
+				},
+				{
+					"filename": "red_knight-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 26,
+						"h": 43
+					},
+					"frame": {
+						"x": 229,
+						"y": 47,
+						"w": 26,
+						"h": 43
+					}
+				},
+				{
+					"filename": "monster_lich-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 68,
+						"h": 97
+					},
+					"frame": {
+						"x": 99,
+						"y": 423,
+						"w": 68,
+						"h": 97
+					}
+				},
+				{
+					"filename": "monster_lich-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 68,
+						"h": 97
+					},
+					"frame": {
+						"x": 93,
+						"y": 526,
+						"w": 68,
+						"h": 97
+					}
+				},
+				{
+					"filename": "monster_lich-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 68,
+						"h": 95
+					},
+					"frame": {
+						"x": 93,
+						"y": 625,
+						"w": 68,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 66,
+						"h": 97
+					},
+					"frame": {
+						"x": 97,
+						"y": 722,
+						"w": 66,
+						"h": 97
+					}
+				},
+				{
+					"filename": "monster_lich-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 66,
+						"h": 97
+					},
+					"frame": {
+						"x": 97,
+						"y": 821,
+						"w": 66,
+						"h": 97
+					}
+				},
+				{
+					"filename": "red_knight-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 5,
+						"w": 28,
+						"h": 42
+					},
+					"frame": {
+						"x": 39,
+						"y": 938,
+						"w": 28,
+						"h": 42
+					}
+				},
+				{
+					"filename": "monster_lich-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 109,
+						"y": 320,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 177,
+						"y": 308,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "red_knight-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 7,
+						"w": 26,
+						"h": 42
+					},
+					"frame": {
+						"x": 69,
+						"y": 938,
+						"w": 26,
+						"h": 42
+					}
+				},
+				{
+					"filename": "monster_lich-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 72,
+						"h": 95
+					},
+					"frame": {
+						"x": 163,
+						"y": 522,
+						"w": 72,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 5,
+						"w": 72,
+						"h": 95
+					},
+					"frame": {
+						"x": 163,
+						"y": 619,
+						"w": 72,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 68,
+						"h": 95
+					},
+					"frame": {
+						"x": 165,
+						"y": 716,
+						"w": 68,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 165,
+						"y": 813,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "monster_lich-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 66,
+						"h": 95
+					},
+					"frame": {
+						"x": 169,
+						"y": 417,
+						"w": 66,
+						"h": 95
+					}
+				},
+				{
+					"filename": "blue_knight-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 3,
+						"w": 30,
+						"h": 44
+					},
+					"frame": {
+						"x": 225,
+						"y": 104,
+						"w": 30,
+						"h": 44
+					}
+				},
+				{
+					"filename": "blue_knight-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 6,
+						"w": 36,
+						"h": 45
+					},
+					"frame": {
+						"x": 97,
+						"y": 920,
+						"w": 36,
+						"h": 45
+					}
+				},
+				{
+					"filename": "blue_knight-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 4,
+						"w": 28,
+						"h": 45
+					},
+					"frame": {
+						"x": 225,
+						"y": 150,
+						"w": 28,
+						"h": 45
+					}
+				},
+				{
+					"filename": "blue_knight-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 2,
+						"w": 28,
+						"h": 45
+					},
+					"frame": {
+						"x": 135,
+						"y": 920,
+						"w": 28,
+						"h": 45
+					}
+				},
+				{
+					"filename": "blue_knight-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 7,
+						"w": 36,
+						"h": 44
+					},
+					"frame": {
+						"x": 165,
+						"y": 910,
+						"w": 36,
+						"h": 44
+					}
+				},
+				{
+					"filename": "red_knight-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 8,
+						"w": 36,
+						"h": 43
+					},
+					"frame": {
+						"x": 203,
+						"y": 910,
+						"w": 36,
+						"h": 43
+					}
+				},
+				{
+					"filename": "red_knight-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 26,
+						"h": 43
+					},
+					"frame": {
+						"x": 211,
+						"y": 205,
+						"w": 26,
+						"h": 43
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:b3c7fb0de23de5fa4400225741026819:6a976be165a7674cf64d885775fc5cb6:8fc4d3ec51ba7bc700054b5f64cf62b1$"
+	}
+}
