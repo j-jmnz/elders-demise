@@ -8,6 +8,8 @@ export class LVL1Scene extends Phaser.Scene {
     terrain!: object;
     backgroundLayer!: object;
     blockedLayer!: object;
+    lich!: Phaser.Physics.Arcade.Sprite;
+    randMove!: object;
 
     constructor() {
         super({
@@ -20,14 +22,14 @@ export class LVL1Scene extends Phaser.Scene {
         //     frameWidth: 16,
         //     frameHeight: 16
         // });
-        
+
         // this.load.tilemapTiledJSON('level1', './assets/level1.json');
 
         this.load.spritesheet('dungeon_std', './assets/dungeon_std.png', {
             frameWidth: 16,
             frameHeight: 16
         });
-        
+
         this.load.tilemapTiledJSON('level1', './assets/level1_1.json');
 
         // create meriel animations
@@ -138,21 +140,37 @@ export class LVL1Scene extends Phaser.Scene {
             .setSize(24, 30)
             .setOffset(0, 0)
             .play('wiz_idle');
-        
+
         // create lich sprite
         this.lich = this.physics.add.sprite(
             this.game.renderer.width / 2,
-            this.game.renderer.height * .3,
+            this.game.renderer.height * 0.3,
             'enemies',
             'monster_lich-0.png'
-        )
-        this.lich.setImmovable(true);
+        );
+        this.lich
+            .setImmovable(true)
+            .setCollideWorldBounds(true)
+            .setScale(0.5);
 
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');
 
         // //collisions
-        this.physics.add.collider(this.meriel, this.blockedLayer);this.physics.add.collider(this.meriel, this.lich)
+        this.physics.add.collider(this.meriel, this.blockedLayer);
+        this.physics.add.collider(this.lich, this.blockedLayer);
+
+        this.physics.add.collider(this.meriel, this.lich, (meriel, lich) => {
+            this.scene.start(CONSTANTS.SCENES.LVL2);
+        });
+
+        //move randomizer
+        this.randMove = this.time.addEvent({
+            delay: 1000,
+            callback: () => this.move(this.lich),
+            callbackScope: this,
+            loop: true
+        });
     }
 
     update() {
@@ -179,5 +197,26 @@ export class LVL1Scene extends Phaser.Scene {
                 this.meriel.setVelocityY(0);
             }
         }
+    }
+
+    move(sprite) {
+        const randNumber = Math.floor(Math.random() * 4 + 1);
+        randNumber === 1
+            ? sprite.setVelocityX(50)
+            : randNumber === 2
+            ? sprite.setVelocityX(-50)
+            : randNumber === 3
+            ? sprite.setVelocityY(50)
+            : randNumber === 2
+            ? sprite.setVelocityY(-50)
+            : null;
+
+        this.time.addEvent({
+            delay: 500,
+            callback: () => {
+                sprite.setVelocity(0);
+            },
+            callbackScope: this
+        });
     }
 }

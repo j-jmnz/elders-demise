@@ -429,13 +429,25 @@ function (_super) {
     this.wizard = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'characters', 'wiz_down_stand.png');
     this.wizard.setScale(1.5).setImmovable(true).setSize(24, 30).setOffset(0, 0).play('wiz_idle'); // create lich sprite
 
-    this.lich = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * .3, 'enemies', 'monster_lich-0.png');
-    this.lich.setImmovable(true); // create keyboard inputs and assign to WASD
+    this.lich = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height * 0.3, 'enemies', 'monster_lich-0.png');
+    this.lich.setImmovable(true).setCollideWorldBounds(true).setScale(0.5); // create keyboard inputs and assign to WASD
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
 
     this.physics.add.collider(this.meriel, this.blockedLayer);
-    this.physics.add.collider(this.meriel, this.lich);
+    this.physics.add.collider(this.lich, this.blockedLayer);
+    this.physics.add.collider(this.meriel, this.lich, function (meriel, lich) {
+      _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
+    }); //move randomizer
+
+    this.randMove = this.time.addEvent({
+      delay: 1000,
+      callback: function callback() {
+        return _this.move(_this.lich);
+      },
+      callbackScope: this,
+      loop: true
+    });
   };
 
   LVL1Scene.prototype.update = function () {
@@ -462,6 +474,18 @@ function (_super) {
         this.meriel.setVelocityY(0);
       }
     }
+  };
+
+  LVL1Scene.prototype.move = function (sprite) {
+    var randNumber = Math.floor(Math.random() * 4 + 1);
+    randNumber === 1 ? sprite.setVelocityX(50) : randNumber === 2 ? sprite.setVelocityX(-50) : randNumber === 3 ? sprite.setVelocityY(50) : randNumber === 2 ? sprite.setVelocityY(-50) : null;
+    this.time.addEvent({
+      delay: 500,
+      callback: function callback() {
+        sprite.setVelocity(0);
+      },
+      callbackScope: this
+    });
   };
 
   return LVL1Scene;
@@ -703,7 +727,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52112" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58514" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

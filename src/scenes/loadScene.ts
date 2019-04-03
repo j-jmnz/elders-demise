@@ -7,7 +7,7 @@ export class LoadScene extends Phaser.Scene {
         });
     }
     init() {}
-    
+
     preload() {
         // load background images and ui
         this.load.image('title_background', './assets/preview.png');
@@ -16,7 +16,7 @@ export class LoadScene extends Phaser.Scene {
 
         // load characters and enemies atlas
         this.load.atlas('characters', './assets/characters.png', './assets/characters.json');
-        this.load.atlas('enemies', './assets/monsters.png', './assets/monsters.json')
+        this.load.atlas('enemies', './assets/monsters.png', './assets/monsters.json');
 
         // load characters spritesheets
         this.load.spritesheet('meriel', './assets/meriel.png', { frameWidth: 22.59, frameHeight: 38 });
@@ -51,4 +51,6 @@ export class LoadScene extends Phaser.Scene {
     create() {
         this.scene.start(CONSTANTS.SCENES.MENU);
     }
+    
+    
 }

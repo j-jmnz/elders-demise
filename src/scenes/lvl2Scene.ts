@@ -159,6 +159,7 @@ export class LVL2Scene extends Phaser.Scene {
 
     update() {
         this.physics.world.collide(this.meriel, this.wizard);
+        
 
         if (this.meriel.active) {
             if (this.keyboard.D.isDown === true) {
@@ -182,4 +183,5 @@ export class LVL2Scene extends Phaser.Scene {
             }
         }
     }
+    
 }
