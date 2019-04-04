@@ -253,6 +253,57 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_atk1(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_atk1(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_atk1(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_idle2(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_idle2(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_idle2(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(4).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_walk(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_walk(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_walk(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_atk1(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_atk1(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_atk1(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_idle2(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_idle2(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_idle2(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(4).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_walk(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_walk(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_walk(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_atk2(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_atk2(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_atk2(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(4).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_idle1(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_idle1(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_idle1(3).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_walk(1).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_walk(2).png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_walk(3).png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9Paddings</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -292,6 +343,45 @@
             <filename>../../../../../../../Downloads/tf_monsters_assetpack/TimeFantasy_Monsters/1x/phoenix/monster_phoenix-4.png</filename>
             <filename>../../../../../../../Downloads/tf_monsters_assetpack/TimeFantasy_Monsters/1x/phoenix/monster_phoenix-5.png</filename>
             <filename>../../../../../../../Downloads/tf_monsters_assetpack/TimeFantasy_Monsters/1x/phoenix/monster_phoenix-6.png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_idle2(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_idle2(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_status(4).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_walk(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_walk(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_walk(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_atk1(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_atk1(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_atk1(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/4/maraud_5_4_idle2(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_idle1(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_idle1(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_walk(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_walk(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_walk(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_atk2(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_atk2(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_atk2(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_crouch(4).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/8/gob_5_8_idle1(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_walk(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_walk(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_walk(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_atk1(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_atk1(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_atk1(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_idle2(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_idle2(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_idle2(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(1).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(2).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(3).png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/7/plague_5_7_status(4).png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

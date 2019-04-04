@@ -165,20 +165,20 @@ export class LVL1Scene extends Phaser.Scene {
 
         if (this.meriel.active) {
             if (this.keyboard.D.isDown === true) {
-                this.meriel.setVelocityX(64);
+                this.meriel.setVelocityX(100);
                 this.meriel.play('meriel_rightW', true);
             } else if (this.keyboard.A.isDown === true) {
-                this.meriel.setVelocityX(-64);
+                this.meriel.setVelocityX(-100);
                 this.meriel.play('meriel_leftW', true);
             } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
                 this.meriel.setVelocityX(0);
             }
 
             if (this.keyboard.S.isDown === true) {
-                this.meriel.setVelocityY(64);
+                this.meriel.setVelocityY(100);
                 this.meriel.play('meriel_downW', true);
             } else if (this.keyboard.W.isDown === true) {
-                this.meriel.setVelocityY(-64);
+                this.meriel.setVelocityY(-100);
                 this.meriel.play('meriel_upW', true);
             } else if (this.keyboard.S.isUp && this.keyboard.W.isUp) {
                 this.meriel.setVelocityY(0);

@@ -184,8 +184,9 @@ function (_super) {
     var _this = this; // load background images and ui
 
 
-    this.load.image('title_background', './assets/preview.png');
-    this.load.image('play_button', './assets/play_button.png'); // load characters and enemies atlas
+    this.load.image('title_background', './assets/preview1.png');
+    this.load.image('play_button', './assets/play_button1.png');
+    this.load.image('controls_button', './assets/controls_button.png'); // load characters and enemies atlas
 
     this.load.atlas('characters', './assets/characters.png', './assets/characters.json');
     this.load.atlas('enemies', './assets/monsters.png', './assets/monsters.json'); // load characters spritesheets
@@ -270,17 +271,26 @@ function (_super) {
 
 
     this.add.image(0, 0, 'title_background').setOrigin(0);
-    var playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, 'play_button'); // playbutton interactivity
+    var playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * .7, 'play_button').setScale(.10);
+    var controlsButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * .8, 'controls_button').setScale(.10); // playbutton interactivity
 
     playButton.setInteractive();
     playButton.on('pointerover', function () {
-      playButton.setScale(1.2);
+      playButton.setScale(.13);
     });
     playButton.on('pointerout', function () {
-      playButton.setScale(1);
+      playButton.setScale(.10);
     });
     playButton.on('pointerup', function () {
-      _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE);
+      _this.scene.start(constants_1.CONSTANTS.SCENES.LVL1);
+    }); /// control button interactivity
+
+    controlsButton.setInteractive();
+    controlsButton.on('pointerover', function () {
+      controlsButton.setScale(.13);
+    });
+    controlsButton.on('pointerout', function () {
+      controlsButton.setScale(.10);
     });
   };
 
@@ -449,20 +459,20 @@ function (_super) {
 
     if (this.meriel.active) {
       if (this.keyboard.D.isDown === true) {
-        this.meriel.setVelocityX(64);
+        this.meriel.setVelocityX(100);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.A.isDown === true) {
-        this.meriel.setVelocityX(-64);
+        this.meriel.setVelocityX(-100);
         this.meriel.play('meriel_leftW', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
         this.meriel.setVelocityX(0);
       }
 
       if (this.keyboard.S.isDown === true) {
-        this.meriel.setVelocityY(64);
+        this.meriel.setVelocityY(100);
         this.meriel.play('meriel_downW', true);
       } else if (this.keyboard.W.isDown === true) {
-        this.meriel.setVelocityY(-64);
+        this.meriel.setVelocityY(-100);
         this.meriel.play('meriel_upW', true);
       } else if (this.keyboard.S.isUp && this.keyboard.W.isUp) {
         this.meriel.setVelocityY(0);
@@ -537,7 +547,7 @@ function (_super) {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.tilemapTiledJSON('level2', './assets/level2_2.json'); // create meriel animations
+    this.load.tilemapTiledJSON('level2', './assets/level2_2.json'); /////////// create meriel animations
 
     this.anims.create({
       key: 'meriel_downW',
@@ -578,6 +588,47 @@ function (_super) {
         start: 1,
         end: 2
       })
+    }); /////// create goblin animations
+
+    this.anims.create({
+      key: 'goblin_downW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'goblin_down_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'goblin_upW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'goblin_up_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'goblin_rightW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'goblin_right_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
+    });
+    this.anims.create({
+      key: 'goblin_leftW',
+      frameRate: 4,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'goblin_left_walk',
+        suffix: '.png',
+        start: 1,
+        end: 2
+      })
     });
   };
 
@@ -602,35 +653,84 @@ function (_super) {
     }); //create meriel sprite
 
     this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.88, 'characters', 'meriel_down_stand.png');
-    this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(15, 23).setOffset(0, 1); // create keyboard inputs and assign to WASD
+    this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(15, 23).setOffset(0, 1); // create goblin sprite
+
+    this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.5, this.game.renderer.height * 0.5, 'enemies', 'gob_5_8_idle1(1).png');
+    this.goblin.setImmovable(true).setCollideWorldBounds(true).setScale(1.5); // create goblins groups
+
+    this.goblins = this.physics.add.group({
+      immovable: true
+    });
+    this.goblins.add(this.physics.add.sprite(200, 200, 'characters', 'goblin_left_walk1.png')); // create keyboard inputs and assign to WASD
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
 
     this.physics.add.collider(this.meriel, this.blockedLayer);
+    this.physics.add.collider(this.meriel, this.goblins, function () {
+      _this.scene.transition({
+        target: constants_1.CONSTANTS.SCENES.BATTLE
+      });
+    });
+    this.physics.add.collider(this.blockedLayer, this.goblin); // goblin move randomizer
+
+    this.randMove = this.time.addEvent({
+      delay: 2000,
+      callback: function callback() {
+        return _this.move(_this.goblin);
+      },
+      callbackScope: this,
+      loop: true
+    });
   };
 
   LVL2Scene.prototype.update = function () {
     if (this.meriel.active) {
       if (this.keyboard.D.isDown === true) {
-        this.meriel.setVelocityX(64);
+        this.meriel.setVelocityX(100);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.A.isDown === true) {
-        this.meriel.setVelocityX(-64);
+        this.meriel.setVelocityX(-100);
         this.meriel.play('meriel_leftW', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
         this.meriel.setVelocityX(0);
       }
 
       if (this.keyboard.S.isDown === true) {
-        this.meriel.setVelocityY(64);
+        this.meriel.setVelocityY(100);
         this.meriel.play('meriel_downW', true);
       } else if (this.keyboard.W.isDown === true) {
-        this.meriel.setVelocityY(-64);
+        this.meriel.setVelocityY(-100);
         this.meriel.play('meriel_upW', true);
       } else if (this.keyboard.S.isUp && this.keyboard.W.isUp) {
         this.meriel.setVelocityY(0);
       }
     }
+  };
+
+  LVL2Scene.prototype.move = function (sprite) {
+    var randNumber1 = Math.floor(Math.random() * 4 + 1);
+
+    if (randNumber1 === 1) {
+      sprite.setVelocityX(100);
+      sprite.play('goblin_rightW', true);
+    } else if (randNumber1 === 2) {
+      sprite.setVelocityX(-100);
+      sprite.play('goblin_leftW', true);
+    } else if (randNumber1 === 3) {
+      sprite.setVelocityY(-100);
+      sprite.play('goblin_upW', true);
+    } else if (randNumber1 === 4) {
+      sprite.setVelocityY(100);
+      sprite.play('goblin_downW', true);
+    }
+
+    this.time.addEvent({
+      delay: 500,
+      callback: function callback() {
+        sprite.setVelocity(0);
+      },
+      callbackScope: this
+    });
   };
 
   return LVL2Scene;
@@ -813,12 +913,12 @@ function (_super) {
     if (this.meriel.active) {
       //walking animations
       if (this.keyboard.D.isDown === true) {
-        this.meriel.setFlipX(true);
-        this.meriel.setVelocityX(80);
+        // this.meriel.setFlipX(true);
+        this.meriel.setVelocityX(120);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.A.isDown === true) {
-        this.meriel.setFlipX(false);
-        this.meriel.setVelocityX(-80);
+        // this.meriel.setFlipX(false);
+        this.meriel.setVelocityX(-120);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
         this.meriel.setVelocityX(0);
@@ -837,7 +937,6 @@ function (_super) {
     var randNumber2 = Math.floor(Math.random() * 2 + 1);
 
     if (randNumber1 === 1) {
-      sprite.setFlipX(true);
       sprite.setVelocityX(100);
       sprite.play('goblin_walk', true);
       sprite.anims.chain('goblin_idle');
@@ -931,7 +1030,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60205" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63133" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

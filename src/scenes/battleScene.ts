@@ -184,12 +184,12 @@ export class BattleScene extends Phaser.Scene {
         if (this.meriel.active) {
             //walking animations
             if (this.keyboard.D.isDown === true) {
-                this.meriel.setFlipX(true);
-                this.meriel.setVelocityX(80);
+                // this.meriel.setFlipX(true);
+                this.meriel.setVelocityX(120);
                 this.meriel.play('meriel_rightW', true);
             } else if (this.keyboard.A.isDown === true) {
-                this.meriel.setFlipX(false);
-                this.meriel.setVelocityX(-80);
+                // this.meriel.setFlipX(false);
+                this.meriel.setVelocityX(-120);
                 this.meriel.play('meriel_rightW', true);
             } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
                 this.meriel.setVelocityX(0);
@@ -207,7 +207,6 @@ export class BattleScene extends Phaser.Scene {
         const randNumber2 = Math.floor(Math.random() * 2 + 1);
 
         if (randNumber1 === 1) {
-            sprite.setFlipX(true);
             sprite.setVelocityX(100);
             sprite.play('goblin_walk', true);
             sprite.anims.chain('goblin_idle');

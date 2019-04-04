@@ -10,9 +10,10 @@ export class LoadScene extends Phaser.Scene {
 
     preload() {
         // load background images and ui
-        this.load.image('title_background', './assets/preview.png');
+        this.load.image('title_background', './assets/preview1.png');
 
-        this.load.image('play_button', './assets/play_button.png');
+        this.load.image('play_button', './assets/play_button1.png');
+        this.load.image('controls_button', './assets/controls_button.png');
 
         // load characters and enemies atlas
         this.load.atlas('characters', './assets/characters.png', './assets/characters.json');
