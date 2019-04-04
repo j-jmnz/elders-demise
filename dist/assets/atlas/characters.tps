@@ -196,7 +196,7 @@
             <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(1).png</key>
             <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(2).png</key>
             <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(3).png</key>
-            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_dead.png</key>
+            <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(4).png</key>
             <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(1).png</key>
             <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(2).png</key>
             <key type="filename">../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(3).png</key>
@@ -388,6 +388,66 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_down_stand.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_up_stand.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,7,9,13</rect>
+                <key>scale9Paddings</key>
+                <rect>5,7,9,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_down_walk1.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_down_walk2.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_up_walk1.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_up_walk2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,6,9,13</rect>
+                <key>scale9Paddings</key>
+                <rect>5,6,9,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_left_stand.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_right_stand.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,7,7,13</rect>
+                <key>scale9Paddings</key>
+                <rect>4,7,7,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_left_walk1.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_left_walk2.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_right_walk1.png</key>
+            <key type="filename">../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_right_walk2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,6,7,13</rect>
+                <key>scale9Paddings</key>
+                <rect>4,6,7,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -462,7 +522,6 @@
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(1).png</filename>
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(2).png</filename>
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(3).png</filename>
-            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_dead.png</filename>
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(1).png</filename>
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(2).png</filename>
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_hit(3).png</filename>
@@ -478,6 +537,19 @@
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(1).png</filename>
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(2).png</filename>
             <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_magic(3).png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_down_walk1.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_down_walk2.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_left_stand.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_left_walk1.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_left_walk2.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_right_stand.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_right_walk1.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_right_walk2.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_up_stand.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_up_walk1.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_up_walk2.png</filename>
+            <filename>../../../../../../../Downloads/timefantasy_characters/timefantasy_characters/frames/chara/chara5_8/goblin_down_stand.png</filename>
+            <filename>../../../../../../../Downloads/tf_svbattle/singleframes/set5/6/5_6_crouch(4).png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

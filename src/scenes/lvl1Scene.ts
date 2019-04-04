@@ -10,6 +10,7 @@ export class LVL1Scene extends Phaser.Scene {
     blockedLayer!: object;
     lich!: Phaser.Physics.Arcade.Sprite;
     randMove!: object;
+    wizText: Phaser.GameObjects.Text;
 
     constructor() {
         super({
@@ -80,7 +81,19 @@ export class LVL1Scene extends Phaser.Scene {
         // create wiz animation
         this.anims.create({
             key: 'wiz_idle',
-            frameRate: 6,
+            frameRate: 3,
+            repeat: 1,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: 'wiz_laugh',
+                suffix: '.png',
+                start: 1,
+                end: 3
+            })
+        });
+
+        this.anims.create({
+            key: 'wiz_pose',
+            frameRate: 3,
             repeat: -1,
             frames: this.anims.generateFrameNames('characters', {
                 prefix: 'wiz_pose',
@@ -96,6 +109,14 @@ export class LVL1Scene extends Phaser.Scene {
     }
 
     create() {
+        // create audio isntance and play audio file
+        this.lvl1Song = this.sound.add('lvl1_song', {
+            loop: true,
+            volume: 0.7
+        });
+
+        this.lvl1Song.play();
+
         // create tilemap and tilesetimage
         this.level1 = this.make.tilemap({ key: 'level1' });
         //add tileset image
@@ -109,7 +130,9 @@ export class LVL1Scene extends Phaser.Scene {
 
         // add tileEvent to change scene
         this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, () => {
+            this.lvl1Song.stop();
             this.scene.start(CONSTANTS.SCENES.LVL2);
+
             console.log(CONSTANTS.SCENES.LVL2);
         });
 
@@ -138,26 +161,16 @@ export class LVL1Scene extends Phaser.Scene {
             .setScale(1.5)
             .setImmovable(true)
             .setSize(24, 30)
-            .setOffset(0, 0)
-            .play('wiz_idle');
+            .setOffset(0, 0);
+        // .play('wiz_idle');
 
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');
 
-        // //collisions
+        //collisions
         this.physics.add.collider(this.meriel, this.blockedLayer);
 
-        // this.physics.add.collider(this.meriel, this.lich, (meriel, lich) => {
-        //     this.scene.start(CONSTANTS.SCENES.BATTLE);
-        // });
-
-        // //move randomizer
-        // this.randMove = this.time.addEvent({
-        //     delay: 1000,
-        //     callback: () => this.move(this.lich),
-        //     callbackScope: this,
-        //     loop: true
-        // });
+        this.dialog();
     }
 
     update() {
@@ -202,6 +215,113 @@ export class LVL1Scene extends Phaser.Scene {
             delay: 500,
             callback: () => {
                 sprite.setVelocity(0);
+            },
+            callbackScope: this
+        });
+    }
+
+    dialog() {
+        // create meriel's health text
+        this.time.addEvent({
+            delay: 1000,
+            callback: () => {
+                this.wizText = this.add.text(315, 248, `   APPROACH KID`, {
+                    fontSize: '20px',
+                    fill: '#fff',
+                    align: 'center',
+                    fixedWidth: 200,
+                    fixedHeight: 100,
+                    maxLines: 2
+                });
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 4000,
+            callback: () => {
+                this.wizText.setText(`YOUR QUEST IS ABOUT TO START`);
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 7000,
+            callback: () => {
+                this.wizText.setText(``);
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 10000,
+            callback: () => {
+                this.wizText.setText(`ITS TIME FOR YOU TO PROVE YOUR WORTH`);
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 13000,
+            callback: () => {
+                this.wizText.setText(`BE TRUE TO YOUR HERO LEGACY`);
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 15000,
+            callback: () => {
+                this.wizText.setText(`AND DEFEAT THE EVIL NECROMANCER!`);
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 18000,
+            callback: () => {
+                this.wizText.setText(`HEAD TO THE DUNGEONS OF THE MAGE TOWER`);
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 21000,
+            callback: () => {
+                this.wizText.setText(`AND REDEEM THIS LAND FROM ITS HORRORS!`);
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 24000,
+            callback: () => {
+                this.wizText.setText(``);
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 27000,
+            callback: () => {
+                this.wizText.setText(`    GO NOW!`);
+                this.wizard.play('wiz_idle');
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 29000,
+            callback: () => {
+                this.wizText.setText(``);
+                this.wizard.play('wiz_pose');
             },
             callbackScope: this
         });

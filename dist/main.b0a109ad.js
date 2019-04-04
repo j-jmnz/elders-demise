@@ -186,8 +186,10 @@ function (_super) {
     this.input.setGlobalTopOnly(false); // load background images and ui
 
     this.load.image('title_background', './assets/preview1.png');
+    this.load.image('logo', './assets/logo1.png');
     this.load.image('play_button', './assets/play_button1.png');
-    this.load.image('controls_button', './assets/controls_button.png'); // load characters and enemies atlas
+    this.load.image('controls_button', './assets/controls_button.png');
+    this.load.image('keys', './assets/keys.png'); // load characters and enemies atlas
 
     this.load.atlas('characters', './assets/characters.png', './assets/characters.json');
     this.load.atlas('enemies', './assets/monsters.png', './assets/monsters.json'); // load characters spritesheets
@@ -196,7 +198,14 @@ function (_super) {
       frameWidth: 22.59,
       frameHeight: 38
     });
-    this.load.image('wizard_m', './assets/down_stand.png'); // create loading bar
+    this.load.image('wizard_m', './assets/down_stand.png'); // load audio files
+
+    this.load.audio('title_song', './assets/title_song.mp3');
+    this.load.audio('button_hover', './assets/button_highlight.wav');
+    this.load.audio('button_select', './assets/button_select.wav');
+    this.load.audio('lvl1_song', './assets/lvl1_song.mp3');
+    this.load.audio('lvl2_song', './assets/lvl2_song.mp3');
+    this.load.audio('battle_song', './assets/battle_song.mp3'); // create loading bar
 
     var loadingBar = this.add.graphics({
       fillStyle: {
@@ -268,30 +277,60 @@ function (_super) {
   }
 
   MenuScene.prototype.create = function () {
-    var _this = this; // create buttons and background
+    var _this = this; // play audio files
 
+
+    this.titleSong = this.sound.add('title_song', {
+      loop: true,
+      volume: 0.7
+    });
+    this.titleSong.play(); // create logo, buttons, and background
 
     this.add.image(0, 0, 'title_background').setOrigin(0);
+    this.add.image(400, 300 * 0.7, 'logo').setScale(0.35);
+    this.keys = this.add.image(165, this.game.renderer.height * 0.6, 'keys').setScale(0.15);
+    this.keys.visible = false;
     var playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'play_button').setScale(0.1);
     var controlsButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.81, 'controls_button').setScale(0.1); // playbutton interactivity
 
     playButton.setInteractive();
     playButton.on('pointerover', function () {
-      playButton.setScale(0.13);
+      _this.sound.play('button_hover');
+
+      playButton.setScale(0.12);
     });
     playButton.on('pointerout', function () {
       playButton.setScale(0.1);
     });
     playButton.on('pointerup', function () {
-      _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE);
+      _this.sound.play('button_select');
+
+      _this.time.addEvent({
+        delay: 750,
+        callback: function callback() {
+          _this.titleSong.stop();
+
+          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL1);
+        },
+        callbackScope: _this
+      });
     }); /// control button interactivity
 
     controlsButton.setInteractive();
     controlsButton.on('pointerover', function () {
-      controlsButton.setScale(0.13);
+      _this.sound.play('button_hover');
+
+      controlsButton.setScale(0.12);
     });
     controlsButton.on('pointerout', function () {
       controlsButton.setScale(0.1);
+
+      _this.keys.setVisible(false);
+    });
+    controlsButton.on('pointerup', function () {
+      _this.sound.play('button_select');
+
+      _this.keys.visible === false ? _this.keys.setVisible(true) : _this.keys.setVisible(false);
     });
   };
 
@@ -401,7 +440,18 @@ function (_super) {
 
     this.anims.create({
       key: 'wiz_idle',
-      frameRate: 6,
+      frameRate: 3,
+      repeat: 1,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: 'wiz_laugh',
+        suffix: '.png',
+        start: 1,
+        end: 3
+      })
+    });
+    this.anims.create({
+      key: 'wiz_pose',
+      frameRate: 3,
       repeat: -1,
       frames: this.anims.generateFrameNames('characters', {
         prefix: 'wiz_pose',
@@ -416,8 +466,14 @@ function (_super) {
   };
 
   LVL1Scene.prototype.create = function () {
-    var _this = this; // create tilemap and tilesetimage
+    var _this = this; // create audio isntance and play audio file
 
+
+    this.lvl1Song = this.sound.add('lvl1_song', {
+      loop: true,
+      volume: 0.7
+    });
+    this.lvl1Song.play(); // create tilemap and tilesetimage
 
     this.level1 = this.make.tilemap({
       key: 'level1'
@@ -430,6 +486,8 @@ function (_super) {
     this.blockedLayer.setCollisionByExclusion([-1]); // add tileEvent to change scene
 
     this.blockedLayer.setTileLocationCallback(24, 4, 1, 1, function () {
+      _this.lvl1Song.stop();
+
       _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
 
       console.log(constants_1.CONSTANTS.SCENES.LVL2);
@@ -439,20 +497,13 @@ function (_super) {
     this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(18, 30).setOffset(0, 0); //create wizard sprite
 
     this.wizard = this.physics.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'characters', 'wiz_down_stand.png');
-    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 30).setOffset(0, 0).play('wiz_idle'); // create keyboard inputs and assign to WASD
+    this.wizard.setScale(1.5).setImmovable(true).setSize(24, 30).setOffset(0, 0); // .play('wiz_idle');
+    // create keyboard inputs and assign to WASD
 
-    this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
+    this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); //collisions
 
-    this.physics.add.collider(this.meriel, this.blockedLayer); // this.physics.add.collider(this.meriel, this.lich, (meriel, lich) => {
-    //     this.scene.start(CONSTANTS.SCENES.BATTLE);
-    // });
-    // //move randomizer
-    // this.randMove = this.time.addEvent({
-    //     delay: 1000,
-    //     callback: () => this.move(this.lich),
-    //     callbackScope: this,
-    //     loop: true
-    // });
+    this.physics.add.collider(this.meriel, this.blockedLayer);
+    this.dialog();
   };
 
   LVL1Scene.prototype.update = function () {
@@ -488,6 +539,114 @@ function (_super) {
       delay: 500,
       callback: function callback() {
         sprite.setVelocity(0);
+      },
+      callbackScope: this
+    });
+  };
+
+  LVL1Scene.prototype.dialog = function () {
+    var _this = this; // create meriel's health text
+
+
+    this.time.addEvent({
+      delay: 1000,
+      callback: function callback() {
+        _this.wizText = _this.add.text(315, 248, "   APPROACH KID", {
+          fontSize: '20px',
+          fill: '#fff',
+          align: 'center',
+          fixedWidth: 200,
+          fixedHeight: 100,
+          maxLines: 2
+        });
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 4000,
+      callback: function callback() {
+        _this.wizText.setText("YOUR QUEST IS ABOUT TO START");
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 7000,
+      callback: function callback() {
+        _this.wizText.setText("");
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 10000,
+      callback: function callback() {
+        _this.wizText.setText("ITS TIME FOR YOU TO PROVE YOUR WORTH");
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 13000,
+      callback: function callback() {
+        _this.wizText.setText("BE TRUE TO YOUR HERO LEGACY");
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 15000,
+      callback: function callback() {
+        _this.wizText.setText("AND DEFEAT THE EVIL NECROMANCER!");
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 18000,
+      callback: function callback() {
+        _this.wizText.setText("HEAD TO THE DUNGEONS OF THE MAGE TOWER");
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 21000,
+      callback: function callback() {
+        _this.wizText.setText("AND REDEEM THIS LAND FROM ITS HORRORS!");
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 24000,
+      callback: function callback() {
+        _this.wizText.setText("");
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 27000,
+      callback: function callback() {
+        _this.wizText.setText("    GO NOW!");
+
+        _this.wizard.play('wiz_idle');
+      },
+      callbackScope: this
+    });
+    this.time.addEvent({
+      delay: 29000,
+      callback: function callback() {
+        _this.wizText.setText("");
+
+        _this.wizard.play('wiz_pose');
       },
       callbackScope: this
     });
@@ -543,7 +702,19 @@ function (_super) {
     }) || this;
   }
 
+  LVL2Scene.prototype.init = function (data) {
+    if (data.hasOwnProperty('playerX') === true) {
+      this.playerX = data.playerX;
+      this.playerY = data.playerY;
+      this.collidingEnemy = data.collidingEnemy;
+    } else if (data.hasOwnProperty('playerX') === false) {
+      this.playerX = this.game.renderer.width * 0.2;
+      this.playerY = this.game.renderer.height * 0.9;
+    }
+  };
+
   LVL2Scene.prototype.preload = function () {
+    this.scene.bringToTop(constants_1.CONSTANTS.SCENES.LVL2);
     this.load.spritesheet('level2_std', './assets/level2_std.png', {
       frameWidth: 16,
       frameHeight: 16
@@ -634,8 +805,14 @@ function (_super) {
   };
 
   LVL2Scene.prototype.create = function () {
-    var _this = this; // create tilemap and tilesetimage
+    var _this = this; // create audio isntance and play audio file
 
+
+    this.lvl2Song = this.sound.add('lvl2_song', {
+      loop: true,
+      volume: 0.7
+    });
+    this.lvl2Song.play(); // create tilemap and tilesetimage
 
     this.level2 = this.make.tilemap({
       key: 'level2'
@@ -647,13 +824,11 @@ function (_super) {
     this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0);
     this.blockedLayer.setCollisionByExclusion([-1]); // add tileEvent to change scene
 
-    this.blockedLayer.setTileLocationCallback(9, 35, 1, 1, function () {
-      _this.scene.start(constants_1.CONSTANTS.SCENES.LVL1);
-
-      console.log(constants_1.CONSTANTS.SCENES.LVL1);
+    this.blockedLayer.setTileLocationCallback(9, 35, 1, 1, function () {// this.scene.start(CONSTANTS.SCENES.LVL1);
+      // console.log(CONSTANTS.SCENES.LVL1);
     }); //create meriel sprite
 
-    this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.88, 'characters', 'meriel_down_stand.png');
+    this.meriel = this.physics.add.sprite(this.playerX, this.playerY, 'characters', 'meriel_up_stand.png');
     this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(15, 23).setOffset(0, 1); // create goblin sprite
 
     this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.5, this.game.renderer.height * 0.5, 'enemies', 'gob_5_8_idle1(1).png');
@@ -670,18 +845,30 @@ function (_super) {
 
     this.physics.add.collider(this.meriel, this.blockedLayer);
     this.physics.add.collider(this.meriel, this.goblin, function () {
-      _this.scene.transition({
-        target: constants_1.CONSTANTS.SCENES.BATTLE
+      _this.lvl2Song.stop();
+
+      _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE, {
+        playerX: _this.meriel.x,
+        playerY: _this.meriel.y,
+        collidingEnemy: 'goblin'
       });
     });
     this.physics.add.collider(this.meriel, this.goblin2, function () {
-      _this.scene.transition({
-        target: constants_1.CONSTANTS.SCENES.BATTLE
+      _this.lvl2Song.stop();
+
+      _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE, {
+        playerX: _this.meriel.x,
+        playerY: _this.meriel.y,
+        collidingEnemy: 'goblin2'
       });
     });
     this.physics.add.collider(this.meriel, this.goblin3, function () {
-      _this.scene.transition({
-        target: constants_1.CONSTANTS.SCENES.BATTLE
+      _this.lvl2Song.stop();
+
+      _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE, {
+        playerX: _this.meriel.x,
+        playerY: _this.meriel.y,
+        collidingEnemy: 'goblin3'
       });
     });
     this.physics.add.collider(this.blockedLayer, this.goblin);
@@ -711,7 +898,18 @@ function (_super) {
       },
       callbackScope: this,
       loop: true
-    });
+    }); // despawn colliding enemy after battle scene
+
+    if (this.collidingEnemy === 'goblin') {
+      this.goblin.setVisible(false);
+      this.goblin.disableBody(true);
+    } else if (this.collidingEnemy === 'goblin2') {
+      this.goblin2.setVisible(false);
+      this.goblin2.disableBody(true);
+    } else if (this.collidingEnemy === 'goblin3') {
+      this.goblin3.setVisible(false);
+      this.goblin3.disableBody(true);
+    }
   };
 
   LVL2Scene.prototype.update = function () {
@@ -814,8 +1012,15 @@ function (_super) {
     }) || this;
   }
 
+  BattleScene.prototype.init = function (data) {
+    this.playerX = data.playerX;
+    this.playerY = data.playerY;
+    this.collidingEnemy = data.collidingEnemy;
+  };
+
   BattleScene.prototype.preload = function () {
-    // load background and bot layer tilemap and images
+    this.scene.bringToTop(constants_1.CONSTANTS.SCENES.BATTLE); // load background and bot layer tilemap and images
+
     this.load.spritesheet('forest_bot', './assets/forest_bot.png', {
       frameWidth: 16,
       frameHeight: 16
@@ -858,6 +1063,17 @@ function (_super) {
         suffix: ').png',
         start: 1,
         end: 3
+      })
+    }); //death
+
+    this.anims.create({
+      key: 'meriel_death',
+      frameRate: 2,
+      frames: this.anims.generateFrameNames('characters', {
+        prefix: '5_6_crouch(',
+        suffix: ').png',
+        start: 1,
+        end: 4
       })
     }); /////// create goblin animations
     //idle
@@ -912,8 +1128,14 @@ function (_super) {
   };
 
   BattleScene.prototype.create = function () {
-    var _this = this; // add forest backkground tilesprite
+    var _this = this; // create audio isntance and play audio file
 
+
+    this.battleSong = this.sound.add('battle_song', {
+      loop: true,
+      volume: 0.7
+    });
+    this.battleSong.play(); // add forest backkground tilesprite
 
     this.forestField = this.add.tileSprite(0, -200, 928, 793, 'forest').setOrigin(0); // create tilemap and tilesetimage
 
@@ -935,18 +1157,20 @@ function (_super) {
 
     this.meriel.healthText = this.add.text(12, 50, "HP " + this.meriel.health, {
       fontSize: '32px',
-      fill: '#fff'
+      fill: '#fff',
+      strokeThickness: 2
     }); // create goblin sprite
 
     this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.8, this.game.renderer.height * 0.78, 'enemies', 'gob_5_8_idle1(1).png');
-    this.goblin.health = 10;
+    this.goblin.health = 1;
     this.goblin.graceTime = false;
     this.goblin.alive = true;
     this.goblin.setSize(20, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); //create goblin's health text
 
     this.goblin.healthText = this.add.text(685, 50, "HP " + this.goblin.health, {
       fontSize: '32px',
-      fill: '#fff'
+      fill: '#fff',
+      strokeThickness: 1
     }); // create keyboard inputs and assign to WASDKL
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
@@ -957,11 +1181,12 @@ function (_super) {
         _this.onHit(_this.goblin, _this.meriel); // on death
 
 
-        if (_this.meriel.health < 1) {
+        if (_this.meriel.health === 0) {
           _this.meriel.alive = false;
-          _this.meriel.y += 0.5;
 
-          _this.meriel.play('goblin_death');
+          _this.meriel.play('meriel_death');
+
+          _this.meriel.setImmovable(true);
         }
       } // if meriel attack anim goblin tints and takes damage
 
@@ -970,7 +1195,7 @@ function (_super) {
         _this.onHit(_this.meriel, _this.goblin); //on death
 
 
-        if (_this.goblin.health < 1) {
+        if (_this.goblin.health === 0) {
           _this.goblin.alive = false;
           _this.goblin.y += 0.5;
 
@@ -1026,13 +1251,32 @@ function (_super) {
           callbackScope: this
         });
       }
-    }
+    } // on death events
+
 
     if (!this.goblin.alive) {
       this.time.addEvent({
         delay: 6500,
         callback: function callback() {
-          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
+          _this.battleSong.stop();
+
+          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2, {
+            playerX: _this.playerX,
+            playerY: _this.playerY,
+            collidingEnemy: _this.collidingEnemy
+          });
+        },
+        callbackScope: this
+      });
+    }
+
+    if (!this.meriel.alive) {
+      this.time.addEvent({
+        delay: 2000,
+        callback: function callback() {
+          _this.battleSong.stop();
+
+          _this.scene.start(constants_1.CONSTANTS.SCENES.MENU);
         },
         callbackScope: this
       });
@@ -1092,24 +1336,26 @@ function (_super) {
   BattleScene.prototype.onHit = function (attacker, receiver) {
     this.gracePeriod = 2000;
 
-    if (attacker.graceTime == false) {
-      // set hit immunity
-      attacker.graceTime = true;
-      setTimeout(function () {
-        attacker.graceTime = false;
-      }, this.gracePeriod); // diminish hp
+    if (receiver.health > 0) {
+      if (attacker.graceTime == false) {
+        // set hit immunity
+        attacker.graceTime = true;
+        setTimeout(function () {
+          attacker.graceTime = false;
+        }, this.gracePeriod); // diminish hp
 
-      receiver.health--;
-      receiver.healthText.setText("HP " + receiver.health); // tint and untint sprite
+        receiver.health--;
+        receiver.healthText.setText("HP " + receiver.health); // tint and untint sprite
 
-      receiver.tint = 0xff0000;
-      this.time.addEvent({
-        delay: 500,
-        callback: function callback() {
-          return receiver.tint = 0xffffff;
-        },
-        callbackScope: this
-      });
+        receiver.tint = 0xff0000;
+        this.time.addEvent({
+          delay: 500,
+          callback: function callback() {
+            return receiver.tint = 0xffffff;
+          },
+          callbackScope: this
+        });
+      }
     }
   };
 
@@ -1145,7 +1391,7 @@ var game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true
+      debug: false
     }
   }
 });
@@ -1177,7 +1423,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54050" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50951" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

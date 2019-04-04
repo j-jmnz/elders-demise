@@ -16,13 +16,24 @@ export class BattleScene extends Phaser.Scene {
     goblinAttackAnim!: Phaser.Animations.Animation;
     graceTime!: object;
     gracePeriod!: number;
+    playerX: any;
+    playerY: any;
+    collidingEnemy: Phaser.Physics.Arcade.Sprite;
 
     constructor() {
         super({
             key: CONSTANTS.SCENES.BATTLE
         });
     }
+
+    init(data) {
+        this.playerX = data.playerX;
+        this.playerY = data.playerY;
+        this.collidingEnemy = data.collidingEnemy;
+    }
+
     preload() {
+        this.scene.bringToTop(CONSTANTS.SCENES.BATTLE);
         // load background and bot layer tilemap and images
         this.load.spritesheet('forest_bot', './assets/forest_bot.png', {
             frameWidth: 16,
@@ -75,6 +86,18 @@ export class BattleScene extends Phaser.Scene {
                 suffix: ').png',
                 start: 1,
                 end: 3
+            })
+        });
+
+        //death
+        this.anims.create({
+            key: 'meriel_death',
+            frameRate: 2,
+            frames: this.anims.generateFrameNames('characters', {
+                prefix: '5_6_crouch(',
+                suffix: ').png',
+                start: 1,
+                end: 4
             })
         });
 
@@ -134,6 +157,13 @@ export class BattleScene extends Phaser.Scene {
     }
 
     create() {
+        // create audio isntance and play audio file
+        this.battleSong = this.sound.add('battle_song', {
+            loop: true,
+            volume: 0.7
+        });
+
+        this.battleSong.play();
         // add forest backkground tilesprite
         this.forestField = this.add.tileSprite(0, -200, 928, 793, 'forest').setOrigin(0);
 
@@ -167,7 +197,8 @@ export class BattleScene extends Phaser.Scene {
         // create meriel's health text
         this.meriel.healthText = this.add.text(12, 50, `HP ${this.meriel.health}`, {
             fontSize: '32px',
-            fill: '#fff'
+            fill: '#fff',
+            strokeThickness: 2
         });
 
         // create goblin sprite
@@ -177,7 +208,7 @@ export class BattleScene extends Phaser.Scene {
             'enemies',
             'gob_5_8_idle1(1).png'
         );
-        this.goblin.health = 10;
+        this.goblin.health = 1;
         this.goblin.graceTime = false;
         this.goblin.alive = true;
         this.goblin
@@ -190,7 +221,8 @@ export class BattleScene extends Phaser.Scene {
         //create goblin's health text
         this.goblin.healthText = this.add.text(685, 50, `HP ${this.goblin.health}`, {
             fontSize: '32px',
-            fill: '#fff'
+            fill: '#fff',
+            strokeThickness: 1
         });
 
         // create keyboard inputs and assign to WASDKL
@@ -202,17 +234,17 @@ export class BattleScene extends Phaser.Scene {
             if (this.goblin.anims.currentAnim.key === 'goblin_attack') {
                 this.onHit(this.goblin, this.meriel);
                 // on death
-                if (this.meriel.health < 1) {
+                if (this.meriel.health === 0) {
                     this.meriel.alive = false;
-                    this.meriel.y += 0.5;
-                    this.meriel.play('goblin_death');
+                    this.meriel.play('meriel_death');
+                    this.meriel.setImmovable(true);
                 }
             }
             // if meriel attack anim goblin tints and takes damage
             if (this.meriel.anims.currentAnim.key === 'meriel_attack2') {
                 this.onHit(this.meriel, this.goblin);
                 //on death
-                if (this.goblin.health < 1) {
+                if (this.goblin.health === 0) {
                     this.goblin.alive = false;
                     this.goblin.y += 0.5;
                     this.goblin.play('goblin_death');
@@ -271,11 +303,28 @@ export class BattleScene extends Phaser.Scene {
             }
         }
 
+        // on death events
         if (!this.goblin.alive) {
             this.time.addEvent({
                 delay: 6500,
                 callback: () => {
-                    this.scene.start(CONSTANTS.SCENES.LVL2);
+                    this.battleSong.stop();
+                    this.scene.start(CONSTANTS.SCENES.LVL2, {
+                        playerX: this.playerX,
+                        playerY: this.playerY,
+                        collidingEnemy: this.collidingEnemy
+                    });
+                },
+                callbackScope: this
+            });
+        }
+
+        if (!this.meriel.alive) {
+            this.time.addEvent({
+                delay: 2000,
+                callback: () => {
+                    this.battleSong.stop();
+                    this.scene.start(CONSTANTS.SCENES.MENU);
                 },
                 callbackScope: this
             });
@@ -334,25 +383,26 @@ export class BattleScene extends Phaser.Scene {
 
     onHit(attacker: Phaser.Physics.Arcade.Sprite, receiver: Phaser.Physics.Arcade.Sprite) {
         this.gracePeriod = 2000;
+        if (receiver.health > 0) {
+            if (attacker.graceTime == false) {
+                // set hit immunity
+                attacker.graceTime = true;
+                setTimeout(() => {
+                    attacker.graceTime = false;
+                }, this.gracePeriod);
 
-        if (attacker.graceTime == false) {
-            // set hit immunity
-            attacker.graceTime = true;
-            setTimeout(() => {
-                attacker.graceTime = false;
-            }, this.gracePeriod);
+                // diminish hp
+                receiver.health--;
+                receiver.healthText.setText(`HP ${receiver.health}`);
 
-            // diminish hp
-            receiver.health--;
-            receiver.healthText.setText(`HP ${receiver.health}`);
-
-            // tint and untint sprite
-            receiver.tint = 0xff0000;
-            this.time.addEvent({
-                delay: 500,
-                callback: () => (receiver.tint = 0xffffff),
-                callbackScope: this
-            });
+                // tint and untint sprite
+                receiver.tint = 0xff0000;
+                this.time.addEvent({
+                    delay: 500,
+                    callback: () => (receiver.tint = 0xffffff),
+                    callbackScope: this
+                });
+            }
         }
     }
 }

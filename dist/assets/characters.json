@@ -10,7 +10,7 @@
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "5_6_dead.png",
+					"filename": "5_6_crouch(4).png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -2094,6 +2094,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:ff01aca63426fad62a337ec3b220bc1f:bed7f4ab86ab5035c8353c5bf3b116a7:a5fe7db4b869eb0f3e0b2940b9577ea8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:ed6f537c40a39763d96e5715e5dc79a3:bed7f4ab86ab5035c8353c5bf3b116a7:a5fe7db4b869eb0f3e0b2940b9577ea8$"
 	}
 }

@@ -13,13 +13,30 @@ export class LVL2Scene extends Phaser.Scene {
     goblin!: Phaser.Physics.Arcade.Sprite;
     randMove: Phaser.Time.TimerEvent;
     debugGraphics: Phaser.GameObjects.Graphics;
+    collidingEnemy: string;
+    goblin3: any;
+    goblin2: Phaser.Physics.Arcade.Sprite;
 
     constructor() {
         super({
             key: CONSTANTS.SCENES.LVL2
         });
     }
+
+    init(data) {
+        if (data.hasOwnProperty('playerX') === true) {
+            this.playerX = data.playerX;
+            this.playerY = data.playerY;
+            this.collidingEnemy = data.collidingEnemy;
+        } else if (data.hasOwnProperty('playerX') === false) {
+            this.playerX = this.game.renderer.width * 0.2;
+            this.playerY = this.game.renderer.height * 0.9;
+        }
+    }
+
     preload() {
+        this.scene.bringToTop(CONSTANTS.SCENES.LVL2);
+
         this.load.spritesheet('level2_std', './assets/level2_std.png', {
             frameWidth: 16,
             frameHeight: 16
@@ -119,6 +136,13 @@ export class LVL2Scene extends Phaser.Scene {
     }
 
     create() {
+        // create audio isntance and play audio file
+        this.lvl2Song = this.sound.add('lvl2_song', {
+            loop: true,
+            volume: 0.7
+        });
+
+        this.lvl2Song.play();
         // create tilemap and tilesetimage
         this.level2 = this.make.tilemap({ key: 'level2' });
 
@@ -133,16 +157,16 @@ export class LVL2Scene extends Phaser.Scene {
 
         // add tileEvent to change scene
         this.blockedLayer.setTileLocationCallback(9, 35, 1, 1, () => {
-            this.scene.start(CONSTANTS.SCENES.LVL1);
-            console.log(CONSTANTS.SCENES.LVL1);
+            // this.scene.start(CONSTANTS.SCENES.LVL1);
+            // console.log(CONSTANTS.SCENES.LVL1);
         });
 
         //create meriel sprite
         this.meriel = this.physics.add.sprite(
-            this.game.renderer.width * 0.2,
-            this.game.renderer.height * 0.88,
+            this.playerX,
+            this.playerY,
             'characters',
-            'meriel_down_stand.png'
+            'meriel_up_stand.png'
         );
         this.meriel
             .setScale(1.5)
@@ -200,20 +224,29 @@ export class LVL2Scene extends Phaser.Scene {
         this.physics.add.collider(this.meriel, this.blockedLayer);
 
         this.physics.add.collider(this.meriel, this.goblin, () => {
-            this.scene.transition({
-                target: CONSTANTS.SCENES.BATTLE
+            this.lvl2Song.stop();
+            this.scene.start(CONSTANTS.SCENES.BATTLE, {
+                playerX: this.meriel.x,
+                playerY: this.meriel.y,
+                collidingEnemy: 'goblin'
             });
         });
 
         this.physics.add.collider(this.meriel, this.goblin2, () => {
-            this.scene.transition({
-                target: CONSTANTS.SCENES.BATTLE
+            this.lvl2Song.stop();
+            this.scene.start(CONSTANTS.SCENES.BATTLE, {
+                playerX: this.meriel.x,
+                playerY: this.meriel.y,
+                collidingEnemy: 'goblin2'
             });
         });
 
         this.physics.add.collider(this.meriel, this.goblin3, () => {
-            this.scene.transition({
-                target: CONSTANTS.SCENES.BATTLE
+            this.lvl2Song.stop();
+            this.scene.start(CONSTANTS.SCENES.BATTLE, {
+                playerX: this.meriel.x,
+                playerY: this.meriel.y,
+                collidingEnemy: 'goblin3'
             });
         });
 
@@ -242,6 +275,21 @@ export class LVL2Scene extends Phaser.Scene {
             callbackScope: this,
             loop: true
         });
+
+
+        // despawn colliding enemy after battle scene
+        if (this.collidingEnemy === 'goblin') {
+            this.goblin.setVisible(false);
+            this.goblin.disableBody(true)
+        } else if (this.collidingEnemy === 'goblin2') {
+            this.goblin2.setVisible(false);
+            this.goblin2.disableBody(true)
+
+        } else if (this.collidingEnemy === 'goblin3') {
+            this.goblin3.setVisible(false);
+            this.goblin3.disableBody(true)
+
+        }
     }
 
     update() {
