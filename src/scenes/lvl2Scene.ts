@@ -120,17 +120,17 @@ export class LVL2Scene extends Phaser.Scene {
 
     create() {
         // create tilemap and tilesetimage
-        this.level2 = this.make.tilemap({ key: 'level2' })
-       
+        this.level2 = this.make.tilemap({ key: 'level2' });
+
         //add tileset image
-        this.terrain = this.level2.addTilesetImage('level2_std')
-        
+        this.terrain = this.level2.addTilesetImage('level2_std');
+
         // create map layers
         this.backgroundLayer = this.level2.createStaticLayer('Background', this.terrain, 0, 0);
         this.blockedLayer = this.level2.createStaticLayer('Blocked', this.terrain, 0, 0);
-        
+
         this.blockedLayer.setCollisionByExclusion([-1]);
-        
+
         // add tileEvent to change scene
         this.blockedLayer.setTileLocationCallback(9, 35, 1, 1, () => {
             this.scene.start(CONSTANTS.SCENES.LVL1);
@@ -161,40 +161,87 @@ export class LVL2Scene extends Phaser.Scene {
             .setImmovable(true)
             .setCollideWorldBounds(true)
             .setScale(1.5)
+            .setSize(15, 23)
+            .setOffset(1, 0);
 
-        // create goblins groups
-        this.goblins = this.physics.add.group({ immovable: true });
-        this.goblins.add(this.physics.add.sprite(
-            200,
-            200,
-            'characters',
-            'goblin_left_walk1.png'
-        ));
+        ////// create goblins groups
+        // goblin2
+        this.goblin2 = this.physics.add.sprite(
+            this.game.renderer.width * 0.69,
+            this.game.renderer.height * 0.69,
+            'enemies',
+            'gob_5_8_idle1(1).png'
+        );
+        this.goblin2
+            .setImmovable(true)
+            .setCollideWorldBounds(true)
+            .setScale(1.5)
+            .setSize(15, 23)
+            .setOffset(1, 0);
 
-        
+        // goblin3
+        this.goblin3 = this.physics.add.sprite(
+            this.game.renderer.width * 0.2,
+            this.game.renderer.height * 0.2,
+            'enemies',
+            'gob_5_8_idle1(1).png'
+        );
+        this.goblin3
+            .setImmovable(true)
+            .setCollideWorldBounds(true)
+            .setScale(1.5)
+            .setSize(15, 23)
+            .setOffset(1, 0);
+
         // create keyboard inputs and assign to WASD
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D');
 
         // //collisions
         this.physics.add.collider(this.meriel, this.blockedLayer);
 
-        this.physics.add.collider(this.meriel, this.goblins, ()=> {
+        this.physics.add.collider(this.meriel, this.goblin, () => {
             this.scene.transition({
                 target: CONSTANTS.SCENES.BATTLE
-            })
-            console.log('hit')
+            });
+        });
+
+        this.physics.add.collider(this.meriel, this.goblin2, () => {
+            this.scene.transition({
+                target: CONSTANTS.SCENES.BATTLE
+            });
+        });
+
+        this.physics.add.collider(this.meriel, this.goblin3, () => {
+            this.scene.transition({
+                target: CONSTANTS.SCENES.BATTLE
+            });
         });
 
         this.physics.add.collider(this.blockedLayer, this.goblin);
+        this.physics.add.collider(this.blockedLayer, this.goblin2);
+        this.physics.add.collider(this.blockedLayer, this.goblin3);
 
         // goblin move randomizer
         this.randMove = this.time.addEvent({
-            delay: 2000,
+            delay: 1000,
             callback: () => this.move(this.goblin),
             callbackScope: this,
             loop: true
         });
 
+        this.randMove = this.time.addEvent({
+            delay: 1500,
+            callback: () => this.move(this.goblin2),
+            callbackScope: this,
+            loop: true
+        });
+
+        this.randMove = this.time.addEvent({
+            delay: 2000,
+            callback: () => this.move(this.goblin3),
+            callbackScope: this,
+            loop: true
+        });
     }
 
     update() {

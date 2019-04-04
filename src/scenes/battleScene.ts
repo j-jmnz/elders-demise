@@ -15,6 +15,7 @@ export class BattleScene extends Phaser.Scene {
     goblin!: Phaser.Physics.Arcade.Sprite;
     goblinAttackAnim!: Phaser.Animations.Animation;
     graceTime!: object;
+    gracePeriod!: number;
 
     constructor() {
         super({
@@ -115,6 +116,18 @@ export class BattleScene extends Phaser.Scene {
             })
         });
 
+        //death
+        this.anims.create({
+            key: 'goblin_death',
+            frameRate: 1,
+            frames: this.anims.generateFrameNames('enemies', {
+                prefix: 'gob_5_8_crouch(',
+                suffix: ').png',
+                start: 1,
+                end: 4
+            })
+        });
+
         this.load.on('load', (file: Phaser.Loader.File) => {
             console.log(file.src);
         });
@@ -143,6 +156,7 @@ export class BattleScene extends Phaser.Scene {
         );
         this.meriel.graceTime = false;
         this.meriel.health = 10;
+        this.meriel.alive = true;
         this.meriel
             .setSize(15, 23)
             .setScale(2.5)
@@ -165,6 +179,7 @@ export class BattleScene extends Phaser.Scene {
         );
         this.goblin.health = 10;
         this.goblin.graceTime = false;
+        this.goblin.alive = true;
         this.goblin
             .setSize(20, 23)
             .setImmovable(true)
@@ -182,29 +197,46 @@ export class BattleScene extends Phaser.Scene {
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L');
 
         // //collisions
-        this.gracePeriod = 2000;
         this.physics.add.collider(this.meriel, this.goblin, () => {
             //if goblin attack animation meriel tints and takes damage
             if (this.goblin.anims.currentAnim.key === 'goblin_attack') {
                 this.onHit(this.goblin, this.meriel);
+                // on death
+                if (this.meriel.health < 1) {
+                    this.meriel.alive = false;
+                    this.meriel.y += 0.5;
+                    this.meriel.play('goblin_death');
+                }
             }
             // if meriel attack anim goblin tints and takes damage
             if (this.meriel.anims.currentAnim.key === 'meriel_attack2') {
                 this.onHit(this.meriel, this.goblin);
+                //on death
+                if (this.goblin.health < 1) {
+                    this.goblin.alive = false;
+                    this.goblin.y += 0.5;
+                    this.goblin.play('goblin_death');
+                }
             }
         });
 
         this.physics.add.collider(this.meriel, this.blockedLayer);
 
         // goblin move randomizer
+
         this.randMove = this.time.addEvent({
             delay: 2000,
-            callback: () => this.move(this.goblin),
+            callback: () => {
+                if (this.goblin.alive) {
+                    this.move(this.goblin);
+                }
+            },
             callbackScope: this,
             loop: true
         });
+
+        console.log(this.goblin);
     }
-    
 
     update() {
         // background scrolling
@@ -214,11 +246,11 @@ export class BattleScene extends Phaser.Scene {
         if (this.meriel.active) {
             //walking animations
             if (this.keyboard.D.isDown === true) {
-                // this.meriel.setFlipX(true);
+                this.meriel.setFlipX(true);
                 this.meriel.setVelocityX(120);
                 this.meriel.play('meriel_rightW', true);
             } else if (this.keyboard.A.isDown === true) {
-                // this.meriel.setFlipX(false);
+                this.meriel.setFlipX(false);
                 this.meriel.setVelocityX(-120);
                 this.meriel.play('meriel_rightW', true);
             } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
@@ -237,6 +269,16 @@ export class BattleScene extends Phaser.Scene {
                     callbackScope: this
                 });
             }
+        }
+
+        if (!this.goblin.alive) {
+            this.time.addEvent({
+                delay: 6500,
+                callback: () => {
+                    this.scene.start(CONSTANTS.SCENES.LVL2);
+                },
+                callbackScope: this
+            });
         }
     }
 
@@ -290,22 +332,27 @@ export class BattleScene extends Phaser.Scene {
         });
     }
 
-    onHit(attacker, receiver) {
+    onHit(attacker: Phaser.Physics.Arcade.Sprite, receiver: Phaser.Physics.Arcade.Sprite) {
+        this.gracePeriod = 2000;
+
         if (attacker.graceTime == false) {
+            // set hit immunity
             attacker.graceTime = true;
+            setTimeout(() => {
+                attacker.graceTime = false;
+            }, this.gracePeriod);
+
+            // diminish hp
             receiver.health--;
             receiver.healthText.setText(`HP ${receiver.health}`);
-            receiver.tint = 0xff0000;
 
+            // tint and untint sprite
+            receiver.tint = 0xff0000;
             this.time.addEvent({
                 delay: 500,
                 callback: () => (receiver.tint = 0xffffff),
                 callbackScope: this
             });
-
-            setTimeout(() => {
-                attacker.graceTime = false;
-            }, this.gracePeriod);
-        } 
+        }
     }
 }

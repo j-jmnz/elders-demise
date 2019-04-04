@@ -49893,6 +49893,7 @@ declare namespace Phaser {
                 graceTime: boolean;
                 health: number;
                 healthText: GameObjects.Text;
+                alive: boolean;
                 /**
                  * 
                  * @param scene The Scene to which this Game Object belongs. A Game Object can only belong to one Scene at a time.

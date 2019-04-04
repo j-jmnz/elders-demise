@@ -9,6 +9,8 @@ export class LoadScene extends Phaser.Scene {
     init() {}
 
     preload() {
+        this.input.setGlobalTopOnly(false);
+
         // load background images and ui
         this.load.image('title_background', './assets/preview1.png');
 
@@ -52,6 +54,4 @@ export class LoadScene extends Phaser.Scene {
     create() {
         this.scene.start(CONSTANTS.SCENES.MENU);
     }
-    
-    
 }

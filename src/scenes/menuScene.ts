@@ -10,27 +10,23 @@ export class MenuScene extends Phaser.Scene {
         // create buttons and background
         this.add.image(0, 0, 'title_background').setOrigin(0);
 
-        let playButton = this.add.image(
-            this.game.renderer.width / 2,
-            this.game.renderer.height * .7,
-            'play_button'
-        ).setScale(.10)
+        let playButton = this.add
+            .image(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'play_button')
+            .setScale(0.1);
 
-        let controlsButton = this.add.image(
-            this.game.renderer.width / 2,
-            this.game.renderer.height * .81,
-            'controls_button'
-        ).setScale(.10)
+        let controlsButton = this.add
+            .image(this.game.renderer.width / 2, this.game.renderer.height * 0.81, 'controls_button')
+            .setScale(0.1);
 
         // playbutton interactivity
         playButton.setInteractive();
 
         playButton.on('pointerover', () => {
-            playButton.setScale(.13);
+            playButton.setScale(0.13);
         });
 
         playButton.on('pointerout', () => {
-            playButton.setScale(.10);
+            playButton.setScale(0.1);
         });
 
         playButton.on('pointerup', () => {
@@ -41,12 +37,11 @@ export class MenuScene extends Phaser.Scene {
         controlsButton.setInteractive();
 
         controlsButton.on('pointerover', () => {
-            controlsButton.setScale(.13);
+            controlsButton.setScale(0.13);
         });
 
         controlsButton.on('pointerout', () => {
-            controlsButton.setScale(.10);
+            controlsButton.setScale(0.1);
         });
-        
     }
 }

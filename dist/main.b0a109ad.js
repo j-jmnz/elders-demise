@@ -181,8 +181,9 @@ function (_super) {
   LoadScene.prototype.init = function () {};
 
   LoadScene.prototype.preload = function () {
-    var _this = this; // load background images and ui
+    var _this = this;
 
+    this.input.setGlobalTopOnly(false); // load background images and ui
 
     this.load.image('title_background', './assets/preview1.png');
     this.load.image('play_button', './assets/play_button1.png');
@@ -271,15 +272,15 @@ function (_super) {
 
 
     this.add.image(0, 0, 'title_background').setOrigin(0);
-    var playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * .7, 'play_button').setScale(.10);
-    var controlsButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * .81, 'controls_button').setScale(.10); // playbutton interactivity
+    var playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.7, 'play_button').setScale(0.1);
+    var controlsButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.81, 'controls_button').setScale(0.1); // playbutton interactivity
 
     playButton.setInteractive();
     playButton.on('pointerover', function () {
-      playButton.setScale(.13);
+      playButton.setScale(0.13);
     });
     playButton.on('pointerout', function () {
-      playButton.setScale(.10);
+      playButton.setScale(0.1);
     });
     playButton.on('pointerup', function () {
       _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE);
@@ -287,10 +288,10 @@ function (_super) {
 
     controlsButton.setInteractive();
     controlsButton.on('pointerover', function () {
-      controlsButton.setScale(.13);
+      controlsButton.setScale(0.13);
     });
     controlsButton.on('pointerout', function () {
-      controlsButton.setScale(.10);
+      controlsButton.setScale(0.1);
     });
   };
 
@@ -656,29 +657,57 @@ function (_super) {
     this.meriel.setScale(1.5).setCollideWorldBounds(true).setSize(15, 23).setOffset(0, 1); // create goblin sprite
 
     this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.5, this.game.renderer.height * 0.5, 'enemies', 'gob_5_8_idle1(1).png');
-    this.goblin.setImmovable(true).setCollideWorldBounds(true).setScale(1.5); // create goblins groups
+    this.goblin.setImmovable(true).setCollideWorldBounds(true).setScale(1.5).setSize(15, 23).setOffset(1, 0); ////// create goblins groups
+    // goblin2
 
-    this.goblins = this.physics.add.group({
-      immovable: true
-    });
-    this.goblins.add(this.physics.add.sprite(200, 200, 'characters', 'goblin_left_walk1.png')); // create keyboard inputs and assign to WASD
+    this.goblin2 = this.physics.add.sprite(this.game.renderer.width * 0.69, this.game.renderer.height * 0.69, 'enemies', 'gob_5_8_idle1(1).png');
+    this.goblin2.setImmovable(true).setCollideWorldBounds(true).setScale(1.5).setSize(15, 23).setOffset(1, 0); // goblin3
+
+    this.goblin3 = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.2, 'enemies', 'gob_5_8_idle1(1).png');
+    this.goblin3.setImmovable(true).setCollideWorldBounds(true).setScale(1.5).setSize(15, 23).setOffset(1, 0); // create keyboard inputs and assign to WASD
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D'); // //collisions
 
     this.physics.add.collider(this.meriel, this.blockedLayer);
-    this.physics.add.collider(this.meriel, this.goblins, function () {
+    this.physics.add.collider(this.meriel, this.goblin, function () {
       _this.scene.transition({
         target: constants_1.CONSTANTS.SCENES.BATTLE
       });
-
-      console.log('hit');
     });
-    this.physics.add.collider(this.blockedLayer, this.goblin); // goblin move randomizer
+    this.physics.add.collider(this.meriel, this.goblin2, function () {
+      _this.scene.transition({
+        target: constants_1.CONSTANTS.SCENES.BATTLE
+      });
+    });
+    this.physics.add.collider(this.meriel, this.goblin3, function () {
+      _this.scene.transition({
+        target: constants_1.CONSTANTS.SCENES.BATTLE
+      });
+    });
+    this.physics.add.collider(this.blockedLayer, this.goblin);
+    this.physics.add.collider(this.blockedLayer, this.goblin2);
+    this.physics.add.collider(this.blockedLayer, this.goblin3); // goblin move randomizer
 
+    this.randMove = this.time.addEvent({
+      delay: 1000,
+      callback: function callback() {
+        return _this.move(_this.goblin);
+      },
+      callbackScope: this,
+      loop: true
+    });
+    this.randMove = this.time.addEvent({
+      delay: 1500,
+      callback: function callback() {
+        return _this.move(_this.goblin2);
+      },
+      callbackScope: this,
+      loop: true
+    });
     this.randMove = this.time.addEvent({
       delay: 2000,
       callback: function callback() {
-        return _this.move(_this.goblin);
+        return _this.move(_this.goblin3);
       },
       callbackScope: this,
       loop: true
@@ -865,6 +894,17 @@ function (_super) {
         start: 1,
         end: 3
       })
+    }); //death
+
+    this.anims.create({
+      key: 'goblin_death',
+      frameRate: 1,
+      frames: this.anims.generateFrameNames('enemies', {
+        prefix: 'gob_5_8_crouch(',
+        suffix: ').png',
+        start: 1,
+        end: 4
+      })
     });
     this.load.on('load', function (file) {
       console.log(file.src);
@@ -890,6 +930,7 @@ function (_super) {
     this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.81, 'characters', '5_6_idle1(1).png');
     this.meriel.graceTime = false;
     this.meriel.health = 10;
+    this.meriel.alive = true;
     this.meriel.setSize(15, 23).setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create meriel's health text
 
     this.meriel.healthText = this.add.text(12, 50, "HP " + this.meriel.health, {
@@ -900,6 +941,7 @@ function (_super) {
     this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.8, this.game.renderer.height * 0.78, 'enemies', 'gob_5_8_idle1(1).png');
     this.goblin.health = 10;
     this.goblin.graceTime = false;
+    this.goblin.alive = true;
     this.goblin.setSize(20, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); //create goblin's health text
 
     this.goblin.healthText = this.add.text(685, 50, "HP " + this.goblin.health, {
@@ -909,16 +951,31 @@ function (_super) {
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
 
-    this.gracePeriod = 2000;
     this.physics.add.collider(this.meriel, this.goblin, function () {
       //if goblin attack animation meriel tints and takes damage
       if (_this.goblin.anims.currentAnim.key === 'goblin_attack') {
-        _this.onHit(_this.goblin, _this.meriel);
+        _this.onHit(_this.goblin, _this.meriel); // on death
+
+
+        if (_this.meriel.health < 1) {
+          _this.meriel.alive = false;
+          _this.meriel.y += 0.5;
+
+          _this.meriel.play('goblin_death');
+        }
       } // if meriel attack anim goblin tints and takes damage
 
 
       if (_this.meriel.anims.currentAnim.key === 'meriel_attack2') {
-        _this.onHit(_this.meriel, _this.goblin);
+        _this.onHit(_this.meriel, _this.goblin); //on death
+
+
+        if (_this.goblin.health < 1) {
+          _this.goblin.alive = false;
+          _this.goblin.y += 0.5;
+
+          _this.goblin.play('goblin_death');
+        }
       }
     });
     this.physics.add.collider(this.meriel, this.blockedLayer); // goblin move randomizer
@@ -926,11 +983,14 @@ function (_super) {
     this.randMove = this.time.addEvent({
       delay: 2000,
       callback: function callback() {
-        return _this.move(_this.goblin);
+        if (_this.goblin.alive) {
+          _this.move(_this.goblin);
+        }
       },
       callbackScope: this,
       loop: true
     });
+    console.log(this.goblin);
   };
 
   BattleScene.prototype.update = function () {
@@ -942,11 +1002,11 @@ function (_super) {
     if (this.meriel.active) {
       //walking animations
       if (this.keyboard.D.isDown === true) {
-        // this.meriel.setFlipX(true);
+        this.meriel.setFlipX(true);
         this.meriel.setVelocityX(120);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.A.isDown === true) {
-        // this.meriel.setFlipX(false);
+        this.meriel.setFlipX(false);
         this.meriel.setVelocityX(-120);
         this.meriel.play('meriel_rightW', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
@@ -966,6 +1026,16 @@ function (_super) {
           callbackScope: this
         });
       }
+    }
+
+    if (!this.goblin.alive) {
+      this.time.addEvent({
+        delay: 6500,
+        callback: function callback() {
+          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
+        },
+        callbackScope: this
+      });
     }
   };
 
@@ -1020,10 +1090,18 @@ function (_super) {
   };
 
   BattleScene.prototype.onHit = function (attacker, receiver) {
+    this.gracePeriod = 2000;
+
     if (attacker.graceTime == false) {
+      // set hit immunity
       attacker.graceTime = true;
+      setTimeout(function () {
+        attacker.graceTime = false;
+      }, this.gracePeriod); // diminish hp
+
       receiver.health--;
-      receiver.healthText.setText("HP " + receiver.health);
+      receiver.healthText.setText("HP " + receiver.health); // tint and untint sprite
+
       receiver.tint = 0xff0000;
       this.time.addEvent({
         delay: 500,
@@ -1032,9 +1110,6 @@ function (_super) {
         },
         callbackScope: this
       });
-      setTimeout(function () {
-        attacker.graceTime = false;
-      }, this.gracePeriod);
     }
   };
 
@@ -1070,7 +1145,7 @@ var game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false
+      debug: true
     }
   }
 });
@@ -1102,7 +1177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61210" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54050" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
