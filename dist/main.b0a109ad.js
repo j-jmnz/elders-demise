@@ -670,6 +670,8 @@ function (_super) {
       _this.scene.transition({
         target: constants_1.CONSTANTS.SCENES.BATTLE
       });
+
+      console.log('hit');
     });
     this.physics.add.collider(this.blockedLayer, this.goblin); // goblin move randomizer
 
@@ -886,38 +888,81 @@ function (_super) {
     this.blockedLayer.setDepth(1); //create meriel sprite
 
     this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.81, 'characters', '5_6_idle1(1).png');
-    this.meriel.setSize(15, 23).setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create goblin sprite
+    this.meriel.graceTime = false;
+    this.meriel.health = 10;
+    this.meriel.setSize(15, 23).setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create meriel's health text    
+
+    this.meriel.healthText = this.add.text(12, 50, "HP " + this.meriel.health, {
+      fontSize: '32px',
+      fill: '#fff'
+    }); // create goblin sprite
 
     this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.8, this.game.renderer.height * 0.78, 'enemies', 'gob_5_8_idle1(1).png');
-    this.goblin.setSize(20, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); // create keyboard inputs and assign to WASDKL
+    this.goblin.health = 10;
+    this.goblin.graceTime = false;
+    this.goblin.setSize(20, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); //create goblin's health text
+
+    this.goblin.healthText = this.add.text(685, 50, "HP " + this.goblin.health, {
+      fontSize: '32px',
+      fill: '#fff'
+    }); // create keyboard inputs and assign to WASDKL
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
 
+    this.gracePeriod = 2000;
     this.physics.add.collider(this.meriel, this.goblin, function (meriel, goblin) {
       //if goblin attack animation meriel tints and takes damage
       if (_this.goblin.anims.currentAnim.key === 'goblin_attack') {
-        _this.meriel.tint = 0xff0000;
+        if (_this.goblin.graceTime == false) {
+          _this.goblin.graceTime = true;
+          _this.meriel.health--;
 
-        _this.time.addEvent({
-          delay: 500,
-          callback: function callback() {
-            return _this.meriel.tint = 0xffffff;
-          },
-          callbackScope: _this
-        });
+          _this.meriel.healthText.setText("HP " + _this.meriel.health);
+
+          _this.meriel.tint = 0xff0000;
+          console.log("HIT " + _this.meriel.health);
+
+          _this.time.addEvent({
+            delay: 500,
+            callback: function callback() {
+              return _this.meriel.tint = 0xffffff;
+            },
+            callbackScope: _this
+          });
+
+          setTimeout(function () {
+            _this.goblin.graceTime = false;
+          }, _this.gracePeriod);
+        } else {
+          console.log("this unit is graced for another " + _this.gracePeriod + " ms");
+        }
       } // if meriel attack anim goblin tints and takes damage
 
 
       if (_this.meriel.anims.currentAnim.key === 'meriel_attack2') {
-        _this.goblin.tint = 0xff0000;
+        if (_this.meriel.graceTime == false) {
+          _this.meriel.graceTime = true;
+          _this.goblin.health--;
 
-        _this.time.addEvent({
-          delay: 500,
-          callback: function callback() {
-            return _this.goblin.tint = 0xffffff;
-          },
-          callbackScope: _this
-        });
+          _this.goblin.healthText.setText("HP " + _this.goblin.health);
+
+          _this.goblin.tint = 0xff0000;
+          console.log("HIT " + _this.goblin.health);
+
+          _this.time.addEvent({
+            delay: 500,
+            callback: function callback() {
+              return _this.goblin.tint = 0xffffff;
+            },
+            callbackScope: _this
+          });
+
+          setTimeout(function () {
+            _this.meriel.graceTime = false;
+          }, _this.gracePeriod);
+        } else {
+          console.log("this unit is graced for another " + _this.gracePeriod + " ms");
+        }
       }
     });
     this.physics.add.collider(this.meriel, this.blockedLayer); // goblin move randomizer
@@ -932,9 +977,14 @@ function (_super) {
     });
   };
 
-  BattleScene.prototype.update = function () {
-    var _this = this; // background scrolling
+  BattleScene.prototype.gracePeriod = function (arg0, gracePeriod) {
+    throw new Error("Method not implemented.");
+  };
 
+  BattleScene.prototype.update = function () {
+    var _this = this;
+
+    this.healthText; // background scrolling
 
     this.forestField.tilePositionX += 0.5; //keyboard animations interaction
 
@@ -978,7 +1028,7 @@ function (_super) {
       sprite.anims.chain('goblin_idle');
 
       if (randNumber2 === 1) {
-        sprite.setSize(26, 23).setOffset(10, 10);
+        sprite.setSize(28, 23).setOffset(10, 10);
         sprite.play('goblin_attack');
         sprite.anims.chain('goblin_idle');
         this.time.addEvent({
@@ -996,7 +1046,7 @@ function (_super) {
       sprite.anims.chain('goblin_idle');
 
       if (randNumber2 === 1) {
-        sprite.setSize(26, 23).setOffset(10, 10);
+        sprite.setSize(28, 23).setOffset(10, 10);
         sprite.play('goblin_attack');
         sprite.anims.chain('goblin_idle');
         this.time.addEvent({
@@ -1050,7 +1100,7 @@ var game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true
+      debug: false
     }
   }
 });
@@ -1082,7 +1132,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51696" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59626" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

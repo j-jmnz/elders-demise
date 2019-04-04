@@ -182,6 +182,7 @@ export class LVL2Scene extends Phaser.Scene {
             this.scene.transition({
                 target: CONSTANTS.SCENES.BATTLE
             })
+            console.log('hit')
         });
 
         this.physics.add.collider(this.blockedLayer, this.goblin);
