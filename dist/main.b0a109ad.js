@@ -890,7 +890,7 @@ function (_super) {
     this.meriel = this.physics.add.sprite(this.game.renderer.width * 0.2, this.game.renderer.height * 0.81, 'characters', '5_6_idle1(1).png');
     this.meriel.graceTime = false;
     this.meriel.health = 10;
-    this.meriel.setSize(15, 23).setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create meriel's health text    
+    this.meriel.setSize(15, 23).setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create meriel's health text
 
     this.meriel.healthText = this.add.text(12, 50, "HP " + this.meriel.health, {
       fontSize: '32px',
@@ -910,59 +910,15 @@ function (_super) {
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
 
     this.gracePeriod = 2000;
-    this.physics.add.collider(this.meriel, this.goblin, function (meriel, goblin) {
+    this.physics.add.collider(this.meriel, this.goblin, function () {
       //if goblin attack animation meriel tints and takes damage
       if (_this.goblin.anims.currentAnim.key === 'goblin_attack') {
-        if (_this.goblin.graceTime == false) {
-          _this.goblin.graceTime = true;
-          _this.meriel.health--;
-
-          _this.meriel.healthText.setText("HP " + _this.meriel.health);
-
-          _this.meriel.tint = 0xff0000;
-          console.log("HIT " + _this.meriel.health);
-
-          _this.time.addEvent({
-            delay: 500,
-            callback: function callback() {
-              return _this.meriel.tint = 0xffffff;
-            },
-            callbackScope: _this
-          });
-
-          setTimeout(function () {
-            _this.goblin.graceTime = false;
-          }, _this.gracePeriod);
-        } else {
-          console.log("this unit is graced for another " + _this.gracePeriod + " ms");
-        }
+        _this.onHit(_this.goblin, _this.meriel);
       } // if meriel attack anim goblin tints and takes damage
 
 
       if (_this.meriel.anims.currentAnim.key === 'meriel_attack2') {
-        if (_this.meriel.graceTime == false) {
-          _this.meriel.graceTime = true;
-          _this.goblin.health--;
-
-          _this.goblin.healthText.setText("HP " + _this.goblin.health);
-
-          _this.goblin.tint = 0xff0000;
-          console.log("HIT " + _this.goblin.health);
-
-          _this.time.addEvent({
-            delay: 500,
-            callback: function callback() {
-              return _this.goblin.tint = 0xffffff;
-            },
-            callbackScope: _this
-          });
-
-          setTimeout(function () {
-            _this.meriel.graceTime = false;
-          }, _this.gracePeriod);
-        } else {
-          console.log("this unit is graced for another " + _this.gracePeriod + " ms");
-        }
+        _this.onHit(_this.meriel, _this.goblin);
       }
     });
     this.physics.add.collider(this.meriel, this.blockedLayer); // goblin move randomizer
@@ -977,14 +933,9 @@ function (_super) {
     });
   };
 
-  BattleScene.prototype.gracePeriod = function (arg0, gracePeriod) {
-    throw new Error("Method not implemented.");
-  };
-
   BattleScene.prototype.update = function () {
-    var _this = this;
+    var _this = this; // background scrolling
 
-    this.healthText; // background scrolling
 
     this.forestField.tilePositionX += 0.5; //keyboard animations interaction
 
@@ -1068,6 +1019,25 @@ function (_super) {
     });
   };
 
+  BattleScene.prototype.onHit = function (attacker, receiver) {
+    if (attacker.graceTime == false) {
+      attacker.graceTime = true;
+      receiver.health--;
+      receiver.healthText.setText("HP " + receiver.health);
+      receiver.tint = 0xff0000;
+      this.time.addEvent({
+        delay: 500,
+        callback: function callback() {
+          return receiver.tint = 0xffffff;
+        },
+        callbackScope: this
+      });
+      setTimeout(function () {
+        attacker.graceTime = false;
+      }, this.gracePeriod);
+    }
+  };
+
   return BattleScene;
 }(Phaser.Scene);
 
@@ -1132,7 +1102,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59626" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61210" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

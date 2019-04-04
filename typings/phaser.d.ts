@@ -49890,6 +49890,9 @@ declare namespace Phaser {
              * If you do not require animation then you can safely use Arcade Images instead of Arcade Sprites.
              */
             class Sprite extends Phaser.GameObjects.Sprite implements Phaser.Physics.Arcade.Components.Acceleration, Phaser.Physics.Arcade.Components.Angular, Phaser.Physics.Arcade.Components.Bounce, Phaser.Physics.Arcade.Components.Debug, Phaser.Physics.Arcade.Components.Drag, Phaser.Physics.Arcade.Components.Enable, Phaser.Physics.Arcade.Components.Friction, Phaser.Physics.Arcade.Components.Gravity, Phaser.Physics.Arcade.Components.Immovable, Phaser.Physics.Arcade.Components.Mass, Phaser.Physics.Arcade.Components.Size, Phaser.Physics.Arcade.Components.Velocity, Phaser.GameObjects.Components.Alpha, Phaser.GameObjects.Components.BlendMode, Phaser.GameObjects.Components.Depth, Phaser.GameObjects.Components.Flip, Phaser.GameObjects.Components.GetBounds, Phaser.GameObjects.Components.Origin, Phaser.GameObjects.Components.Pipeline, Phaser.GameObjects.Components.ScaleMode, Phaser.GameObjects.Components.ScrollFactor, Phaser.GameObjects.Components.Size, Phaser.GameObjects.Components.Texture, Phaser.GameObjects.Components.Tint, Phaser.GameObjects.Components.Transform, Phaser.GameObjects.Components.Visible {
+                graceTime: boolean;
+                health: number;
+                healthText: GameObjects.Text;
                 /**
                  * 
                  * @param scene The Scene to which this Game Object belongs. A Game Object can only belong to one Scene at a time.
