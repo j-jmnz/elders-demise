@@ -272,7 +272,7 @@ function (_super) {
 
     this.add.image(0, 0, 'title_background').setOrigin(0);
     var playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * .7, 'play_button').setScale(.10);
-    var controlsButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * .8, 'controls_button').setScale(.10); // playbutton interactivity
+    var controlsButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * .81, 'controls_button').setScale(.10); // playbutton interactivity
 
     playButton.setInteractive();
     playButton.on('pointerover', function () {
@@ -282,7 +282,7 @@ function (_super) {
       playButton.setScale(.10);
     });
     playButton.on('pointerup', function () {
-      _this.scene.start(constants_1.CONSTANTS.SCENES.LVL1);
+      _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE);
     }); /// control button interactivity
 
     controlsButton.setInteractive();
@@ -889,11 +889,37 @@ function (_super) {
     this.meriel.setSize(15, 23).setScale(2.5).setCollideWorldBounds(true).play('meriel_idle').setFlipX(true); // create goblin sprite
 
     this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.8, this.game.renderer.height * 0.78, 'enemies', 'gob_5_8_idle1(1).png');
-    this.goblin.setSize(15, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); // create keyboard inputs and assign to WASDKL
+    this.goblin.setSize(20, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); // create keyboard inputs and assign to WASDKL
 
     this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
 
-    this.physics.add.collider(this.meriel, this.goblin, function (meriel, goblin) {});
+    this.physics.add.collider(this.meriel, this.goblin, function (meriel, goblin) {
+      //if goblin attack animation meriel tints and takes damage
+      if (_this.goblin.anims.currentAnim.key === 'goblin_attack') {
+        _this.meriel.tint = 0xff0000;
+
+        _this.time.addEvent({
+          delay: 500,
+          callback: function callback() {
+            return _this.meriel.tint = 0xffffff;
+          },
+          callbackScope: _this
+        });
+      } // if meriel attack anim goblin tints and takes damage
+
+
+      if (_this.meriel.anims.currentAnim.key === 'meriel_attack2') {
+        _this.goblin.tint = 0xff0000;
+
+        _this.time.addEvent({
+          delay: 500,
+          callback: function callback() {
+            return _this.goblin.tint = 0xffffff;
+          },
+          callbackScope: _this
+        });
+      }
+    });
     this.physics.add.collider(this.meriel, this.blockedLayer); // goblin move randomizer
 
     this.randMove = this.time.addEvent({
@@ -907,7 +933,9 @@ function (_super) {
   };
 
   BattleScene.prototype.update = function () {
-    // background scrolling
+    var _this = this; // background scrolling
+
+
     this.forestField.tilePositionX += 0.5; //keyboard animations interaction
 
     if (this.meriel.active) {
@@ -926,8 +954,16 @@ function (_super) {
       }
 
       if (this.keyboard.K.isDown === true) {
+        this.meriel.setSize(28, 23).setOffset(10, 10);
         this.meriel.play('meriel_attack2', true);
         this.meriel.anims.chain('meriel_idle');
+        this.time.addEvent({
+          delay: 700,
+          callback: function callback() {
+            _this.meriel.setSize(15, 23).setOffset(15, 10);
+          },
+          callbackScope: this
+        });
       }
     }
   };
@@ -942,8 +978,16 @@ function (_super) {
       sprite.anims.chain('goblin_idle');
 
       if (randNumber2 === 1) {
+        sprite.setSize(26, 23).setOffset(10, 10);
         sprite.play('goblin_attack');
         sprite.anims.chain('goblin_idle');
+        this.time.addEvent({
+          delay: 700,
+          callback: function callback() {
+            sprite.setSize(20, 23).setOffset(15, 10);
+          },
+          callbackScope: this
+        });
       }
     } else if (randNumber1 === 2) {
       sprite.setFlipX(false);
@@ -952,8 +996,16 @@ function (_super) {
       sprite.anims.chain('goblin_idle');
 
       if (randNumber2 === 1) {
+        sprite.setSize(26, 23).setOffset(10, 10);
         sprite.play('goblin_attack');
         sprite.anims.chain('goblin_idle');
+        this.time.addEvent({
+          delay: 700,
+          callback: function callback() {
+            sprite.setSize(20, 23).setOffset(15, 10);
+          },
+          callbackScope: this
+        });
       }
     }
 
@@ -998,7 +1050,7 @@ var game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false
+      debug: true
     }
   }
 });
@@ -1030,7 +1082,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63133" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51696" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

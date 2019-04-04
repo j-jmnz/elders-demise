@@ -13,7 +13,8 @@ export class BattleScene extends Phaser.Scene {
     forestField!: Phaser.GameObjects.TileSprite;
     forestBot!: Phaser.GameObjects.Image;
     goblin!: Phaser.Physics.Arcade.Sprite;
-
+    goblinAttackAnim!: Phaser.Animations.Animation;
+    
     constructor() {
         super({
             key: CONSTANTS.SCENES.BATTLE
@@ -154,7 +155,7 @@ export class BattleScene extends Phaser.Scene {
             'gob_5_8_idle1(1).png'
         );
         this.goblin
-            .setSize(15, 23)
+            .setSize(20, 23)
             .setImmovable(true)
             .setCollideWorldBounds(true)
             .setScale(3.5)
@@ -164,7 +165,28 @@ export class BattleScene extends Phaser.Scene {
         this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L');
 
         // //collisions
-        this.physics.add.collider(this.meriel, this.goblin, (meriel, goblin) => {});
+        this.physics.add.collider(this.meriel, this.goblin, (meriel, goblin) => {
+            //if goblin attack animation meriel tints and takes damage
+            if (this.goblin.anims.currentAnim.key === 'goblin_attack') {
+                this.meriel.tint = 0xff0000;
+                this.time.addEvent({
+                    delay: 500,
+                    callback: () => this.meriel.tint = 0xffffff,
+                    callbackScope: this,
+                });
+                
+            }
+            // if meriel attack anim goblin tints and takes damage
+            if (this.meriel.anims.currentAnim.key === 'meriel_attack2') {
+                this.goblin.tint = 0xff0000;
+                this.time.addEvent({
+                    delay: 500,
+                    callback: () => this.goblin.tint = 0xffffff,
+                    callbackScope: this,
+                });
+            }
+        });
+        
         this.physics.add.collider(this.meriel, this.blockedLayer);
 
         // goblin move randomizer
@@ -196,8 +218,16 @@ export class BattleScene extends Phaser.Scene {
                 this.meriel.anims.chain('meriel_idle');
             }
             if (this.keyboard.K.isDown === true) {
+                this.meriel.setSize(28, 23).setOffset(10, 10)
                 this.meriel.play('meriel_attack2', true);
                 this.meriel.anims.chain('meriel_idle');
+                this.time.addEvent({
+                    delay: 700,
+                    callback: () => {
+                        this.meriel.setSize(15, 23).setOffset(15, 10)
+                    },
+                    callbackScope: this,
+                });
             }
         }
     }
@@ -212,9 +242,16 @@ export class BattleScene extends Phaser.Scene {
             sprite.anims.chain('goblin_idle');
 
             if (randNumber2 === 1) {
+                sprite.setSize(26, 23).setOffset(10, 10)
                 sprite.play('goblin_attack')
                 sprite.anims.chain('goblin_idle');
-
+                this.time.addEvent({
+                    delay: 700,
+                    callback: () => {
+                        sprite.setSize(20, 23).setOffset(15, 10)
+                    },
+                    callbackScope: this,
+                });
             }
 
         } else if (randNumber1 === 2) {
@@ -224,9 +261,16 @@ export class BattleScene extends Phaser.Scene {
             sprite.anims.chain('goblin_idle');
 
             if (randNumber2 === 1) {
+                sprite.setSize(26, 23).setOffset(10, 10)
                 sprite.play('goblin_attack')
                 sprite.anims.chain('goblin_idle');
-
+                this.time.addEvent({
+                    delay: 700,
+                    callback: () => {
+                        sprite.setSize(20, 23).setOffset(15, 10)
+                    },
+                    callbackScope: this,
+                });
             }
         }
 

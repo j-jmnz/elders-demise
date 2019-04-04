@@ -18,7 +18,7 @@ export class MenuScene extends Phaser.Scene {
 
         let controlsButton = this.add.image(
             this.game.renderer.width / 2,
-            this.game.renderer.height * .8,
+            this.game.renderer.height * .81,
             'controls_button'
         ).setScale(.10)
 
@@ -34,7 +34,7 @@ export class MenuScene extends Phaser.Scene {
         });
 
         playButton.on('pointerup', () => {
-            this.scene.start(CONSTANTS.SCENES.LVL1);
+            this.scene.start(CONSTANTS.SCENES.BATTLE);
         });
 
         /// control button interactivity
