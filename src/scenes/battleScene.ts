@@ -30,10 +30,11 @@ export class BattleScene extends Phaser.Scene {
         this.playerX = data.playerX;
         this.playerY = data.playerY;
         this.collidingEnemy = data.collidingEnemy;
+        console.log(data);
+        console.log(this.scene)
     }
 
     preload() {
-        this.scene.bringToTop(CONSTANTS.SCENES.BATTLE);
         // load background and bot layer tilemap and images
         this.load.spritesheet('forest_bot', './assets/forest_bot.png', {
             frameWidth: 16,
@@ -226,7 +227,8 @@ export class BattleScene extends Phaser.Scene {
         });
 
         // create keyboard inputs and assign to WASDKL
-        this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L');
+        this.keyboard = this.input.keyboard.addKeys('A, D, K');
+        console.log(this.game.input.keyboard);
 
         // //collisions
         this.physics.add.collider(this.meriel, this.goblin, () => {

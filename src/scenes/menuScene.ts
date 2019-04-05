@@ -51,7 +51,7 @@ export class MenuScene extends Phaser.Scene {
                 delay: 750,
                 callback: () => {
                     this.titleSong.stop();
-                    this.scene.start(CONSTANTS.SCENES.LVL1);
+                    this.scene.start(CONSTANTS.SCENES.LVL2);
                 },
                 callbackScope: this
             });
@@ -75,4 +75,5 @@ export class MenuScene extends Phaser.Scene {
             this.keys.visible === false ? this.keys.setVisible(true) : this.keys.setVisible(false);
         });
     }
+    
 }

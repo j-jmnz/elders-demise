@@ -310,7 +310,7 @@ function (_super) {
         callback: function callback() {
           _this.titleSong.stop();
 
-          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL1);
+          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
         },
         callbackScope: _this
       });
@@ -710,6 +710,7 @@ function (_super) {
     } else if (data.hasOwnProperty('playerX') === false) {
       this.playerX = this.game.renderer.width * 0.2;
       this.playerY = this.game.renderer.height * 0.9;
+      this.collidingEnemy = [];
     }
   };
 
@@ -847,28 +848,34 @@ function (_super) {
     this.physics.add.collider(this.meriel, this.goblin, function () {
       _this.lvl2Song.stop();
 
+      _this.collidingEnemy.push('goblin');
+
       _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE, {
         playerX: _this.meriel.x,
         playerY: _this.meriel.y,
-        collidingEnemy: 'goblin'
+        collidingEnemy: _this.collidingEnemy
       });
     });
     this.physics.add.collider(this.meriel, this.goblin2, function () {
       _this.lvl2Song.stop();
 
+      _this.collidingEnemy.push('goblin2');
+
       _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE, {
         playerX: _this.meriel.x,
         playerY: _this.meriel.y,
-        collidingEnemy: 'goblin2'
+        collidingEnemy: _this.collidingEnemy
       });
     });
     this.physics.add.collider(this.meriel, this.goblin3, function () {
       _this.lvl2Song.stop();
 
+      _this.collidingEnemy.push('goblin3');
+
       _this.scene.start(constants_1.CONSTANTS.SCENES.BATTLE, {
         playerX: _this.meriel.x,
         playerY: _this.meriel.y,
-        collidingEnemy: 'goblin3'
+        collidingEnemy: _this.collidingEnemy
       });
     });
     this.physics.add.collider(this.blockedLayer, this.goblin);
@@ -900,13 +907,19 @@ function (_super) {
       loop: true
     }); // despawn colliding enemy after battle scene
 
-    if (this.collidingEnemy === 'goblin') {
+    if (this.collidingEnemy.some(function (el) {
+      return el === 'goblin';
+    })) {
       this.goblin.setVisible(false);
       this.goblin.disableBody(true);
-    } else if (this.collidingEnemy === 'goblin2') {
+    } else if (this.collidingEnemy.some(function (el) {
+      return el === 'goblin2';
+    })) {
       this.goblin2.setVisible(false);
       this.goblin2.disableBody(true);
-    } else if (this.collidingEnemy === 'goblin3') {
+    } else if (this.collidingEnemy.some(function (el) {
+      return el === 'goblin3';
+    })) {
       this.goblin3.setVisible(false);
       this.goblin3.disableBody(true);
     }
@@ -1016,11 +1029,12 @@ function (_super) {
     this.playerX = data.playerX;
     this.playerY = data.playerY;
     this.collidingEnemy = data.collidingEnemy;
+    console.log(data);
+    console.log(this.scene);
   };
 
   BattleScene.prototype.preload = function () {
-    this.scene.bringToTop(constants_1.CONSTANTS.SCENES.BATTLE); // load background and bot layer tilemap and images
-
+    // load background and bot layer tilemap and images
     this.load.spritesheet('forest_bot', './assets/forest_bot.png', {
       frameWidth: 16,
       frameHeight: 16
@@ -1173,7 +1187,8 @@ function (_super) {
       strokeThickness: 1
     }); // create keyboard inputs and assign to WASDKL
 
-    this.keyboard = this.input.keyboard.addKeys('W, A, S, D, K, L'); // //collisions
+    this.keyboard = this.input.keyboard.addKeys('A, D, K');
+    console.log(this.game.input.keyboard); // //collisions
 
     this.physics.add.collider(this.meriel, this.goblin, function () {
       //if goblin attack animation meriel tints and takes damage
@@ -1423,7 +1438,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50951" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54142" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

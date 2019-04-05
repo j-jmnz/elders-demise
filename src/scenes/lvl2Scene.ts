@@ -13,7 +13,7 @@ export class LVL2Scene extends Phaser.Scene {
     goblin!: Phaser.Physics.Arcade.Sprite;
     randMove: Phaser.Time.TimerEvent;
     debugGraphics: Phaser.GameObjects.Graphics;
-    collidingEnemy: string;
+    collidingEnemy: Array;
     goblin3: any;
     goblin2: Phaser.Physics.Arcade.Sprite;
 
@@ -31,6 +31,7 @@ export class LVL2Scene extends Phaser.Scene {
         } else if (data.hasOwnProperty('playerX') === false) {
             this.playerX = this.game.renderer.width * 0.2;
             this.playerY = this.game.renderer.height * 0.9;
+            this.collidingEnemy = [];
         }
     }
 
@@ -225,28 +226,31 @@ export class LVL2Scene extends Phaser.Scene {
 
         this.physics.add.collider(this.meriel, this.goblin, () => {
             this.lvl2Song.stop();
+            this.collidingEnemy.push('goblin')
             this.scene.start(CONSTANTS.SCENES.BATTLE, {
                 playerX: this.meriel.x,
                 playerY: this.meriel.y,
-                collidingEnemy: 'goblin'
+                collidingEnemy: this.collidingEnemy
             });
         });
 
         this.physics.add.collider(this.meriel, this.goblin2, () => {
             this.lvl2Song.stop();
+            this.collidingEnemy.push('goblin2')
             this.scene.start(CONSTANTS.SCENES.BATTLE, {
                 playerX: this.meriel.x,
                 playerY: this.meriel.y,
-                collidingEnemy: 'goblin2'
+                collidingEnemy: this.collidingEnemy
             });
         });
 
         this.physics.add.collider(this.meriel, this.goblin3, () => {
             this.lvl2Song.stop();
+            this.collidingEnemy.push('goblin3')
             this.scene.start(CONSTANTS.SCENES.BATTLE, {
                 playerX: this.meriel.x,
                 playerY: this.meriel.y,
-                collidingEnemy: 'goblin3'
+                collidingEnemy: this.collidingEnemy
             });
         });
 
@@ -278,17 +282,16 @@ export class LVL2Scene extends Phaser.Scene {
 
 
         // despawn colliding enemy after battle scene
-        if (this.collidingEnemy === 'goblin') {
+        if (this.collidingEnemy.some(el => el === 'goblin')) {
             this.goblin.setVisible(false);
             this.goblin.disableBody(true)
-        } else if (this.collidingEnemy === 'goblin2') {
+        } else if (this.collidingEnemy.some(el => el === 'goblin2')) {
             this.goblin2.setVisible(false);
             this.goblin2.disableBody(true)
 
-        } else if (this.collidingEnemy === 'goblin3') {
+        } else if (this.collidingEnemy.some(el => el === 'goblin3')) {
             this.goblin3.setVisible(false);
             this.goblin3.disableBody(true)
-
         }
     }
 
