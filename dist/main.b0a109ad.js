@@ -310,7 +310,7 @@ function (_super) {
         callback: function callback() {
           _this.titleSong.stop();
 
-          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL2);
+          _this.scene.start(constants_1.CONSTANTS.SCENES.LVL1);
         },
         callbackScope: _this
       });
@@ -907,18 +907,22 @@ function (_super) {
       loop: true
     }); // despawn colliding enemy after battle scene
 
-    if (this.collidingEnemy.some(function (el) {
-      return el === 'goblin';
+    if (this.collidingEnemy.some(function (goblin) {
+      return goblin === 'goblin';
     })) {
       this.goblin.setVisible(false);
       this.goblin.disableBody(true);
-    } else if (this.collidingEnemy.some(function (el) {
-      return el === 'goblin2';
+    }
+
+    if (this.collidingEnemy.some(function (goblin) {
+      return goblin === 'goblin2';
     })) {
       this.goblin2.setVisible(false);
       this.goblin2.disableBody(true);
-    } else if (this.collidingEnemy.some(function (el) {
-      return el === 'goblin3';
+    }
+
+    if (this.collidingEnemy.some(function (goblin) {
+      return goblin === 'goblin3';
     })) {
       this.goblin3.setVisible(false);
       this.goblin3.disableBody(true);
@@ -1047,7 +1051,7 @@ function (_super) {
     // walk
 
     this.anims.create({
-      key: 'meriel_rightW',
+      key: 'meriel_walk',
       frameRate: 4,
       frames: this.anims.generateFrameNames('characters', {
         prefix: '5_6_walk(',
@@ -1176,7 +1180,7 @@ function (_super) {
     }); // create goblin sprite
 
     this.goblin = this.physics.add.sprite(this.game.renderer.width * 0.8, this.game.renderer.height * 0.78, 'enemies', 'gob_5_8_idle1(1).png');
-    this.goblin.health = 1;
+    this.goblin.health = 10;
     this.goblin.graceTime = false;
     this.goblin.alive = true;
     this.goblin.setSize(20, 23).setImmovable(true).setCollideWorldBounds(true).setScale(3.5).play('goblin_idle'); //create goblin's health text
@@ -1187,8 +1191,7 @@ function (_super) {
       strokeThickness: 1
     }); // create keyboard inputs and assign to WASDKL
 
-    this.keyboard = this.input.keyboard.addKeys('A, D, K');
-    console.log(this.game.input.keyboard); // //collisions
+    this.keyboard = this.input.keyboard.addKeys('A, D, K'); // //collisions
 
     this.physics.add.collider(this.meriel, this.goblin, function () {
       //if goblin attack animation meriel tints and takes damage
@@ -1211,8 +1214,7 @@ function (_super) {
 
 
         if (_this.goblin.health === 0) {
-          _this.goblin.alive = false;
-          _this.goblin.y += 0.5;
+          _this.goblin.alive = false; // this.goblin.y += 0.5;
 
           _this.goblin.play('goblin_death');
         }
@@ -1230,7 +1232,6 @@ function (_super) {
       callbackScope: this,
       loop: true
     });
-    console.log(this.goblin);
   };
 
   BattleScene.prototype.update = function () {
@@ -1244,11 +1245,11 @@ function (_super) {
       if (this.keyboard.D.isDown === true) {
         this.meriel.setFlipX(true);
         this.meriel.setVelocityX(120);
-        this.meriel.play('meriel_rightW', true);
+        this.meriel.play('meriel_walk', true);
       } else if (this.keyboard.A.isDown === true) {
-        this.meriel.setFlipX(false);
+        // this.meriel.setFlipX(false);
         this.meriel.setVelocityX(-120);
-        this.meriel.play('meriel_rightW', true);
+        this.meriel.play('meriel_walk', true);
       } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
         this.meriel.setVelocityX(0);
         this.meriel.anims.chain('meriel_idle');
@@ -1410,7 +1411,7 @@ var game = new Phaser.Game({
     }
   }
 });
-},{"./scenes/loadScene":"src/scenes/loadScene.ts","./scenes/menuScene":"src/scenes/menuScene.ts","./scenes/lvl1Scene":"src/scenes/lvl1Scene.ts","./scenes/lvl2Scene":"src/scenes/lvl2Scene.ts","./scenes/battleScene":"src/scenes/battleScene.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./scenes/loadScene":"src/scenes/loadScene.ts","./scenes/menuScene":"src/scenes/menuScene.ts","./scenes/lvl1Scene":"src/scenes/lvl1Scene.ts","./scenes/lvl2Scene":"src/scenes/lvl2Scene.ts","./scenes/battleScene":"src/scenes/battleScene.ts"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1438,7 +1439,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58079" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55896" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1613,5 +1614,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/main.ts"], null)
+},{}]},{},["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/main.ts"], null)
 //# sourceMappingURL=/main.b0a109ad.js.map

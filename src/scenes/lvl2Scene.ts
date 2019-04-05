@@ -226,7 +226,7 @@ export class LVL2Scene extends Phaser.Scene {
 
         this.physics.add.collider(this.meriel, this.goblin, () => {
             this.lvl2Song.stop();
-            this.collidingEnemy.push('goblin')
+            this.collidingEnemy.push('goblin');
             this.scene.start(CONSTANTS.SCENES.BATTLE, {
                 playerX: this.meriel.x,
                 playerY: this.meriel.y,
@@ -236,7 +236,7 @@ export class LVL2Scene extends Phaser.Scene {
 
         this.physics.add.collider(this.meriel, this.goblin2, () => {
             this.lvl2Song.stop();
-            this.collidingEnemy.push('goblin2')
+            this.collidingEnemy.push('goblin2');
             this.scene.start(CONSTANTS.SCENES.BATTLE, {
                 playerX: this.meriel.x,
                 playerY: this.meriel.y,
@@ -246,7 +246,7 @@ export class LVL2Scene extends Phaser.Scene {
 
         this.physics.add.collider(this.meriel, this.goblin3, () => {
             this.lvl2Song.stop();
-            this.collidingEnemy.push('goblin3')
+            this.collidingEnemy.push('goblin3');
             this.scene.start(CONSTANTS.SCENES.BATTLE, {
                 playerX: this.meriel.x,
                 playerY: this.meriel.y,
@@ -280,18 +280,18 @@ export class LVL2Scene extends Phaser.Scene {
             loop: true
         });
 
-
         // despawn colliding enemy after battle scene
-        if (this.collidingEnemy.some(el => el === 'goblin')) {
+        if (this.collidingEnemy.some(goblin => goblin === 'goblin')) {
             this.goblin.setVisible(false);
-            this.goblin.disableBody(true)
-        } else if (this.collidingEnemy.some(el => el === 'goblin2')) {
+            this.goblin.disableBody(true);
+        }
+        if (this.collidingEnemy.some(goblin => goblin === 'goblin2')) {
             this.goblin2.setVisible(false);
-            this.goblin2.disableBody(true)
-
-        } else if (this.collidingEnemy.some(el => el === 'goblin3')) {
+            this.goblin2.disableBody(true);
+        }
+        if (this.collidingEnemy.some(goblin => goblin === 'goblin3')) {
             this.goblin3.setVisible(false);
-            this.goblin3.disableBody(true)
+            this.goblin3.disableBody(true);
         }
     }
 

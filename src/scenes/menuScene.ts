@@ -51,7 +51,7 @@ export class MenuScene extends Phaser.Scene {
                 delay: 750,
                 callback: () => {
                     this.titleSong.stop();
-                    this.scene.start(CONSTANTS.SCENES.LVL2);
+                    this.scene.start(CONSTANTS.SCENES.LVL1);
                 },
                 callbackScope: this
             });

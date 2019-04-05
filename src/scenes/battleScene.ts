@@ -55,7 +55,7 @@ export class BattleScene extends Phaser.Scene {
         ///// create meriel animations
         // walk
         this.anims.create({
-            key: 'meriel_rightW',
+            key: 'meriel_walk',
             frameRate: 4,
             frames: this.anims.generateFrameNames('characters', {
                 prefix: '5_6_walk(',
@@ -209,7 +209,7 @@ export class BattleScene extends Phaser.Scene {
             'enemies',
             'gob_5_8_idle1(1).png'
         );
-        this.goblin.health = 1;
+        this.goblin.health = 10;
         this.goblin.graceTime = false;
         this.goblin.alive = true;
         this.goblin
@@ -228,7 +228,6 @@ export class BattleScene extends Phaser.Scene {
 
         // create keyboard inputs and assign to WASDKL
         this.keyboard = this.input.keyboard.addKeys('A, D, K');
-        console.log(this.game.input.keyboard);
 
         // //collisions
         this.physics.add.collider(this.meriel, this.goblin, () => {
@@ -248,7 +247,7 @@ export class BattleScene extends Phaser.Scene {
                 //on death
                 if (this.goblin.health === 0) {
                     this.goblin.alive = false;
-                    this.goblin.y += 0.5;
+                    // this.goblin.y += 0.5;
                     this.goblin.play('goblin_death');
                 }
             }
@@ -269,7 +268,6 @@ export class BattleScene extends Phaser.Scene {
             loop: true
         });
 
-        console.log(this.goblin);
     }
 
     update() {
@@ -282,11 +280,11 @@ export class BattleScene extends Phaser.Scene {
             if (this.keyboard.D.isDown === true) {
                 this.meriel.setFlipX(true);
                 this.meriel.setVelocityX(120);
-                this.meriel.play('meriel_rightW', true);
+                this.meriel.play('meriel_walk', true);
             } else if (this.keyboard.A.isDown === true) {
-                this.meriel.setFlipX(false);
+                // this.meriel.setFlipX(false);
                 this.meriel.setVelocityX(-120);
-                this.meriel.play('meriel_rightW', true);
+                this.meriel.play('meriel_walk', true);
             } else if (this.keyboard.D.isUp && this.keyboard.A.isUp) {
                 this.meriel.setVelocityX(0);
                 this.meriel.anims.chain('meriel_idle');
