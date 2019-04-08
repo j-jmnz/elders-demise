@@ -17,6 +17,7 @@ export class LoadScene extends Phaser.Scene {
         this.load.image('play_button', './assets/play_button1.png');
         this.load.image('controls_button', './assets/controls_button.png');
         this.load.image('keys', './assets/keys.png');
+
         // load characters and enemies atlas
         this.load.atlas('characters', './assets/characters.png', './assets/characters.json');
         this.load.atlas('enemies', './assets/monsters.png', './assets/monsters.json');

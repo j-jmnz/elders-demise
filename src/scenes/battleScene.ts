@@ -31,7 +31,7 @@ export class BattleScene extends Phaser.Scene {
         this.playerY = data.playerY;
         this.collidingEnemy = data.collidingEnemy;
         console.log(data);
-        console.log(this.scene)
+        console.log(this.scene);
     }
 
     preload() {
@@ -267,7 +267,6 @@ export class BattleScene extends Phaser.Scene {
             callbackScope: this,
             loop: true
         });
-
     }
 
     update() {

@@ -75,5 +75,4 @@ export class MenuScene extends Phaser.Scene {
             this.keys.visible === false ? this.keys.setVisible(true) : this.keys.setVisible(false);
         });
     }
-    
 }
