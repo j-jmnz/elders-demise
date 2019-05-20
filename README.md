@@ -17,7 +17,8 @@ Typescript, Parcel, Phaser3, HTML & CSS
 - Mobs variety
 - Boss fights
 
-### Try the game!(elders-demise.herokuapp.com)
+### Try the game!
+[Elders' Demise](elders-demise.herokuapp.com)
 
 
 
